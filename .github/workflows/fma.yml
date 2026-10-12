@@ -1,0 +1,35 @@
+name: Atualizar FMA
+
+on:
+  schedule:
+    # 17:30 UTC = 14:30 em Brasília (logo depois da leitura das 13h); repete às 20:00 UTC para pegar dados atrasados
+    - cron: "30 17 * * *"
+    - cron: "0 20 * * *"
+  workflow_dispatch: {}   # permite rodar manualmente pelo botão "Run workflow"
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Baixar dados, calcular FMA e gerar painel
+        run: python atualizar.py
+
+      - name: Guardar resultados no repositório
+        run: |
+          git config user.name "fma-bot"
+          git config user.email "fma-bot@users.noreply.github.com"
+          git add dados docs
+          git diff --cached --quiet || git commit -m "Atualiza FMA"
+          git push
