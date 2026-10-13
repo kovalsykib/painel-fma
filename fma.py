@@ -86,13 +86,22 @@ def baixar_inmet(codigo, inicio, fim, tentativas=3):
 
     url = f"https://apitempo.inmet.gov.br/estacao/{inicio:%Y-%m-%d}/{fim:%Y-%m-%d}/{codigo}"
     ultimo_erro = None
+    cabecalhos = {"User-Agent": "Mozilla/5.0 (compatible; painel-fma)", "Accept": "application/json"}
     for i in range(tentativas):
         try:
-            r = requests.get(url, timeout=60)
-            r.raise_for_status()
-            dados = r.json()
+            r = requests.get(url, timeout=60, headers=cabecalhos)
+            corpo = r.text.strip()
+            if r.status_code != 200:
+                raise ValueError(f"HTTP {r.status_code}. Início da resposta: {corpo[:300]!r}")
+            try:
+                dados = r.json()
+            except ValueError:
+                raise ValueError(
+                    f"HTTP {r.status_code}, tipo {r.headers.get('Content-Type')}, "
+                    f"{len(corpo)} caracteres. Início da resposta: {corpo[:300]!r}"
+                )
             if not isinstance(dados, list):
-                raise ValueError(f"resposta inesperada da API: {str(dados)[:200]}")
+                raise ValueError(f"resposta inesperada da API: {str(dados)[:300]}")
             return pd.DataFrame(dados)
         except Exception as e:  # rede, JSON inválido, HTTP != 200
             ultimo_erro = e
@@ -130,6 +139,63 @@ def diarizar(raw, hora_utc=HORA_UTC_13H_LOCAL):
     # janela de 24h terminando às 13h locais: (hora_utc+1 do dia anterior) até hora_utc do dia
     raw["data"] = (raw["dt"] + pd.to_timedelta(23 - hora_utc, unit="h")).dt.normalize()
     chuva = raw.groupby("data")["chuva_h"].agg(lambda s: s.sum(min_count=20))  # NaN se faltar muita hora
+
+    out = pd.concat([umid.rename("umidade"), chuva.rename("chuva")], axis=1)
+    out.index.name = "data"
+    out = out.dropna(how="all").reset_index()
+    out["data"] = pd.to_datetime(out["data"]).dt.date
+    return out
+
+
+# ---------------------------------------------------------------- Open-Meteo
+def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=3):
+    """Baixa umidade e chuva horárias (modelo/reanálise) do Open-Meteo para um ponto e devolve,
+    por dia: umidade às 13h locais e chuva acumulada das 14h do dia anterior às 13h do dia.
+
+    No Open-Meteo, 'precipitation' de cada hora é a soma da hora anterior, o mesmo critério do INMET;
+    por isso a janela usa os rótulos de 14:00 (dia anterior) até 13:00 (dia do cálculo).
+    Horários futuros são descartados: só entram dias cuja leitura das 13h já passou."""
+    import requests
+
+    url = "https://api.open-meteo.com/v1/forecast"
+    params = {
+        "latitude": lat, "longitude": lon,
+        "hourly": "relative_humidity_2m,precipitation",
+        "timezone": "America/Sao_Paulo",
+        "past_days": min(int(dias), 92),
+        "forecast_days": 1,
+    }
+    ultimo_erro = None
+    for i in range(tentativas):
+        try:
+            r = requests.get(url, params=params, timeout=60)
+            if r.status_code != 200:
+                raise ValueError(f"HTTP {r.status_code}. Início da resposta: {r.text[:300]!r}")
+            h = r.json()["hourly"]
+            break
+        except Exception as e:
+            ultimo_erro = e
+            time.sleep(5 * (i + 1))
+    else:
+        raise RuntimeError(f"falha ao baixar dados do Open-Meteo: {ultimo_erro}")
+
+    df = pd.DataFrame({
+        "dt": pd.to_datetime(h["time"]),  # já em horário local (America/Sao_Paulo)
+        "umd": pd.to_numeric(pd.Series(h["relative_humidity_2m"]), errors="coerce"),
+        "chuva_h": pd.to_numeric(pd.Series(h["precipitation"]), errors="coerce"),
+    })
+    if agora_local is not None:
+        df = df[df["dt"] <= pd.Timestamp(agora_local).tz_localize(None)]  # sem horários futuros
+
+    umid = df[df["dt"].dt.hour == 13].copy()
+    umid["data"] = umid["dt"].dt.normalize()
+    umid = umid.set_index("data")["umd"]
+
+    # janela 14:00 (dia anterior) ... 13:00 (dia): desloca 10h para frente e agrupa por dia
+    df["data"] = (df["dt"] + pd.to_timedelta(10, unit="h")).dt.normalize()
+    chuva = df.groupby("data")["chuva_h"].agg(lambda s: s.sum(min_count=20))
+    # só vale a chuva de dias cuja janela já terminou (existe a leitura das 13h)
+    chuva = chuva[chuva.index.isin(umid.index)]
 
     out = pd.concat([umid.rename("umidade"), chuva.rename("chuva")], axis=1)
     out.index.name = "data"

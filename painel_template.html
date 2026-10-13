@@ -45,7 +45,8 @@
   <p>Fórmula de Monte Alegre (Soares, 1972): soma acumulada de 100/UR, com a umidade relativa lida às 13h (horário local).
   A chuva considerada é a acumulada das 14h do dia anterior às 13h do dia; até 2,4 mm não altera o índice,
   de 2,5 a 4,9 mm abate 30%, de 5,0 a 9,9 mm abate 60%, de 10,0 a 12,9 mm abate 80% e acima de 12,9 mm zera o acumulado.
-  Dados: INMET. Dias sem medição aparecem como "Sem dado".</p>
+  Os dados vêm da fonte indicada em cada município; dados de modelo/reanálise são estimativas, não medições de estação.
+  Dias sem dado aparecem como "Sem dado".</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -91,7 +92,8 @@ DADOS.estacoes.forEach((est, i) => {
     <div class="topo">
       <div>
         <div class="nome">${est.municipio}</div>
-        <div class="cod">Estação INMET ${est.codigo} - ${est.nome}</div>
+        <div class="cod">Ponto ${est.codigo} - ${est.nome}</div>
+        <div class="cod">Fonte dos dados: ${est.fonte}</div>
       </div>
       <div class="valor">
         <span class="num">${ult ? num(ult.fma, 2) : "-"}</span>

@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from fma import baixar_inmet, calcular_fma, diarizar
+from fma import baixar_inmet, baixar_openmeteo, calcular_fma, diarizar
 
 RAIZ = Path(__file__).parent
 DADOS = RAIZ / "dados"
@@ -35,8 +35,12 @@ def atualizar_estacao(est, hoje):
         hist.index.name = "data"
         dias = DIAS_INICIAL
 
-    raw = baixar_inmet(cod, hoje - timedelta(days=dias + 1), hoje)
-    novo = diarizar(raw)
+    if est.get("fonte", "inmet") == "openmeteo":
+        novo = baixar_openmeteo(est["latitude"], est["longitude"], dias + 1,
+                                agora_local=datetime.now(FUSO))
+    else:
+        raw = baixar_inmet(cod, hoje - timedelta(days=dias + 1), hoje)
+        novo = diarizar(raw)
     if not novo.empty:
         novo["data"] = pd.to_datetime(novo["data"])
         novo = novo[novo["data"].dt.date <= hoje].set_index("data")
@@ -79,6 +83,7 @@ def gerar_painel(estacoes, resultados, erros):
         "erros": erros,
         "estacoes": [
             {"codigo": e["codigo"], "nome": e["nome"], "municipio": e["municipio"],
+             "fonte": e.get("fonte_texto", "INMET"),
              "serie": serie_para_painel(resultados[e["codigo"]])}
             for e in estacoes if e["codigo"] in resultados
         ],

@@ -1,7 +1,11 @@
 [
   {
     "codigo": "A601",
-    "nome": "Seropédica (Ecologia Agrícola)",
-    "municipio": "Seropédica"
+    "nome": "Seropédica",
+    "municipio": "Seropédica",
+    "fonte": "openmeteo",
+    "fonte_texto": "Open-Meteo (modelo/reanálise) para as coordenadas da estação INMET A601",
+    "latitude": -22.7578,
+    "longitude": -43.6847
   }
 ]
