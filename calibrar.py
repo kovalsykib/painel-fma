@@ -32,34 +32,47 @@ INICIO_TESTE = "2025-01-01"
 URL_HIST = "https://historical-forecast-api.open-meteo.com/v1/forecast"
 
 
-def baixar_horario(lat, lon, inicio, fim, tentativas=5):
-    """Baixa em blocos de 1 ano e junta. Devolve dict no formato 'hourly' do Open-Meteo."""
+FALHAS = []          # blocos que não puderam ser baixados (aparecem no relatório)
+DIAS_POR_BLOCO = 90  # pedidos menores respondem mais rápido e falham menos
+
+
+def baixar_horario(lat, lon, inicio, fim, tentativas=6):
+    """Baixa em blocos de 90 dias e junta. Devolve dict no formato 'hourly' do Open-Meteo.
+    Tenta de novo em caso de erro HTTP, demora ou resposta inválida; se um bloco falhar de vez, registra em FALHAS e segue."""
     juntos = {"time": [], "relative_humidity_2m": [], "precipitation": []}
     ini = inicio
     while ini <= fim:
-        fim_bloco = min(date(ini.year, 12, 31), fim)
+        fim_bloco = min(ini + timedelta(days=DIAS_POR_BLOCO - 1), fim)
         params = {"latitude": lat, "longitude": lon, "start_date": ini.isoformat(), "end_date": fim_bloco.isoformat(),
                   "hourly": "relative_humidity_2m,precipitation", "timezone": "America/Sao_Paulo"}
+        ok, motivo = False, ""
         for i in range(tentativas):
-            r = requests.get(URL_HIST, params=params, timeout=120)
-            if r.status_code == 200:
-                h = r.json()["hourly"]
-                for k in juntos:
-                    juntos[k] += h[k]
-                break
-            corpo = r.text[:300]
-            if "Daily API request limit" in corpo:
-                raise RuntimeError(f"limite diário do Open-Meteo atingido: {corpo}")
-            if r.status_code == 400:      # período sem dados na API (ex.: antes do início do arquivo): pula o bloco
-                print(f"   AVISO: {ini}..{fim_bloco} indisponível no Open-Meteo, bloco ignorado ({corpo!r})", flush=True)
-                break
-            espera = 65 if r.status_code == 429 else 5 * (i + 1)
-            print(f"   HTTP {r.status_code} ({corpo!r}); nova tentativa em {espera}s", flush=True)
+            try:
+                r = requests.get(URL_HIST, params=params, timeout=(20, 180))
+                corpo = r.text[:300]
+                if r.status_code == 200:
+                    h = r.json()["hourly"]
+                    for k in juntos:
+                        juntos[k] += h[k]
+                    ok = True
+                    break
+                if "Daily API request limit" in corpo:
+                    raise RuntimeError(f"limite diário do Open-Meteo atingido: {corpo}")
+                if r.status_code == 400:      # período sem dados na API (ex.: antes do início do arquivo)
+                    motivo = f"indisponível no Open-Meteo (HTTP 400: {corpo!r})"
+                    break
+                motivo = f"HTTP {r.status_code} {corpo!r}"
+                espera = 65 if r.status_code == 429 else 10 * (i + 1)
+            except (requests.exceptions.RequestException, ValueError, KeyError) as e:
+                motivo = f"{type(e).__name__}: {str(e)[:150]}"
+                espera = 10 * (i + 1)
+            print(f"   {ini}..{fim_bloco}: {motivo}; tentativa {i + 1}/{tentativas}, nova em {espera}s", flush=True)
             time.sleep(espera)
-        else:
-            raise RuntimeError(f"Open-Meteo falhou para {lat},{lon} em {ini}..{fim_bloco}: HTTP {r.status_code} {corpo}")
+        if not ok:
+            print(f"   AVISO: bloco {ini}..{fim_bloco} ignorado ({motivo})", flush=True)
+            FALHAS.append({"lat": lat, "lon": lon, "inicio": str(ini), "fim": str(fim_bloco), "motivo": motivo})
         ini = fim_bloco + timedelta(days=1)
-        time.sleep(2)
+        time.sleep(1.5)
     return juntos
 
 
@@ -120,6 +133,14 @@ def main(baixador=baixar_horario):
     print("Pronto: calibracao/relatorio.md, metricas.csv e parametros.json")
 
 
+def _secao_lacunas():
+    if not FALHAS:
+        return "\n## Download do Open-Meteo\n\nTodos os blocos foram baixados sem falhas.\n"
+    linhas = [f"- ({f['lat']}, {f['lon']}) {f['inicio']} a {f['fim']}: {f['motivo']}" for f in FALHAS]
+    return ("\n## Download do Open-Meteo\n\nBlocos que não puderam ser baixados (ficam como lacuna na calibração):\n\n"
+            + "\n".join(linhas) + "\n")
+
+
 def _fmt(x, d=1):
     return "-" if pd.isna(x) else f"{x:.{d}f}".replace(".", ",")
 
@@ -151,6 +172,7 @@ def escrever_relatorio(df, meta):
         tabela("chuva_vies_mm_dia", 2, "Viés da chuva de 24h (mm/dia; negativo = modelo chove menos)"),
         tabela("pod_12_9mm_pct", 1, "Detecção de chuva > 12,9 mm, que zera a FMA (% dos eventos reais que o modelo também marca)"),
         tabela("alarmes_falsos_12_9mm_pct", 1, "Alarmes falsos de chuva > 12,9 mm (% dos eventos do modelo que a estação não confirma)"),
+        _secao_lacunas(),
         "\n## Limites\n",
         "- A correção ajusta a **distribuição** (viés) do modelo. Se o modelo errar o **dia** da chuva, ela não conserta.\n"
         "- Chuvas convectivas localizadas são o ponto mais frágil, e justamente uma chuva > 12,9 mm zera a FMA.\n"
