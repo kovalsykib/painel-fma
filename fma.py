@@ -12,7 +12,7 @@ Regras de chuva (24h, em mm):
 
 Janela de chuva: das 14h do dia anterior até as 13h do dia do cálculo (horário local).
 
-Classes de perigo:
+Classes de perigo (definidas pela coordenação do projeto):
     <= 1,0 Nulo | 1,1-3,0 Pequeno | 3,1-8,0 Médio | 8,1-20,0 Alto | > 20,0 Muito alto
 
 Uso:
@@ -27,7 +27,7 @@ import pandas as pd
 
 HORA_UTC_13H_LOCAL = 16  # 13h de Brasília (UTC-3) = 16h UTC. Ajuste se a estação usar outro fuso.
 
-CLASSES = [(1.0, "Nulo"), (3.0, "Pequeno"), (8.0, "Médio"), (20.0, "Alto"),(>20.0, "Muito alto")]
+CLASSES = [(1.0, "Nulo"), (3.0, "Pequeno"), (8.0, "Médio"), (20.0, "Alto")]
 
 
 def classificar(valor):
