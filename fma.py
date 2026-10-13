@@ -48,16 +48,12 @@ def calcular_fma(df):
     for _, linha in df.iterrows():
         h, chuva = linha["umidade"], linha["chuva"]
 
-        if pd.isna(h):  # sem umidade: não dá para somar; mantém acumulado e sinaliza
-            valores.append(float("nan"))
-            avisos.append("sem umidade às 13h")
-            continue
-
         aviso = ""
         if pd.isna(chuva):
             aviso = "chuva ausente (assumida 0 mm)"
             chuva = 0.0
 
+        # A regra da chuva não depende da umidade: chuva > 12,9 mm zera o acumulado mesmo sem leitura de UR
         if chuva > 12.9:
             acumulado = 0.0
             valores.append(0.0)
@@ -69,6 +65,11 @@ def calcular_fma(df):
             acumulado *= 0.4
         elif chuva >= 2.5:
             acumulado *= 0.7
+
+        if pd.isna(h):  # sem umidade: não dá para somar 100/H; o acumulado (já abatido pela chuva) segue para o dia seguinte
+            valores.append(float("nan"))
+            avisos.append((aviso + "; " if aviso else "") + "sem umidade às 13h")
+            continue
 
         acumulado += 100.0 / max(h, 1.0)  # evita divisão por zero
         valores.append(acumulado)
@@ -179,6 +180,13 @@ def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=3):
     else:
         raise RuntimeError(f"falha ao baixar dados do Open-Meteo: {ultimo_erro}")
 
+    return diario_de_openmeteo(h, agora_local)
+
+
+def diario_de_openmeteo(h, agora_local=None):
+    """h: dict no formato do Open-Meteo ('time' em horário local, 'relative_humidity_2m', 'precipitation').
+    Devolve, por dia: umidade às 13h locais e chuva das 14h do dia anterior às 13h do dia.
+    É a MESMA transformação usada na rotina diária e na calibração."""
     df = pd.DataFrame({
         "dt": pd.to_datetime(h["time"]),  # já em horário local (America/Sao_Paulo)
         "umd": pd.to_numeric(pd.Series(h["relative_humidity_2m"]), errors="coerce"),

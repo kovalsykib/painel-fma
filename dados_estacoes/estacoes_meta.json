@@ -1,0 +1,112 @@
+{
+ "A628": {
+  "nome": "Angra Dos Reis",
+  "latitude": -22.97555554,
+  "longitude": -44.30333333,
+  "altitude": 6.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1709,
+  "pct_umidade_13h": 100.0,
+  "pct_chuva": 94.9
+ },
+ "A611": {
+  "nome": "Valenca",
+  "latitude": -22.35805555,
+  "longitude": -43.69555555,
+  "altitude": 370.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1618,
+  "pct_umidade_13h": 100.0,
+  "pct_chuva": 98.1
+ },
+ "A637": {
+  "nome": "Paty Do Alferes - Avelar",
+  "latitude": -22.34722221,
+  "longitude": -43.41777777,
+  "altitude": 508.0,
+  "dados_desde": "2022-11-10",
+  "dados_ate": "2026-10-12",
+  "dias": 1432,
+  "pct_umidade_13h": 95.5,
+  "pct_chuva": 99.9
+ },
+ "A621": {
+  "nome": "Rio De Janeiro - Vila Militar",
+  "latitude": -22.86138888,
+  "longitude": -43.41138888,
+  "altitude": 30.43,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1745,
+  "pct_umidade_13h": 100.0,
+  "pct_chuva": 99.3
+ },
+ "A603": {
+  "nome": "Duque De Caxias - Xerem",
+  "latitude": -22.58972221,
+  "longitude": -43.28222221,
+  "altitude": 22.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1597,
+  "pct_umidade_13h": 99.8,
+  "pct_chuva": 99.9
+ },
+ "A601": {
+  "nome": "Seropedica-Ecologia Agricola",
+  "latitude": -22.75777777,
+  "longitude": -43.68472221,
+  "altitude": 35.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1746,
+  "pct_umidade_13h": 95.8,
+  "pct_chuva": 94.3
+ },
+ "A602": {
+  "nome": "Rio De Janeiro-Marambaia",
+  "latitude": -23.05027777,
+  "longitude": -43.59555555,
+  "altitude": 12.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1613,
+  "pct_umidade_13h": 61.3,
+  "pct_chuva": 95.0
+ },
+ "A626": {
+  "nome": "Rio Claro",
+  "latitude": -22.653579,
+  "longitude": -44.040916,
+  "altitude": 516.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1743,
+  "pct_umidade_13h": 99.9,
+  "pct_chuva": 98.9
+ },
+ "A609": {
+  "nome": "Resende",
+  "latitude": -22.45138888,
+  "longitude": -44.44499999,
+  "altitude": 438.83,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1676,
+  "pct_umidade_13h": 95.9,
+  "pct_chuva": 98.9
+ },
+ "A636": {
+  "nome": "Rio De Janeiro - Jacarepagua",
+  "latitude": -22.93999999,
+  "longitude": -43.40277777,
+  "altitude": 20.0,
+  "dados_desde": "2022-01-01",
+  "dados_ate": "2026-10-12",
+  "dias": 1726,
+  "pct_umidade_13h": 99.9,
+  "pct_chuva": 98.5
+ }
+}
