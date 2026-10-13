@@ -13,7 +13,7 @@ Regras de chuva (24h, em mm):
 Janela de chuva: das 14h do dia anterior até as 13h do dia do cálculo (horário local).
 
 Classes de perigo:
-    <= 1,0 Nulo | 1,1-3,0 Pequeno | 3,1-8,0 Médio | 8,0-20,0 Alto | > 20,0 Muito alto
+    <= 1,0 Nulo | 1,1-3,0 Pequeno | 3,1-8,0 Médio | 8,1-20,0 Alto | > 20,0 Muito alto
 
 Uso:
     python fma.py --csv dados.csv                  # colunas: data,umidade,chuva
