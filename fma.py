@@ -27,7 +27,7 @@ import pandas as pd
 
 HORA_UTC_13H_LOCAL = 16  # 13h de Brasília (UTC-3) = 16h UTC. Ajuste se a estação usar outro fuso.
 
-CLASSES = [(1.0, "Nulo"), (3.0, "Pequeno"), (5.0, "Médio"), (8.0, "Alto")]
+CLASSES = [(1.0, "Nulo"), (3.0, "Pequeno"), (8.0, "Médio"), (20.0, "Alto"),(>20.0, "Muito alto")]
 
 
 def classificar(valor):
