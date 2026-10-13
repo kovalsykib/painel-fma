@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FMA - Perigo de incêndio</title>
+<style>
+  :root { --bg:#f6f7f4; --card:#fff; --txt:#1f2a1f; --mut:#5d6b5d; --line:#dde2d9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141813; --card:#1d221c; --txt:#e8ece4; --mut:#9aa89a; --line:#2e362d; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--txt); }
+  header, main, footer { max-width: 960px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.4rem; margin: 8px 0 0; }
+  .sub { color: var(--mut); margin: 4px 0 0; font-size: .9rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .topo { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; }
+  .nome { font-size:1.15rem; font-weight:600; }
+  .cod { color:var(--mut); font-size:.85rem; }
+  .valor { display:flex; align-items:center; gap:12px; }
+  .num { font-size:2.4rem; font-weight:700; line-height:1; }
+  .selo { color:#fff; padding:4px 12px; border-radius:999px; font-weight:600; font-size:.95rem; }
+  .grafico { position:relative; height:260px; margin-top:16px; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.9rem; }
+  th, td { text-align:right; padding:6px 8px; border-bottom:1px solid var(--line); }
+  th:first-child, td:first-child { text-align:left; }
+  th { color:var(--mut); font-weight:600; }
+  .bolinha { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+  .legenda { display:flex; flex-wrap:wrap; gap:12px 20px; font-size:.9rem; }
+  .aviso { background:#fff4e5; color:#7a4300; border:1px solid #f2c27a; border-radius:8px; padding:8px 12px; margin-bottom:16px; font-size:.9rem; }
+  footer { color:var(--mut); font-size:.85rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Índice de perigo de incêndio - FMA</h1>
+  <p class="sub" id="atualizado"></p>
+</header>
+<main id="conteudo"></main>
+<footer>
+  <div class="card">
+    <div class="legenda" id="legenda"></div>
+  </div>
+  <p>Fórmula de Monte Alegre (Soares, 1972): soma acumulada de 100/UR, com a umidade relativa lida às 13h (horário local).
+  A chuva considerada é a acumulada das 14h do dia anterior às 13h do dia; até 2,4 mm não altera o índice,
+  de 2,5 a 4,9 mm abate 30%, de 5,0 a 9,9 mm abate 60%, de 10,0 a 12,9 mm abate 80% e acima de 12,9 mm zera o acumulado.
+  Os dados vêm da fonte indicada em cada município; dados de modelo/reanálise são estimativas, não medições de estação.
+  Dias sem dado aparecem como "Sem dado".</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const DADOS = {"atualizado": "13/10/2026 às 03:04 (Brasília)", "erros": [], "estacoes": [{"codigo": "A601", "nome": "Seropédica", "municipio": "Seropédica", "fonte": "Open-Meteo (modelo/reanálise) para as coordenadas da estação INMET A601", "serie": [{"data": "2026-08-14", "umidade": 68.0, "chuva": 0.8, "fma": 16.79, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-15", "umidade": 95.0, "chuva": 6.4, "fma": 7.77, "classe": "Alto", "aviso": ""}, {"data": "2026-08-16", "umidade": 63.0, "chuva": 3.3, "fma": 7.03, "classe": "Alto", "aviso": ""}, {"data": "2026-08-17", "umidade": 48.0, "chuva": 0.0, "fma": 9.11, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-18", "umidade": 40.0, "chuva": 0.0, "fma": 11.61, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-19", "umidade": 34.0, "chuva": 0.0, "fma": 14.55, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-20", "umidade": 51.0, "chuva": 0.0, "fma": 16.51, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-21", "umidade": 46.0, "chuva": 0.0, "fma": 18.68, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-22", "umidade": 63.0, "chuva": 1.6, "fma": 20.27, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-23", "umidade": 65.0, "chuva": 0.0, "fma": 21.81, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-24", "umidade": 86.0, "chuva": 4.7, "fma": 16.43, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-25", "umidade": 80.0, "chuva": 3.1, "fma": 12.75, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-26", "umidade": 69.0, "chuva": 0.5, "fma": 14.2, "classe": "Muito alto", "aviso": ""}, {"data": "2026-08-27", "umidade": 96.0, "chuva": 19.5, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-08-28", "umidade": 48.0, "chuva": 0.4, "fma": 2.08, "classe": "Pequeno", "aviso": ""}, {"data": "2026-08-29", "umidade": 46.0, "chuva": 0.0, "fma": 4.26, "classe": "Médio", "aviso": ""}, {"data": "2026-08-30", "umidade": 65.0, "chuva": 5.0, "fma": 3.24, "classe": "Médio", "aviso": ""}, {"data": "2026-08-31", "umidade": 73.0, "chuva": 26.1, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-09-01", "umidade": 67.0, "chuva": 0.5, "fma": 1.49, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-02", "umidade": 58.0, "chuva": 7.4, "fma": 2.32, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-03", "umidade": 46.0, "chuva": 0.1, "fma": 4.5, "classe": "Médio", "aviso": ""}, {"data": "2026-09-04", "umidade": 45.0, "chuva": 0.0, "fma": 6.72, "classe": "Alto", "aviso": ""}, {"data": "2026-09-05", "umidade": 56.0, "chuva": 0.6, "fma": 8.5, "classe": "Muito alto", "aviso": ""}, {"data": "2026-09-06", "umidade": 78.0, "chuva": 22.5, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-09-07", "umidade": 86.0, "chuva": 9.5, "fma": 1.16, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-08", "umidade": 73.0, "chuva": 12.6, "fma": 1.6, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-09", "umidade": 73.0, "chuva": 10.0, "fma": 1.69, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-10", "umidade": 94.0, "chuva": 9.1, "fma": 1.74, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-11", "umidade": 72.0, "chuva": 42.4, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-09-12", "umidade": 60.0, "chuva": 3.4, "fma": 1.67, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-13", "umidade": 79.0, "chuva": 1.5, "fma": 2.93, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-14", "umidade": 75.0, "chuva": 13.7, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-09-15", "umidade": 72.0, "chuva": 12.2, "fma": 1.39, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-16", "umidade": 68.0, "chuva": 1.9, "fma": 2.86, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-17", "umidade": 69.0, "chuva": 0.9, "fma": 4.31, "classe": "Médio", "aviso": ""}, {"data": "2026-09-18", "umidade": 71.0, "chuva": 0.0, "fma": 5.72, "classe": "Alto", "aviso": ""}, {"data": "2026-09-19", "umidade": 53.0, "chuva": 0.0, "fma": 7.6, "classe": "Alto", "aviso": ""}, {"data": "2026-09-20", "umidade": 50.0, "chuva": 0.0, "fma": 9.6, "classe": "Muito alto", "aviso": ""}, {"data": "2026-09-21", "umidade": 60.0, "chuva": 9.3, "fma": 5.51, "classe": "Alto", "aviso": ""}, {"data": "2026-09-22", "umidade": 67.0, "chuva": 0.6, "fma": 7.0, "classe": "Alto", "aviso": ""}, {"data": "2026-09-23", "umidade": 95.0, "chuva": 20.1, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-09-24", "umidade": 75.0, "chuva": 4.3, "fma": 1.33, "classe": "Pequeno", "aviso": ""}, {"data": "2026-09-25", "umidade": 57.0, "chuva": 0.0, "fma": 3.09, "classe": "Médio", "aviso": ""}, {"data": "2026-09-26", "umidade": 52.0, "chuva": 0.3, "fma": 5.01, "classe": "Alto", "aviso": ""}, {"data": "2026-09-27", "umidade": 74.0, "chuva": 0.0, "fma": 6.36, "classe": "Alto", "aviso": ""}, {"data": "2026-09-28", "umidade": 51.0, "chuva": 0.6, "fma": 8.32, "classe": "Muito alto", "aviso": ""}, {"data": "2026-09-29", "umidade": 53.0, "chuva": 2.4, "fma": 10.21, "classe": "Muito alto", "aviso": ""}, {"data": "2026-09-30", "umidade": 53.0, "chuva": 1.8, "fma": 12.1, "classe": "Muito alto", "aviso": ""}, {"data": "2026-10-01", "umidade": 72.0, "chuva": 0.2, "fma": 13.49, "classe": "Muito alto", "aviso": ""}, {"data": "2026-10-02", "umidade": 85.0, "chuva": 14.8, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-10-03", "umidade": 94.0, "chuva": 28.6, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-10-04", "umidade": 53.0, "chuva": 4.9, "fma": 1.89, "classe": "Pequeno", "aviso": ""}, {"data": "2026-10-05", "umidade": 67.0, "chuva": 2.7, "fma": 2.81, "classe": "Pequeno", "aviso": ""}, {"data": "2026-10-06", "umidade": 68.0, "chuva": 13.3, "fma": 0.0, "classe": "Nulo", "aviso": ""}, {"data": "2026-10-07", "umidade": 94.0, "chuva": 6.5, "fma": 1.06, "classe": "Pequeno", "aviso": ""}, {"data": "2026-10-08", "umidade": 72.0, "chuva": 0.4, "fma": 2.45, "classe": "Pequeno", "aviso": ""}, {"data": "2026-10-09", "umidade": 51.0, "chuva": 0.0, "fma": 4.41, "classe": "Médio", "aviso": ""}, {"data": "2026-10-10", "umidade": 48.0, "chuva": 0.0, "fma": 6.5, "classe": "Alto", "aviso": ""}, {"data": "2026-10-11", "umidade": 75.0, "chuva": 6.5, "fma": 3.93, "classe": "Médio", "aviso": ""}, {"data": "2026-10-12", "umidade": 72.0, "chuva": 1.5, "fma": 5.32, "classe": "Alto", "aviso": ""}]}]};
+
+const CORES = { "Nulo":"#3b82c4", "Pequeno":"#3a9d5d", "Médio":"#d4a900", "Alto":"#e8730c", "Muito alto":"#c62828", "Sem dado":"#9aa0a6" };
+const FAIXAS = [["Nulo","até 1,0"],["Pequeno","1,1 a 3,0"],["Médio","3,1 a 5,0"],["Alto","5,1 a 8,0"],["Muito alto","acima de 8,0"]];
+
+const num = (v, d=1) => (v === null || v === undefined) ? "-" : Number(v).toFixed(d).replace(".", ",");
+const dataBR = s => s.slice(8,10) + "/" + s.slice(5,7);
+
+document.getElementById("atualizado").textContent = "Atualizado em " + DADOS.atualizado;
+document.getElementById("legenda").innerHTML = FAIXAS.map(([n,f]) =>
+  `<span><span class="bolinha" style="background:${CORES[n]}"></span><b>${n}</b> (${f})</span>`).join("");
+
+const conteudo = document.getElementById("conteudo");
+
+if (DADOS.erros && DADOS.erros.length) {
+  const d = document.createElement("div");
+  d.className = "aviso";
+  d.textContent = "Não foi possível atualizar: " + DADOS.erros.map(e => e.codigo).join(", ") +
+                  ". Mostrando o último resultado guardado.";
+  conteudo.appendChild(d);
+}
+
+DADOS.estacoes.forEach((est, i) => {
+  const serie = est.serie;
+  const ult = [...serie].reverse().find(l => l.fma !== null);
+  const sec = document.createElement("section");
+  sec.className = "card";
+
+  const linhasTabela = [...serie].slice(-14).reverse().map(l => `
+    <tr>
+      <td>${dataBR(l.data)}</td>
+      <td>${num(l.umidade, 0)}%</td>
+      <td>${num(l.chuva, 1)} mm</td>
+      <td>${num(l.fma, 2)}</td>
+      <td><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td>
+    </tr>`).join("");
+
+  sec.innerHTML = `
+    <div class="topo">
+      <div>
+        <div class="nome">${est.municipio}</div>
+        <div class="cod">Ponto ${est.codigo} - ${est.nome}</div>
+        <div class="cod">Fonte dos dados: ${est.fonte}</div>
+      </div>
+      <div class="valor">
+        <span class="num">${ult ? num(ult.fma, 2) : "-"}</span>
+        <span class="selo" style="background:${CORES[ult ? ult.classe : "Sem dado"]}">${ult ? ult.classe : "Sem dado"}</span>
+      </div>
+    </div>
+    <div class="sub">${ult ? "Última leitura válida: " + dataBR(ult.data) + "/" + ult.data.slice(0,4) : ""}</div>
+    <div class="grafico"><canvas id="g${i}"></canvas></div>
+    <table>
+      <thead><tr><th>Dia</th><th>UR 13h</th><th>Chuva 24h</th><th>FMA</th><th>Classe</th></tr></thead>
+      <tbody>${linhasTabela}</tbody>
+    </table>`;
+  conteudo.appendChild(sec);
+
+  if (window.Chart) {
+    new Chart(document.getElementById("g" + i), {
+      type: "bar",
+      data: {
+        labels: serie.map(l => dataBR(l.data)),
+        datasets: [{ label: "FMA", data: serie.map(l => l.fma), backgroundColor: serie.map(l => CORES[l.classe]) }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, title: { display: true, text: "FMA" } },
+                  x: { ticks: { maxTicksLimit: 12 } } }
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

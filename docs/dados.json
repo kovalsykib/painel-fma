@@ -1,0 +1,494 @@
+{
+ "atualizado": "13/10/2026 às 03:04 (Brasília)",
+ "erros": [],
+ "estacoes": [
+  {
+   "codigo": "A601",
+   "nome": "Seropédica",
+   "municipio": "Seropédica",
+   "fonte": "Open-Meteo (modelo/reanálise) para as coordenadas da estação INMET A601",
+   "serie": [
+    {
+     "data": "2026-08-14",
+     "umidade": 68.0,
+     "chuva": 0.8,
+     "fma": 16.79,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-15",
+     "umidade": 95.0,
+     "chuva": 6.4,
+     "fma": 7.77,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-16",
+     "umidade": 63.0,
+     "chuva": 3.3,
+     "fma": 7.03,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-17",
+     "umidade": 48.0,
+     "chuva": 0.0,
+     "fma": 9.11,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-18",
+     "umidade": 40.0,
+     "chuva": 0.0,
+     "fma": 11.61,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-19",
+     "umidade": 34.0,
+     "chuva": 0.0,
+     "fma": 14.55,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-20",
+     "umidade": 51.0,
+     "chuva": 0.0,
+     "fma": 16.51,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-21",
+     "umidade": 46.0,
+     "chuva": 0.0,
+     "fma": 18.68,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-22",
+     "umidade": 63.0,
+     "chuva": 1.6,
+     "fma": 20.27,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-23",
+     "umidade": 65.0,
+     "chuva": 0.0,
+     "fma": 21.81,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-24",
+     "umidade": 86.0,
+     "chuva": 4.7,
+     "fma": 16.43,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-25",
+     "umidade": 80.0,
+     "chuva": 3.1,
+     "fma": 12.75,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-26",
+     "umidade": 69.0,
+     "chuva": 0.5,
+     "fma": 14.2,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-27",
+     "umidade": 96.0,
+     "chuva": 19.5,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-28",
+     "umidade": 48.0,
+     "chuva": 0.4,
+     "fma": 2.08,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-29",
+     "umidade": 46.0,
+     "chuva": 0.0,
+     "fma": 4.26,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-30",
+     "umidade": 65.0,
+     "chuva": 5.0,
+     "fma": 3.24,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-08-31",
+     "umidade": 73.0,
+     "chuva": 26.1,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-01",
+     "umidade": 67.0,
+     "chuva": 0.5,
+     "fma": 1.49,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-02",
+     "umidade": 58.0,
+     "chuva": 7.4,
+     "fma": 2.32,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-03",
+     "umidade": 46.0,
+     "chuva": 0.1,
+     "fma": 4.5,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-04",
+     "umidade": 45.0,
+     "chuva": 0.0,
+     "fma": 6.72,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-05",
+     "umidade": 56.0,
+     "chuva": 0.6,
+     "fma": 8.5,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-06",
+     "umidade": 78.0,
+     "chuva": 22.5,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-07",
+     "umidade": 86.0,
+     "chuva": 9.5,
+     "fma": 1.16,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-08",
+     "umidade": 73.0,
+     "chuva": 12.6,
+     "fma": 1.6,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-09",
+     "umidade": 73.0,
+     "chuva": 10.0,
+     "fma": 1.69,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-10",
+     "umidade": 94.0,
+     "chuva": 9.1,
+     "fma": 1.74,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-11",
+     "umidade": 72.0,
+     "chuva": 42.4,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-12",
+     "umidade": 60.0,
+     "chuva": 3.4,
+     "fma": 1.67,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-13",
+     "umidade": 79.0,
+     "chuva": 1.5,
+     "fma": 2.93,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-14",
+     "umidade": 75.0,
+     "chuva": 13.7,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-15",
+     "umidade": 72.0,
+     "chuva": 12.2,
+     "fma": 1.39,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-16",
+     "umidade": 68.0,
+     "chuva": 1.9,
+     "fma": 2.86,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-17",
+     "umidade": 69.0,
+     "chuva": 0.9,
+     "fma": 4.31,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-18",
+     "umidade": 71.0,
+     "chuva": 0.0,
+     "fma": 5.72,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-19",
+     "umidade": 53.0,
+     "chuva": 0.0,
+     "fma": 7.6,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-20",
+     "umidade": 50.0,
+     "chuva": 0.0,
+     "fma": 9.6,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-21",
+     "umidade": 60.0,
+     "chuva": 9.3,
+     "fma": 5.51,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-22",
+     "umidade": 67.0,
+     "chuva": 0.6,
+     "fma": 7.0,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-23",
+     "umidade": 95.0,
+     "chuva": 20.1,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-24",
+     "umidade": 75.0,
+     "chuva": 4.3,
+     "fma": 1.33,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-25",
+     "umidade": 57.0,
+     "chuva": 0.0,
+     "fma": 3.09,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-26",
+     "umidade": 52.0,
+     "chuva": 0.3,
+     "fma": 5.01,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-27",
+     "umidade": 74.0,
+     "chuva": 0.0,
+     "fma": 6.36,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-28",
+     "umidade": 51.0,
+     "chuva": 0.6,
+     "fma": 8.32,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-29",
+     "umidade": 53.0,
+     "chuva": 2.4,
+     "fma": 10.21,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-09-30",
+     "umidade": 53.0,
+     "chuva": 1.8,
+     "fma": 12.1,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-01",
+     "umidade": 72.0,
+     "chuva": 0.2,
+     "fma": 13.49,
+     "classe": "Muito alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-02",
+     "umidade": 85.0,
+     "chuva": 14.8,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-03",
+     "umidade": 94.0,
+     "chuva": 28.6,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-04",
+     "umidade": 53.0,
+     "chuva": 4.9,
+     "fma": 1.89,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-05",
+     "umidade": 67.0,
+     "chuva": 2.7,
+     "fma": 2.81,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-06",
+     "umidade": 68.0,
+     "chuva": 13.3,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-07",
+     "umidade": 94.0,
+     "chuva": 6.5,
+     "fma": 1.06,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-08",
+     "umidade": 72.0,
+     "chuva": 0.4,
+     "fma": 2.45,
+     "classe": "Pequeno",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-09",
+     "umidade": 51.0,
+     "chuva": 0.0,
+     "fma": 4.41,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-10",
+     "umidade": 48.0,
+     "chuva": 0.0,
+     "fma": 6.5,
+     "classe": "Alto",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-11",
+     "umidade": 75.0,
+     "chuva": 6.5,
+     "fma": 3.93,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-12",
+     "umidade": 72.0,
+     "chuva": 1.5,
+     "fma": 5.32,
+     "classe": "Alto",
+     "aviso": ""
+    }
+   ]
+  }
+ ]
+}
