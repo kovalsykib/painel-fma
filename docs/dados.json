@@ -1,5 +1,5 @@
 {
- "atualizado": "13/10/2026 às 03:04 (Brasília)",
+ "atualizado": "13/10/2026 às 04:03 (Brasília)",
  "erros": [],
  "estacoes": [
   {
@@ -13,7 +13,7 @@
      "umidade": 68.0,
      "chuva": 0.8,
      "fma": 16.79,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -21,7 +21,7 @@
      "umidade": 95.0,
      "chuva": 6.4,
      "fma": 7.77,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -29,7 +29,7 @@
      "umidade": 63.0,
      "chuva": 3.3,
      "fma": 7.03,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -37,7 +37,7 @@
      "umidade": 48.0,
      "chuva": 0.0,
      "fma": 9.11,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -45,7 +45,7 @@
      "umidade": 40.0,
      "chuva": 0.0,
      "fma": 11.61,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -53,7 +53,7 @@
      "umidade": 34.0,
      "chuva": 0.0,
      "fma": 14.55,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -61,7 +61,7 @@
      "umidade": 51.0,
      "chuva": 0.0,
      "fma": 16.51,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -69,7 +69,7 @@
      "umidade": 46.0,
      "chuva": 0.0,
      "fma": 18.68,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -93,7 +93,7 @@
      "umidade": 86.0,
      "chuva": 4.7,
      "fma": 16.43,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -101,7 +101,7 @@
      "umidade": 80.0,
      "chuva": 3.1,
      "fma": 12.75,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -109,7 +109,7 @@
      "umidade": 69.0,
      "chuva": 0.5,
      "fma": 14.2,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -181,7 +181,7 @@
      "umidade": 45.0,
      "chuva": 0.0,
      "fma": 6.72,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -189,7 +189,7 @@
      "umidade": 56.0,
      "chuva": 0.6,
      "fma": 8.5,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -293,7 +293,7 @@
      "umidade": 71.0,
      "chuva": 0.0,
      "fma": 5.72,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -301,7 +301,7 @@
      "umidade": 53.0,
      "chuva": 0.0,
      "fma": 7.6,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -309,7 +309,7 @@
      "umidade": 50.0,
      "chuva": 0.0,
      "fma": 9.6,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -317,7 +317,7 @@
      "umidade": 60.0,
      "chuva": 9.3,
      "fma": 5.51,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -325,7 +325,7 @@
      "umidade": 67.0,
      "chuva": 0.6,
      "fma": 7.0,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -357,7 +357,7 @@
      "umidade": 52.0,
      "chuva": 0.3,
      "fma": 5.01,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -365,7 +365,7 @@
      "umidade": 74.0,
      "chuva": 0.0,
      "fma": 6.36,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -373,7 +373,7 @@
      "umidade": 51.0,
      "chuva": 0.6,
      "fma": 8.32,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -381,7 +381,7 @@
      "umidade": 53.0,
      "chuva": 2.4,
      "fma": 10.21,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -389,7 +389,7 @@
      "umidade": 53.0,
      "chuva": 1.8,
      "fma": 12.1,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -397,7 +397,7 @@
      "umidade": 72.0,
      "chuva": 0.2,
      "fma": 13.49,
-     "classe": "Muito alto",
+     "classe": "Alto",
      "aviso": ""
     },
     {
@@ -469,7 +469,7 @@
      "umidade": 48.0,
      "chuva": 0.0,
      "fma": 6.5,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     },
     {
@@ -485,7 +485,7 @@
      "umidade": 72.0,
      "chuva": 1.5,
      "fma": 5.32,
-     "classe": "Alto",
+     "classe": "Médio",
      "aviso": ""
     }
    ]
