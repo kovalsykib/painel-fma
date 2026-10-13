@@ -1,5 +1,5 @@
 {
- "atualizado": "13/10/2026 às 04:03 (Brasília)",
+ "atualizado": "13/10/2026 às 14:44 (Brasília)",
  "erros": [],
  "estacoes": [
   {
@@ -8,14 +8,6 @@
    "municipio": "Seropédica",
    "fonte": "Open-Meteo (modelo/reanálise) para as coordenadas da estação INMET A601",
    "serie": [
-    {
-     "data": "2026-08-14",
-     "umidade": 68.0,
-     "chuva": 0.8,
-     "fma": 16.79,
-     "classe": "Alto",
-     "aviso": ""
-    },
     {
      "data": "2026-08-15",
      "umidade": 95.0,
@@ -485,6 +477,14 @@
      "umidade": 72.0,
      "chuva": 1.5,
      "fma": 5.32,
+     "classe": "Médio",
+     "aviso": ""
+    },
+    {
+     "data": "2026-10-13",
+     "umidade": 70.0,
+     "chuva": 0.5,
+     "fma": 6.75,
      "classe": "Médio",
      "aviso": ""
     }
