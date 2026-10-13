@@ -1,0 +1,30 @@
+name: Testar INMET
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perguntar ao INMET e mostrar a resposta crua
+        run: |
+          set +e
+          ontem=$(date -u -d "yesterday" +%F)
+          anteontem=$(date -u -d "2 days ago" +%F)
+          for url in \
+            "https://apitempo.inmet.gov.br/estacao/$anteontem/$ontem/A601" \
+            "https://apitempo.inmet.gov.br/estacao/dados/$ontem/16" \
+            "https://apitempo.inmet.gov.br/estacoes/T"; do
+            echo "=================================================="
+            echo "ENDERECO: $url"
+            rm -f headers.txt corpo.bin
+            curl -sS -m 90 -D headers.txt -o corpo.bin "$url" || echo "(o curl falhou)"
+            echo "--- cabecalhos da resposta:"
+            head -n 12 headers.txt 2>/dev/null
+            echo "--- tamanho: $(wc -c < corpo.bin 2>/dev/null) bytes | tipo: $(file -b corpo.bin 2>/dev/null)"
+            echo "--- primeiros 300 caracteres:"
+            head -c 300 corpo.bin 2>/dev/null | cat -v
+            echo
+          done
+          exit 0
