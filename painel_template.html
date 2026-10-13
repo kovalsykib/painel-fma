@@ -54,7 +54,7 @@
 const DADOS = __DADOS__;
 
 const CORES = { "Nulo":"#3b82c4", "Pequeno":"#3a9d5d", "Médio":"#d4a900", "Alto":"#e8730c", "Muito alto":"#c62828", "Sem dado":"#9aa0a6" };
-const FAIXAS = [["Nulo","até 1,0"],["Pequeno","1,1 a 3,0"],["Médio","3,1 a 5,0"],["Alto","5,1 a 8,0"],["Muito alto","acima de 8,0"]];
+const FAIXAS = [["Nulo","até 1,0"],["Pequeno","1,1 a 3,0"],["Médio","3,1 a 8,0"],["Alto","8,1 a 20,0"],["Muito alto","acima de 20,0"]];
 
 const num = (v, d=1) => (v === null || v === undefined) ? "-" : Number(v).toFixed(d).replace(".", ",");
 const dataBR = s => s.slice(8,10) + "/" + s.slice(5,7);
