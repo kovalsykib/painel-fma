@@ -96,8 +96,8 @@ def diario(h):
 
 def combinar(series, chuva_fn):
     """series: lista de DataFrames diários (umidade, chuva). UR = média; chuva = chuva_fn (média ou mediana)."""
-    ur = pd.concat([s["umidade"] for s in series], axis=1)
-    ch = pd.concat([s["chuva"] for s in series], axis=1)
+    ur = pd.concat([s["umidade"] for s in series], axis=1, sort=True)
+    ch = pd.concat([s["chuva"] for s in series], axis=1, sort=True)
     return pd.DataFrame({"umidade": ur.mean(axis=1), "chuva": getattr(ch, chuva_fn)(axis=1)})
 
 
@@ -134,6 +134,9 @@ def main(baixador=baixar_blocos, n_estacoes=6):
         for serie in cenarios.values():
             comum = comum.intersection(serie.dropna().index)
         print(f"   {len(comum)} dias em comum entre todos os cenários e a estação", flush=True)
+        if len(comum) < 30:
+            NAO_BAIXADOS.append(f"{cod} {m['nome']}: só {len(comum)} dias em comum (dados ainda incompletos); estação fora desta rodada")
+            continue
         mascara = lambda d: d[d.index.isin(comum)].reindex(d.index)
         obs_m = mascara(obs)
         for nome, serie in cenarios.items():
@@ -141,6 +144,9 @@ def main(baixador=baixar_blocos, n_estacoes=6):
             r.update(estacao=cod, cenario=nome)
             linhas.append(r)
 
+    if not linhas:
+        print("Nenhuma estação com dados suficientes ainda; rode de novo para continuar o download.")
+        return
     df = pd.DataFrame(linhas)
     df.round(2).to_csv(SAIDA / "metricas.csv", index=False)
     escrever_relatorio(df, meta)
