@@ -1,0 +1,26 @@
+name: Comparar modelos (GFS, ICON, ECMWF)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  comparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python comparar_modelos.py
+      - name: Salvar resultado
+        run: |
+          git config user.name "painel-fma"
+          git config user.email "painel-fma@users.noreply.github.com"
+          git add comparacao_modelos
+          git commit -m "Comparação de modelos" || echo "nada a salvar"
+          git push
