@@ -1,5 +1,5 @@
 {
- "atualizado": "14/10/2026 às 14:58 (Brasília)",
+ "atualizado": "14/10/2026 às 17:21 (Brasília)",
  "erros": [],
  "estacoes": [
   {
@@ -482,9 +482,9 @@
     },
     {
      "data": "2026-10-14",
-     "umidade": 66.0,
+     "umidade": 63.0,
      "chuva": 0.7,
-     "fma": 8.26,
+     "fma": 8.34,
      "classe": "Alto",
      "aviso": ""
     }
