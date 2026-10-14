@@ -36,7 +36,7 @@ FALHAS = []          # blocos que não puderam ser baixados (aparecem no relató
 DIAS_POR_BLOCO = 90  # pedidos menores respondem mais rápido e falham menos
 
 
-def baixar_horario(lat, lon, inicio, fim, tentativas=6):
+def baixar_horario(lat, lon, inicio, fim, tentativas=6, modelo=None):
     """Baixa em blocos de 90 dias e junta. Devolve dict no formato 'hourly' do Open-Meteo.
     Tenta de novo em caso de erro HTTP, demora ou resposta inválida; se um bloco falhar de vez, registra em FALHAS e segue."""
     juntos = {"time": [], "relative_humidity_2m": [], "precipitation": []}
@@ -45,6 +45,8 @@ def baixar_horario(lat, lon, inicio, fim, tentativas=6):
         fim_bloco = min(ini + timedelta(days=DIAS_POR_BLOCO - 1), fim)
         params = {"latitude": lat, "longitude": lon, "start_date": ini.isoformat(), "end_date": fim_bloco.isoformat(),
                   "hourly": "relative_humidity_2m,precipitation", "timezone": "America/Sao_Paulo"}
+        if modelo:
+            params["models"] = modelo      # modelo fixo (ex.: gfs_seamless) em vez do "best match"
         ok, motivo = False, ""
         for i in range(tentativas):
             try:
@@ -53,7 +55,7 @@ def baixar_horario(lat, lon, inicio, fim, tentativas=6):
                 if r.status_code == 200:
                     h = r.json()["hourly"]
                     for k in juntos:
-                        juntos[k] += h[k]
+                        juntos[k] += h[k] if k in h else h[f"{k}_{modelo}"]   # com modelo fixo a chave pode vir com sufixo
                     ok = True
                     break
                 if "Daily API request limit" in corpo:
