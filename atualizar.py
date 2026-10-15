@@ -151,6 +151,7 @@ def gerar_historico_xlsx(municipios):
         ("São estimativas de modelo, não medições de estação.", False),
         ("Chuva até 2,4 mm: sem efeito; 2,5 a 4,9: acumulado x 0,7; 5,0 a 9,9: x 0,4; 10,0 a 12,9: x 0,2; acima de 12,9: zera.", False),
         ("Classes: Nulo (até 1,0), Pequeno (1,1 a 3,0), Médio (3,1 a 8,0), Alto (8,1 a 20,0), Muito alto (acima de 20,0).", False),
+        ("Referência dos limites das classes: SOARES, R. V. Determinação de um índice de perigo de incêndio para a região centro paranaense, Brasil. Turrialba, Costa Rica, CATIE/IICA. 72 p. (Tese de Mestrado). 1972.", False),
         ("Dias sem umidade às 13h aparecem como Sem dado. A coluna aviso indica chuva ausente (assumida 0 mm).", False),
         ("A FMA é acumulativa: no início da série o valor pode estar subestimado.", False),
     ]
