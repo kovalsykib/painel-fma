@@ -149,7 +149,10 @@ def diarizar(raw, hora_utc=HORA_UTC_13H_LOCAL):
 
 
 # ---------------------------------------------------------------- Open-Meteo
-def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=3):
+MODELO_PADRAO = "ecmwf_ifs025"   # modelo fixo (ECMWF IFS 0,25°), escolhido na comparação com estações INMET (out/2026)
+
+
+def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=4, modelo=MODELO_PADRAO):
     """Baixa umidade e chuva horárias (modelo/reanálise) do Open-Meteo para um ponto e devolve,
     por dia: umidade às 13h locais e chuva acumulada das 14h do dia anterior às 13h do dia.
 
@@ -166,13 +169,17 @@ def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=3):
         "past_days": min(int(dias), 92),
         "forecast_days": 1,
     }
+    if modelo:
+        params["models"] = modelo
     ultimo_erro = None
     for i in range(tentativas):
         try:
-            r = requests.get(url, params=params, timeout=60)
+            r = requests.get(url, params=params, timeout=(20, 120))
             if r.status_code != 200:
                 raise ValueError(f"HTTP {r.status_code}. Início da resposta: {r.text[:300]!r}")
             h = r.json()["hourly"]
+            if modelo:   # com modelo fixo as chaves podem vir com o nome do modelo como sufixo
+                h = {k: h.get(k, h.get(f"{k}_{modelo}")) for k in ("time", "relative_humidity_2m", "precipitation")}
             break
         except Exception as e:
             ultimo_erro = e

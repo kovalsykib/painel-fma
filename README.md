@@ -1,7 +1,11 @@
-# Painel FMA (Fórmula de Monte Alegre)
+# Painel FMA (Fórmula de Monte Alegre) - 15 municípios do PMIF
 
-Protótipo com a estação INMET **A601 (Seropédica)**. Todo dia o programa baixa os dados do INMET, calcula a FMA
-e atualiza um painel web.
+Todo dia o programa baixa umidade e chuva horárias do modelo **ECMWF IFS 0,25°** (via Open-Meteo, modelo fixo) no ponto de
+cálculo de cada um dos 15 municípios, calcula a FMA e atualiza um painel web com **mapa, tabela e gráfico**.
+
+**Por que ECMWF:** em teste com 6 estações do INMET (jan/2025 a out/2026), foi o melhor modelo isolado (erro médio da FMA 7,7;
+classe exata em 59,5% dos dias; 91,8% dentro de 1 classe; detecta 46% das chuvas > 12,9 mm). Resultados completos em
+`comparacao_modelos/relatorio.md`. Dado de modelo é estimativa, não medição: o painel traz esse aviso.
 
 ## Arquivos
 
@@ -9,9 +13,10 @@ e atualiza um painel web.
 |---|---|
 | `fma.py` | Cálculo da FMA, classes de perigo e download/conversão dos dados do INMET |
 | `atualizar.py` | Rotina diária: baixa, atualiza o histórico, recalcula e gera o painel |
-| `estacoes.json` | Lista de estações (para incluir outras, basta acrescentar código, nome e município) |
+| `municipios.json` | Os 15 municípios: contorno (IBGE), código IBGE e ponto de cálculo (gerado por `preparar_municipios.py`) |
+| `comparar_modelos.py` | Teste que comparou GFS, ICON e ECMWF com as estações do INMET |
 | `painel_template.html` | Modelo do painel (o `atualizar.py` preenche com os dados) |
-| `dados/` | Histórico guardado (`<estação>_diario.csv` = entradas; `<estação>_fma.csv` = resultado) |
+| `dados/` | Histórico guardado (`<código IBGE>_diario.csv` = entradas; `<código IBGE>_fma.csv` = resultado) |
 | `docs/` | Painel pronto (`index.html`) e `dados.json` |
 | `.github/workflows/fma.yml` | Agendamento automático no GitHub (14h30 e 17h, horário de Brasília) |
 
@@ -37,6 +42,5 @@ Depois abra `docs/index.html` no navegador. Na primeira vez ele baixa 90 dias pa
   O INMET fornece as horas em UTC, por isso o código usa 16h UTC (`HORA_UTC_13H_LOCAL` em `fma.py`).
 - **Dados faltantes:** dia sem umidade às 13h aparece como "Sem dado" e o acumulado não avança.
   Dia com chuva ausente é calculado como 0 mm e fica sinalizado na coluna `aviso` do CSV de resultados.
-- **API do INMET:** o formato foi escrito conforme a documentação pública e testado só com dados simulados.
   Se na primeira execução real aparecer erro de coluna, o erro lista as colunas recebidas e o ajuste é pontual em `diarizar()`.
 - A FMA acumula, então o resultado depende do histórico. Não apague a pasta `dados/` sem necessidade.

@@ -3,127 +3,306 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FMA - Perigo de incêndio</title>
+<title>FMA - Perigo de incêndio nos municípios do PMIF</title>
 <style>
-  :root { --bg:#f6f7f4; --card:#fff; --txt:#1f2a1f; --mut:#5d6b5d; --line:#dde2d9; }
+  :root {
+    --bg:#f6f7f4; --card:#ffffff; --txt:#1f2a1f; --mut:#566456; --line:#dde2d9; --halo:#ffffffcc; --sel:#1f2a1f;
+    --warn-bg:#fff4e5; --warn-txt:#6b3a00; --warn-line:#f2c27a;
+  }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#141813; --card:#1d221c; --txt:#e8ece4; --mut:#9aa89a; --line:#2e362d; }
+    :root:not([data-theme="light"]) {
+      --bg:#141813; --card:#1d221c; --txt:#e8ece4; --mut:#a3b0a3; --line:#2e362d; --halo:#1d221ccc; --sel:#ffffff;
+      --warn-bg:#2b2110; --warn-txt:#f0cf9a; --warn-line:#6b4a14;
+    }
   }
   * { box-sizing: border-box; }
   body { margin:0; font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--txt); }
-  header, main, footer { max-width: 960px; margin: 0 auto; padding: 16px; }
+  header, main, footer { max-width: 1120px; margin: 0 auto; padding: 16px; }
   h1 { font-size: 1.4rem; margin: 8px 0 0; }
+  h2 { font-size: 1.05rem; margin: 0 0 8px; }
   .sub { color: var(--mut); margin: 4px 0 0; font-size: .9rem; }
   .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
-  .topo { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; }
-  .nome { font-size:1.15rem; font-weight:600; }
-  .cod { color:var(--mut); font-size:.85rem; }
-  .valor { display:flex; align-items:center; gap:12px; }
-  .num { font-size:2.4rem; font-weight:700; line-height:1; }
-  .selo { color:#fff; padding:4px 12px; border-radius:999px; font-weight:600; font-size:.95rem; }
-  .grafico { position:relative; height:260px; margin-top:16px; }
-  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.9rem; }
-  th, td { text-align:right; padding:6px 8px; border-bottom:1px solid var(--line); }
-  th:first-child, td:first-child { text-align:left; }
-  th { color:var(--mut); font-weight:600; }
-  .bolinha { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
-  .legenda { display:flex; flex-wrap:wrap; gap:12px 20px; font-size:.9rem; }
-  .aviso { background:#fff4e5; color:#7a4300; border:1px solid #f2c27a; border-radius:8px; padding:8px 12px; margin-bottom:16px; font-size:.9rem; }
+  .aviso { background:var(--warn-bg); color:var(--warn-txt); border:1px solid var(--warn-line); border-radius:8px;
+           padding:10px 14px; margin-bottom:16px; font-size:.9rem; }
+  .barra { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .barra label { font-weight:600; font-size:.95rem; }
+  select { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--txt); }
+  .legenda { display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.88rem; }
+  .bolinha { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; }
+  .grade { display:grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); gap:16px; align-items:start; }
+  @media (max-width: 860px) { .grade { grid-template-columns: minmax(0,1fr); } }
+  #mapa { width:100%; height:auto; display:block; }
+  #mapa path { stroke:var(--card); stroke-width:1.5; cursor:pointer; transition: opacity .15s; }
+  #mapa path:hover { opacity:.82; }
+  #mapa path:focus-visible { outline:none; stroke:var(--sel); stroke-width:3; }
+  #mapa path.sel { stroke:var(--sel); stroke-width:3; }
+  #mapa text { pointer-events:none; text-anchor:middle; paint-order:stroke; stroke:var(--halo); stroke-width:2.5px; stroke-linejoin:round; fill:var(--txt); }
+  #mapa .nm { font-size:9px; font-weight:500; }
+  #mapa .vl { font-size:11px; font-weight:700; }
+  table { width:100%; border-collapse:collapse; font-size:.9rem; }
+  th, td { padding:6px 8px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; }
+  th:first-child, td:first-child { text-align:left; white-space:normal; }
+  td.cl, th.cl { text-align:left; }
+  th { color:var(--mut); font-weight:600; font-size:.82rem; }
+  th button { all:unset; cursor:pointer; font-weight:600; color:inherit; }
+  th button:focus-visible { outline:2px solid var(--sel); outline-offset:2px; }
+  tbody tr { cursor:pointer; }
+  tbody tr:hover { background:color-mix(in srgb, var(--line) 45%, transparent); }
+  tbody tr.sel { background:color-mix(in srgb, var(--line) 70%, transparent); font-weight:600; }
+  .mut { color:var(--mut); }
+  .grafico { position:relative; height:280px; margin-top:8px; }
+  details summary { cursor:pointer; color:var(--mut); font-size:.9rem; margin-top:12px; }
+  #tip { position:fixed; pointer-events:none; background:var(--txt); color:var(--bg); padding:6px 10px; border-radius:6px;
+         font-size:.85rem; line-height:1.35; display:none; z-index:5; max-width:240px; }
   footer { color:var(--mut); font-size:.85rem; }
+  footer h2 { color:var(--txt); }
+  .tabela-wrap { overflow-x:auto; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Índice de perigo de incêndio - FMA</h1>
+  <h1>Índice de perigo de incêndio (FMA) - municípios do PMIF</h1>
   <p class="sub" id="atualizado"></p>
 </header>
-<main id="conteudo"></main>
+
+<main>
+  <div class="aviso" id="aviso-modelo"></div>
+  <div class="aviso" id="aviso-erros" hidden></div>
+
+  <section class="card">
+    <div class="barra">
+      <div><label for="dia">Dia:</label> <select id="dia"></select></div>
+      <div class="legenda" id="legenda"></div>
+    </div>
+    <div class="grade">
+      <div>
+        <h2>Mapa</h2>
+        <svg id="mapa" role="group" aria-label="Mapa da FMA por município"></svg>
+      </div>
+      <div>
+        <h2>Tabela</h2>
+        <div class="tabela-wrap">
+          <table id="tabela">
+            <thead><tr>
+              <th data-k="nome"><button>Município</button></th>
+              <th data-k="fma"><button>FMA</button></th>
+              <th class="cl" data-k="classe"><button>Classe</button></th>
+              <th data-k="umidade"><button>UR 13h</button></th>
+              <th data-k="chuva"><button>Chuva 24h</button></th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="sub">Clique num município (no mapa ou na tabela) para ver o gráfico.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 id="tit-grafico"></h2>
+    <div class="sub" id="sub-grafico"></div>
+    <div class="grafico"><canvas id="grafico" role="img" aria-label="Gráfico da FMA diária do município selecionado"></canvas></div>
+    <details>
+      <summary>Ver os últimos 14 dias em tabela</summary>
+      <div class="tabela-wrap">
+        <table id="tab14">
+          <thead><tr><th>Dia</th><th>UR 13h</th><th>Chuva 24h</th><th>FMA</th><th class="cl">Classe</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+</main>
+
 <footer>
   <div class="card">
-    <div class="legenda" id="legenda"></div>
+    <h2>Como ler e de onde vêm os números</h2>
+    <p><b>Índice.</b> Fórmula de Monte Alegre (Soares, 1972): soma acumulada de 100/UR, com a umidade relativa lida às 13h (horário local).
+    A chuva considerada é a acumulada das 14h do dia anterior às 13h do dia: até 2,4 mm não altera o índice; de 2,5 a 4,9 mm abate 30%;
+    de 5,0 a 9,9 mm abate 60%; de 10,0 a 12,9 mm abate 80%; acima de 12,9 mm zera o acumulado.</p>
+    <p><b>Classes.</b> Nulo (até 1,0), Pequeno (1,1 a 3,0), Médio (3,1 a 8,0), Alto (8,1 a 20,0) e Muito alto (acima de 20,0).</p>
+    <p><b>Dados.</b> Umidade e chuva horárias do modelo de previsão <span id="f-modelo"></span>, consultado no ponto de cálculo de cada município.
+    São estimativas de modelo, <b>não medições de estação</b>. A grade do modelo tem cerca de 28 km, então municípios vizinhos podem compartilhar a mesma célula,
+    e em municípios grandes (como o Rio de Janeiro) um único ponto não representa toda a área.</p>
+    <p><b>Precisão.</b> Em teste com 6 estações do INMET (jan/2025 a out/2026), o modelo acertou a classe exata em cerca de 60% dos dias e dentro de 1 classe em cerca de 92%.
+    O ponto mais frágil é a chuva forte localizada: o modelo marcou cerca de 46% das chuvas acima de 12,9 mm (as que zeram o índice) e cerca de metade dos seus avisos de chuva forte não se confirmaram.
+    Use o painel como indicação de tendência e de nível de perigo; em decisões operacionais, confirme com a estação ou com a observação local.</p>
+    <p class="mut">Dias sem dado aparecem como "Sem dado". A FMA é acumulativa: no início da série (primeiros dias após a implantação) o valor pode estar subestimado.</p>
   </div>
-  <p>Fórmula de Monte Alegre (Soares, 1972): soma acumulada de 100/UR, com a umidade relativa lida às 13h (horário local).
-  A chuva considerada é a acumulada das 14h do dia anterior às 13h do dia; até 2,4 mm não altera o índice,
-  de 2,5 a 4,9 mm abate 30%, de 5,0 a 9,9 mm abate 60%, de 10,0 a 12,9 mm abate 80% e acima de 12,9 mm zera o acumulado.
-  Os dados vêm da fonte indicada em cada município; dados de modelo/reanálise são estimativas, não medições de estação.
-  Dias sem dado aparecem como "Sem dado".</p>
 </footer>
+<div id="tip"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 const DADOS = __DADOS__;
 
-const CORES = { "Nulo":"#3b82c4", "Pequeno":"#3a9d5d", "Médio":"#d4a900", "Alto":"#e8730c", "Muito alto":"#c62828", "Sem dado":"#9aa0a6" };
+const CORES = { "Nulo":"#3f86c6", "Pequeno":"#3d9a5a", "Médio":"#e6b800", "Alto":"#ee7a14", "Muito alto":"#c62828", "Sem dado":"#aeb4ba" };
+const ORDEM = ["Nulo","Pequeno","Médio","Alto","Muito alto","Sem dado"];
 const FAIXAS = [["Nulo","até 1,0"],["Pequeno","1,1 a 3,0"],["Médio","3,1 a 8,0"],["Alto","8,1 a 20,0"],["Muito alto","acima de 20,0"]];
 
 const num = (v, d=1) => (v === null || v === undefined) ? "-" : Number(v).toFixed(d).replace(".", ",");
-const dataBR = s => s.slice(8,10) + "/" + s.slice(5,7);
+const dataBR = (s, ano=false) => s.slice(8,10) + "/" + s.slice(5,7) + (ano ? "/" + s.slice(0,4) : "");
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
-document.getElementById("atualizado").textContent = "Atualizado em " + DADOS.atualizado;
-document.getElementById("legenda").innerHTML = FAIXAS.map(([n,f]) =>
+// ---------- cabeçalho, avisos, legenda
+$("atualizado").textContent = "Atualizado em " + DADOS.atualizado;
+$("f-modelo").textContent = DADOS.modelo;
+$("aviso-modelo").innerHTML = "<b>Estimativa de modelo, não medição.</b> Os valores vêm do modelo " + DADOS.modelo +
+  " e podem diferir da estação meteorológica. Veja a precisão no fim da página.";
+if (DADOS.erros && DADOS.erros.length) {
+  const a = $("aviso-erros");
+  a.hidden = false;
+  a.textContent = "Não foi possível atualizar: " + DADOS.erros.map(e => e.nome || e.codigo).join(", ") + ". Esses municípios mostram o último resultado guardado.";
+}
+$("legenda").innerHTML = FAIXAS.map(([n,f]) =>
   `<span><span class="bolinha" style="background:${CORES[n]}"></span><b>${n}</b> (${f})</span>`).join("");
 
-const conteudo = document.getElementById("conteudo");
+// ---------- dados por município
+const MUN = DADOS.municipios;
+const porDia = {};          // codigo -> {data: linha}
+MUN.forEach(m => { porDia[m.codigo_ibge] = {}; m.serie.forEach(l => porDia[m.codigo_ibge][l.data] = l); });
+const dias = [...new Set(MUN.flatMap(m => m.serie.filter(l => l.fma !== null).map(l => l.data)))].sort().reverse();
+let diaSel = dias[0], munSel = null, ordem = { k:"fma", dir:-1 }, grafico = null;
+$("dia").innerHTML = dias.map(d => `<option value="${d}">${dataBR(d, true)}</option>`).join("");
+$("dia").onchange = e => { diaSel = e.target.value; desenhar(); };
 
-if (DADOS.erros && DADOS.erros.length) {
-  const d = document.createElement("div");
-  d.className = "aviso";
-  d.textContent = "Não foi possível atualizar: " + DADOS.erros.map(e => e.codigo).join(", ") +
-                  ". Mostrando o último resultado guardado.";
-  conteudo.appendChild(d);
+const linha = (m, d = diaSel) => porDia[m.codigo_ibge][d] || { data:d, umidade:null, chuva:null, fma:null, classe:"Sem dado", aviso:"" };
+
+// ---------- mapa
+const svg = $("mapa");
+const NS = "http://www.w3.org/2000/svg";
+let proj = null;
+function montarMapa() {
+  const pts = Object.values(DADOS.contornos).flat(2).flat();
+  const lons = pts.map(p => p[0]), lats = pts.map(p => p[1]);
+  const lon0 = Math.min(...lons), lon1 = Math.max(...lons), lat0 = Math.min(...lats), lat1 = Math.max(...lats);
+  const k = Math.cos(((lat0 + lat1) / 2) * Math.PI / 180);
+  const W = 520, S = W / ((lon1 - lon0) * k), H = Math.round((lat1 - lat0) * S);
+  proj = ([lon, lat]) => [(lon - lon0) * k * S, (lat1 - lat) * S];
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  MUN.forEach(m => {
+    const aneis = DADOS.contornos[m.codigo_ibge];
+    const d = aneis.map(p => p.map(anel => "M" + anel.map(pt => proj(pt).map(v => v.toFixed(1)).join(",")).join("L") + "Z").join("")).join("");
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d); p.setAttribute("fill-rule", "evenodd");
+    p.setAttribute("tabindex", "0"); p.setAttribute("role", "button");
+    p.dataset.cod = m.codigo_ibge;
+    p.onclick = () => selecionar(m.codigo_ibge);
+    p.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selecionar(m.codigo_ibge); } };
+    p.onmousemove = e => mostrarTip(e, m);
+    p.onmouseleave = () => $("tip").style.display = "none";
+    svg.appendChild(p);
+    // rótulo no centro do maior polígono
+    const maior = aneis.reduce((a, b) => b[0].length > a[0].length ? b : a)[0];
+    const c = proj(centroide(maior));
+    m._c = c;
+    const t = document.createElementNS(NS, "text");
+    t.dataset.cod = m.codigo_ibge;
+    svg.appendChild(t);
+  });
+}
+function centroide(anel) {
+  let a = 0, cx = 0, cy = 0;
+  for (let i = 0; i < anel.length; i++) {
+    const [x0, y0] = anel[i], [x1, y1] = anel[(i + 1) % anel.length], f = x0 * y1 - x1 * y0;
+    a += f; cx += (x0 + x1) * f; cy += (y0 + y1) * f;
+  }
+  a /= 2; return [cx / (6 * a), cy / (6 * a)];
+}
+// ajustes de posição do rótulo para municípios pequenos ou cercados (em px do mapa)
+const DESLOC = { "3304144": [6, 12], "3302270": [0, -4], "3301801": [8, -12], "3302809": [-12, -6], "3303609": [-4, 8], "3302908": [10, -2] };
+function pintarMapa() {
+  MUN.forEach(m => {
+    const l = linha(m), p = svg.querySelector(`path[data-cod="${m.codigo_ibge}"]`), t = svg.querySelector(`text[data-cod="${m.codigo_ibge}"]`);
+    p.setAttribute("fill", CORES[l.classe]);
+    p.setAttribute("aria-label", `${m.nome}: FMA ${num(l.fma, 1)}, classe ${l.classe}`);
+    p.classList.toggle("sel", m.codigo_ibge === munSel);
+    const [dx, dy] = DESLOC[m.codigo_ibge] || [0, 0];
+    t.setAttribute("transform", `translate(${(m._c[0] + dx).toFixed(1)},${(m._c[1] + dy).toFixed(1)})`);
+    t.innerHTML = `<tspan class="nm" x="0" dy="-2">${m.nome.replace("Engenheiro Paulo de Frontin", "P. de Frontin")}</tspan><tspan class="vl" x="0" dy="13">${l.fma === null ? "-" : num(l.fma, 1)}</tspan>`;
+  });
+  // o rótulo da seleção fica por cima
+  const sel = munSel && svg.querySelector(`path[data-cod="${munSel}"]`);
+  if (sel) svg.insertBefore(sel, svg.querySelector("text"));
+}
+function mostrarTip(e, m) {
+  const l = linha(m), t = $("tip");
+  t.innerHTML = `<b>${m.nome}</b><br>FMA ${num(l.fma, 2)} - ${l.classe}<br>UR 13h: ${num(l.umidade, 0)}% | Chuva 24h: ${num(l.chuva, 1)} mm`;
+  t.style.display = "block";
+  t.style.left = Math.min(e.clientX + 14, window.innerWidth - 250) + "px";
+  t.style.top = (e.clientY + 14) + "px";
 }
 
-DADOS.estacoes.forEach((est, i) => {
-  const serie = est.serie;
-  const ult = [...serie].reverse().find(l => l.fma !== null);
-  const sec = document.createElement("section");
-  sec.className = "card";
-
-  const linhasTabela = [...serie].slice(-14).reverse().map(l => `
-    <tr>
-      <td>${dataBR(l.data)}</td>
-      <td>${num(l.umidade, 0)}%</td>
-      <td>${num(l.chuva, 1)} mm</td>
-      <td>${num(l.fma, 2)}</td>
-      <td><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td>
+// ---------- tabela
+function pintarTabela() {
+  const linhas = MUN.map(m => ({ m, l: linha(m) }));
+  const v = ({m, l}) => ordem.k === "nome" ? m.nome : ordem.k === "classe" ? ORDEM.indexOf(l.classe) : l[ordem.k];
+  linhas.sort((a, b) => {
+    const x = v(a), y = v(b);
+    if (x === null || x === undefined) return 1;
+    if (y === null || y === undefined) return -1;
+    return (typeof x === "string" ? x.localeCompare(y, "pt") : x - y) * ordem.dir;
+  });
+  document.querySelector("#tabela tbody").innerHTML = linhas.map(({m, l}) => `
+    <tr data-cod="${m.codigo_ibge}" class="${m.codigo_ibge === munSel ? "sel" : ""}">
+      <td>${m.nome}</td><td>${num(l.fma, 2)}</td>
+      <td class="cl"><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td>
+      <td>${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}</td><td>${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}</td>
     </tr>`).join("");
-
-  sec.innerHTML = `
-    <div class="topo">
-      <div>
-        <div class="nome">${est.municipio}</div>
-        <div class="cod">Ponto ${est.codigo} - ${est.nome}</div>
-        <div class="cod">Fonte dos dados: ${est.fonte}</div>
-      </div>
-      <div class="valor">
-        <span class="num">${ult ? num(ult.fma, 2) : "-"}</span>
-        <span class="selo" style="background:${CORES[ult ? ult.classe : "Sem dado"]}">${ult ? ult.classe : "Sem dado"}</span>
-      </div>
-    </div>
-    <div class="sub">${ult ? "Última leitura válida: " + dataBR(ult.data) + "/" + ult.data.slice(0,4) : ""}</div>
-    <div class="grafico"><canvas id="g${i}"></canvas></div>
-    <table>
-      <thead><tr><th>Dia</th><th>UR 13h</th><th>Chuva 24h</th><th>FMA</th><th>Classe</th></tr></thead>
-      <tbody>${linhasTabela}</tbody>
-    </table>`;
-  conteudo.appendChild(sec);
-
-  if (window.Chart) {
-    new Chart(document.getElementById("g" + i), {
-      type: "bar",
-      data: {
-        labels: serie.map(l => dataBR(l.data)),
-        datasets: [{ label: "FMA", data: serie.map(l => l.fma), backgroundColor: serie.map(l => CORES[l.classe]) }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true, title: { display: true, text: "FMA" } },
-                  x: { ticks: { maxTicksLimit: 12 } } }
-      }
-    });
-  }
+  document.querySelectorAll("#tabela tbody tr").forEach(tr => tr.onclick = () => selecionar(tr.dataset.cod));
+  document.querySelectorAll("#tabela th").forEach(th => {
+    const ativo = th.dataset.k === ordem.k;
+    th.setAttribute("aria-sort", ativo ? (ordem.dir > 0 ? "ascending" : "descending") : "none");
+    th.querySelector("button").textContent = th.querySelector("button").textContent.replace(/ [▲▼]$/, "") + (ativo ? (ordem.dir > 0 ? " ▲" : " ▼") : "");
+  });
+}
+document.querySelectorAll("#tabela th").forEach(th => th.querySelector("button").onclick = () => {
+  const k = th.dataset.k;
+  ordem = ordem.k === k ? { k, dir: -ordem.dir } : { k, dir: k === "nome" ? 1 : -1 };
+  pintarTabela();
 });
+
+// ---------- gráfico do município
+function pintarGrafico() {
+  const m = MUN.find(x => x.codigo_ibge === munSel) || MUN[0];
+  const serie = m.serie;
+  $("tit-grafico").textContent = "FMA diária - " + m.nome;
+  const est = m.estacao_proxima;
+  $("sub-grafico").textContent = "Últimos " + serie.length + " dias." + (est ? ` Estação INMET mais próxima: ${est.nome} (${est.codigo}), a cerca de ${est.km} km.` : "");
+  document.querySelector("#tab14 tbody").innerHTML = serie.slice(-14).reverse().map(l => `
+    <tr><td>${dataBR(l.data)}</td><td>${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}</td>
+    <td>${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}</td><td>${num(l.fma, 2)}</td>
+    <td class="cl"><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td></tr>`).join("");
+  if (!window.Chart) return;
+  const grade = css("--line"), tex = css("--mut");
+  const cfg = {
+    type: "bar",
+    data: { labels: serie.map(l => dataBR(l.data)),
+            datasets: [{ label: "FMA", data: serie.map(l => l.fma), backgroundColor: serie.map(l => CORES[l.classe]),
+                         borderRadius: 3, borderSkipped: "bottom", maxBarThickness: 14 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: {
+          title: it => dataBR(serie[it[0].dataIndex].data, true),
+          label: it => { const l = serie[it.dataIndex];
+            return [`FMA ${num(l.fma, 2)} - ${l.classe}`, `UR 13h: ${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}`, `Chuva 24h: ${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}`]; } } } },
+      scales: { y: { beginAtZero: true, title: { display: true, text: "FMA", color: tex }, grid: { color: grade }, ticks: { color: tex } },
+                x: { grid: { display: false }, ticks: { maxTicksLimit: 12, color: tex } } }
+    }
+  };
+  if (grafico) { grafico.data = cfg.data; grafico.options = cfg.options; grafico.update(); }
+  else grafico = new Chart($("grafico"), cfg);
+}
+
+function selecionar(cod) { munSel = cod; desenhar(); }
+function desenhar() { pintarMapa(); pintarTabela(); pintarGrafico(); }
+
+montarMapa();
+munSel = (MUN.find(m => m.nome === "Seropédica") || MUN[0]).codigo_ibge;
+desenhar();
+if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (grafico) { grafico.destroy(); grafico = null; } pintarGrafico(); });
 </script>
 </body>
 </html>

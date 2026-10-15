@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """
-Rotina diária: baixa os dados do INMET das estações em estacoes.json, atualiza o histórico
-(dados/<codigo>_diario.csv), recalcula a FMA sobre todo o histórico e gera o painel (docs/index.html).
+Rotina diária do painel FMA dos 15 municípios do PMIF.
+
+Para cada município (municipios.json): baixa umidade e chuva horárias do modelo ECMWF (via Open-Meteo) no ponto de
+cálculo do município, atualiza o histórico (dados/<codigo_ibge>_diario.csv), recalcula a FMA sobre todo o histórico e
+gera o painel (docs/index.html e docs/dados.json).
 
 Rodar:  python atualizar.py
 """
 import json
+import math
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
 
-from fma import baixar_inmet, baixar_openmeteo, calcular_fma, diarizar
+from fma import MODELO_PADRAO, baixar_openmeteo, calcular_fma
 
 RAIZ = Path(__file__).parent
 DADOS = RAIZ / "dados"
@@ -23,8 +28,24 @@ DIAS_NO_PAINEL = 60
 FUSO = timezone(timedelta(hours=-3))  # Brasília
 
 
-def atualizar_estacao(est, hoje):
-    cod = est["codigo"]
+def dist_km(lat1, lon1, lat2, lon2):
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    h = math.sin((p2 - p1) / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(math.radians(lon2 - lon1) / 2) ** 2
+    return 2 * 6371.0 * math.asin(math.sqrt(h))
+
+
+def estacao_mais_proxima(lat, lon):
+    """Estação INMET (das usadas na validação) mais próxima do município; só para contexto no painel."""
+    arq = RAIZ / "dados_estacoes" / "estacoes_meta.json"
+    if not arq.exists():
+        return None
+    meta = json.loads(arq.read_text(encoding="utf-8"))
+    cod = min(meta, key=lambda c: dist_km(lat, lon, meta[c]["latitude"], meta[c]["longitude"]))
+    return {"codigo": cod, "nome": meta[cod]["nome"], "km": round(dist_km(lat, lon, meta[cod]["latitude"], meta[cod]["longitude"]))}
+
+
+def atualizar_municipio(m, hoje):
+    cod = m["codigo_ibge"]
     arq = DADOS / f"{cod}_diario.csv"
 
     if arq.exists():
@@ -35,12 +56,7 @@ def atualizar_estacao(est, hoje):
         hist.index.name = "data"
         dias = DIAS_INICIAL
 
-    if est.get("fonte", "inmet") == "openmeteo":
-        novo = baixar_openmeteo(est["latitude"], est["longitude"], dias + 1,
-                                agora_local=datetime.now(FUSO))
-    else:
-        raw = baixar_inmet(cod, hoje - timedelta(days=dias + 1), hoje)
-        novo = diarizar(raw)
+    novo = baixar_openmeteo(m["latitude"], m["longitude"], dias + 1, agora_local=datetime.now(FUSO))
     if not novo.empty:
         novo["data"] = pd.to_datetime(novo["data"])
         novo = novo[novo["data"].dt.date <= hoje].set_index("data")
@@ -50,7 +66,7 @@ def atualizar_estacao(est, hoje):
         hist = novo.combine_first(hist) if len(hist) else novo
 
     if hist.empty:
-        raise RuntimeError(f"{cod}: nenhum dado disponível")
+        raise RuntimeError(f"{m['nome']}: nenhum dado disponível")
 
     hist = hist.sort_index()
     hist = hist.reindex(pd.date_range(hist.index.min(), hist.index.max(), name="data"))  # dias sem dado aparecem
@@ -62,9 +78,8 @@ def atualizar_estacao(est, hoje):
 
 
 def serie_para_painel(res):
-    ult = res.tail(DIAS_NO_PAINEL)
     linhas = []
-    for _, r in ult.iterrows():
+    for _, r in res.tail(DIAS_NO_PAINEL).iterrows():
         linhas.append({
             "data": r["data"].strftime("%Y-%m-%d"),
             "umidade": None if pd.isna(r["umidade"]) else round(float(r["umidade"]), 1),
@@ -76,47 +91,53 @@ def serie_para_painel(res):
     return linhas
 
 
-def gerar_painel(estacoes, resultados, erros):
+def gerar_painel(municipios, resultados, erros):
     agora = datetime.now(FUSO)
     saida = {
         "atualizado": agora.strftime("%d/%m/%Y às %H:%M (Brasília)"),
+        "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
+        "modelo_id": MODELO_PADRAO,
         "erros": erros,
-        "estacoes": [
-            {"codigo": e["codigo"], "nome": e["nome"], "municipio": e["municipio"],
-             "fonte": e.get("fonte_texto", "INMET"),
-             "serie": serie_para_painel(resultados[e["codigo"]])}
-            for e in estacoes if e["codigo"] in resultados
+        "municipios": [
+            {"codigo_ibge": m["codigo_ibge"], "nome": m["nome"], "latitude": m["latitude"], "longitude": m["longitude"],
+             "estacao_proxima": estacao_mais_proxima(m["latitude"], m["longitude"]),
+             "serie": serie_para_painel(resultados[m["codigo_ibge"]])}
+            for m in municipios if m["codigo_ibge"] in resultados
         ],
     }
     (DOCS / "dados.json").write_text(json.dumps(saida, ensure_ascii=False, indent=1), encoding="utf-8")
+    # o painel leva também os contornos (só no HTML, para o dados.json continuar leve)
+    com_mapa = dict(saida)
+    com_mapa["contornos"] = {m["codigo_ibge"]: m["poligonos"] for m in municipios}
     modelo = (RAIZ / "painel_template.html").read_text(encoding="utf-8")
-    html = modelo.replace("__DADOS__", json.dumps(saida, ensure_ascii=False))
+    html = modelo.replace("__DADOS__", json.dumps(com_mapa, ensure_ascii=False, separators=(",", ":")))
     (DOCS / "index.html").write_text(html, encoding="utf-8")
 
 
 def main():
     DADOS.mkdir(exist_ok=True)
     DOCS.mkdir(exist_ok=True)
-    estacoes = json.loads((RAIZ / "estacoes.json").read_text(encoding="utf-8"))
+    municipios = json.loads((RAIZ / "municipios.json").read_text(encoding="utf-8"))
     hoje = datetime.now(FUSO).date()
 
     resultados, erros = {}, []
-    for est in estacoes:
-        cod = est["codigo"]
+    for m in municipios:
+        cod = m["codigo_ibge"]
         try:
-            resultados[cod] = atualizar_estacao(est, hoje)
+            resultados[cod] = atualizar_municipio(m, hoje)
             ult = resultados[cod].dropna(subset=["fma"]).tail(1)
             if not ult.empty:
                 r = ult.iloc[0]
-                print(f"{cod} {est['municipio']}: FMA {r['fma']:.2f} ({r['classe']}) em {r['data']:%d/%m/%Y}")
+                print(f"{m['nome']}: FMA {r['fma']:.2f} ({r['classe']}) em {r['data']:%d/%m/%Y}")
         except Exception as e:
-            print(f"ERRO em {cod}: {e}", file=sys.stderr)
-            erros.append({"codigo": cod, "erro": str(e)})
+            print(f"ERRO em {m['nome']}: {e}", file=sys.stderr)
+            erros.append({"codigo": cod, "nome": m["nome"], "erro": str(e)})
             arq = DADOS / f"{cod}_fma.csv"  # falhou o download: mostra o último resultado guardado
             if arq.exists():
                 resultados[cod] = pd.read_csv(arq, parse_dates=["data"]).fillna({"aviso": ""})
+        time.sleep(1)   # gentileza com a API gratuita
 
-    gerar_painel(estacoes, resultados, erros)
+    gerar_painel(municipios, resultados, erros)
     if erros and not resultados:
         sys.exit(1)
 
