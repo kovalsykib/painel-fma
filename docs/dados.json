@@ -1,19 +1,73 @@
 {
- "atualizado": "15/10/2026 às 03:06 (Brasília)",
+ "atualizado": "15/10/2026 às 08:48 (Brasília)",
  "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
  "modelo_id": "ecmwf_ifs025",
  "erros": [
   {
-   "codigo": "3302601",
-   "nome": "Mangaratiba",
+   "codigo": "3302809",
+   "nome": "Mendes",
    "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
   },
   {
-   "codigo": "3304003",
-   "nome": "Piraí",
+   "codigo": "3304557",
+   "nome": "Rio de Janeiro",
    "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
   }
  ],
+ "previsao": {
+  "dias": 3,
+  "validacao": {
+   "gerado_em": "15/10/2026",
+   "modelo": "ecmwf_ifs025",
+   "periodo_teste": "2025-01-01 em diante",
+   "estacoes": [
+    "A601",
+    "A602",
+    "A609",
+    "A621",
+    "A626",
+    "A636"
+   ],
+   "horizontes": {
+    "1": {
+     "dias": 3607,
+     "classe_exata_pct": 59.3,
+     "classe_mais_menos_1_pct": 90.2,
+     "fma_mae": 10.92,
+     "persistencia_classe_exata_pct": 52.4,
+     "persistencia_classe_mais_menos_1_pct": 88.9,
+     "persistencia_fma_mae": 11.33,
+     "eventos_12_9mm": 299,
+     "pod_12_9mm_pct": 42.8,
+     "alarmes_falsos_12_9mm_pct": 54.3
+    },
+    "2": {
+     "dias": 3635,
+     "classe_exata_pct": 57.0,
+     "classe_mais_menos_1_pct": 88.9,
+     "fma_mae": 11.08,
+     "persistencia_classe_exata_pct": 46.3,
+     "persistencia_classe_mais_menos_1_pct": 85.8,
+     "persistencia_fma_mae": 12.1,
+     "eventos_12_9mm": 299,
+     "pod_12_9mm_pct": 39.5,
+     "alarmes_falsos_12_9mm_pct": 58.5
+    },
+    "3": {
+     "dias": 3627,
+     "classe_exata_pct": 55.4,
+     "classe_mais_menos_1_pct": 89.5,
+     "fma_mae": 11.31,
+     "persistencia_classe_exata_pct": 41.6,
+     "persistencia_classe_mais_menos_1_pct": 82.1,
+     "persistencia_fma_mae": 13.0,
+     "eventos_12_9mm": 299,
+     "pod_12_9mm_pct": 34.8,
+     "alarmes_falsos_12_9mm_pct": 62.9
+    }
+   }
+  }
+ },
  "municipios": [
   {
    "codigo_ibge": "3300308",
@@ -32,7 +86,8 @@
      "chuva": null,
      "fma": 2.04,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -40,7 +95,8 @@
      "chuva": 0.0,
      "fma": 4.54,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -48,7 +104,8 @@
      "chuva": 0.0,
      "fma": 7.1,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -56,7 +113,8 @@
      "chuva": 0.0,
      "fma": 9.43,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -64,7 +122,8 @@
      "chuva": 1.9,
      "fma": 10.82,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -72,7 +131,8 @@
      "chuva": 0.5,
      "fma": 12.49,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -80,7 +140,8 @@
      "chuva": 1.7,
      "fma": 13.72,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -88,7 +149,8 @@
      "chuva": 1.6,
      "fma": 15.02,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -96,7 +158,8 @@
      "chuva": 0.0,
      "fma": 16.51,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -104,7 +167,8 @@
      "chuva": 7.6,
      "fma": 7.77,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -112,7 +176,8 @@
      "chuva": 0.5,
      "fma": 9.52,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -120,7 +185,8 @@
      "chuva": 0.1,
      "fma": 11.56,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -128,7 +194,8 @@
      "chuva": 1.1,
      "fma": 12.99,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -136,7 +203,8 @@
      "chuva": 10.2,
      "fma": 4.35,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -144,7 +212,8 @@
      "chuva": 0.4,
      "fma": 5.78,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -152,7 +221,8 @@
      "chuva": 13.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -160,7 +230,8 @@
      "chuva": 0.0,
      "fma": 1.92,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -168,7 +239,8 @@
      "chuva": 0.0,
      "fma": 3.74,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -176,7 +248,8 @@
      "chuva": 0.5,
      "fma": 5.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -184,7 +257,8 @@
      "chuva": 16.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -192,7 +266,8 @@
      "chuva": 6.5,
      "fma": 1.3,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -200,7 +275,8 @@
      "chuva": 1.5,
      "fma": 2.81,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -208,7 +284,8 @@
      "chuva": 8.0,
      "fma": 2.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -216,7 +293,8 @@
      "chuva": 10.1,
      "fma": 1.69,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -224,7 +302,8 @@
      "chuva": 29.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -232,7 +311,8 @@
      "chuva": 3.0,
      "fma": 1.37,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -240,7 +320,8 @@
      "chuva": 0.5,
      "fma": 2.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -248,7 +329,8 @@
      "chuva": 25.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -256,7 +338,8 @@
      "chuva": 10.6,
      "fma": 1.41,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -264,7 +347,8 @@
      "chuva": 3.2,
      "fma": 2.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -272,7 +356,8 @@
      "chuva": 2.9,
      "fma": 3.0,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -280,7 +365,8 @@
      "chuva": 0.4,
      "fma": 4.49,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -288,7 +374,8 @@
      "chuva": 0.0,
      "fma": 6.11,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -296,7 +383,8 @@
      "chuva": 0.1,
      "fma": 8.19,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -304,7 +392,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -312,7 +401,8 @@
      "chuva": 2.5,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -320,7 +410,8 @@
      "chuva": 12.3,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -328,7 +419,8 @@
      "chuva": 0.8,
      "fma": 2.8,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -336,7 +428,8 @@
      "chuva": 0.1,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -344,7 +437,8 @@
      "chuva": 0.8,
      "fma": 6.09,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -352,7 +446,8 @@
      "chuva": 0.3,
      "fma": 7.58,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -360,7 +455,8 @@
      "chuva": 0.3,
      "fma": 9.37,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -368,7 +464,8 @@
      "chuva": 1.6,
      "fma": 11.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -376,7 +473,8 @@
      "chuva": 1.2,
      "fma": 13.3,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -384,7 +482,8 @@
      "chuva": 1.5,
      "fma": 14.96,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -392,7 +491,8 @@
      "chuva": 9.5,
      "fma": 7.12,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -400,7 +500,8 @@
      "chuva": 22.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -408,7 +509,8 @@
      "chuva": 4.9,
      "fma": 1.85,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -416,7 +518,8 @@
      "chuva": 2.0,
      "fma": 3.24,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -424,7 +527,8 @@
      "chuva": 9.7,
      "fma": 2.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -432,7 +536,8 @@
      "chuva": 11.1,
      "fma": 1.65,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -440,7 +545,8 @@
      "chuva": 1.3,
      "fma": 3.16,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -448,7 +554,8 @@
      "chuva": 0.0,
      "fma": 4.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -456,7 +563,8 @@
      "chuva": 2.3,
      "fma": 6.61,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -464,7 +572,8 @@
      "chuva": 14.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -472,7 +581,8 @@
      "chuva": 2.0,
      "fma": 1.37,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -480,7 +590,8 @@
      "chuva": 2.6,
      "fma": 2.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -488,7 +599,35 @@
      "chuva": 1.0,
      "fma": 4.35,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 65.0,
+     "chuva": 0.9,
+     "fma": 5.89,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 64.0,
+     "chuva": 17.6,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 78.0,
+     "chuva": 11.2,
+     "fma": 1.28,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -509,7 +648,8 @@
      "chuva": null,
      "fma": 1.92,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -517,7 +657,8 @@
      "chuva": 0.0,
      "fma": 4.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -525,7 +666,8 @@
      "chuva": 0.0,
      "fma": 6.74,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -533,7 +675,8 @@
      "chuva": 0.0,
      "fma": 8.87,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -541,7 +684,8 @@
      "chuva": 1.9,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -549,7 +693,8 @@
      "chuva": 0.2,
      "fma": 11.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -557,7 +702,8 @@
      "chuva": 1.9,
      "fma": 12.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -565,7 +711,8 @@
      "chuva": 1.7,
      "fma": 14.13,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -573,7 +720,8 @@
      "chuva": 0.0,
      "fma": 15.58,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -581,7 +729,8 @@
      "chuva": 22.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -589,7 +738,8 @@
      "chuva": 1.1,
      "fma": 1.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -597,7 +747,8 @@
      "chuva": 0.0,
      "fma": 3.61,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -605,7 +756,8 @@
      "chuva": 4.2,
      "fma": 3.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -613,7 +765,8 @@
      "chuva": 15.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -621,7 +774,8 @@
      "chuva": 2.7,
      "fma": 1.61,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -629,7 +783,8 @@
      "chuva": 8.1,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -637,7 +792,8 @@
      "chuva": 0.0,
      "fma": 4.23,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -645,7 +801,8 @@
      "chuva": 0.0,
      "fma": 6.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -653,7 +810,8 @@
      "chuva": 2.0,
      "fma": 7.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -661,7 +819,8 @@
      "chuva": 22.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -669,7 +828,8 @@
      "chuva": 11.2,
      "fma": 1.2,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -677,7 +837,8 @@
      "chuva": 4.7,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -685,7 +846,8 @@
      "chuva": 3.4,
      "fma": 2.99,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -693,7 +855,8 @@
      "chuva": 9.3,
      "fma": 2.33,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -701,7 +864,8 @@
      "chuva": 30.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -709,7 +873,8 @@
      "chuva": 0.3,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -717,7 +882,8 @@
      "chuva": 1.5,
      "fma": 2.68,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -725,7 +891,8 @@
      "chuva": 21.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -733,7 +900,8 @@
      "chuva": 9.9,
      "fma": 1.23,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -741,7 +909,8 @@
      "chuva": 2.3,
      "fma": 2.62,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -749,7 +918,8 @@
      "chuva": 2.2,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -757,7 +927,8 @@
      "chuva": 1.7,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -765,7 +936,8 @@
      "chuva": 0.0,
      "fma": 6.93,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -773,7 +945,8 @@
      "chuva": 0.0,
      "fma": 8.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -781,7 +954,8 @@
      "chuva": 13.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -789,7 +963,8 @@
      "chuva": 1.0,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -797,7 +972,8 @@
      "chuva": 20.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -805,7 +981,8 @@
      "chuva": 3.1,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -813,7 +990,8 @@
      "chuva": 0.0,
      "fma": 2.77,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -821,7 +999,8 @@
      "chuva": 0.3,
      "fma": 4.59,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -829,7 +1008,8 @@
      "chuva": 0.0,
      "fma": 5.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -837,7 +1017,8 @@
      "chuva": 1.2,
      "fma": 7.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -845,7 +1026,8 @@
      "chuva": 1.9,
      "fma": 9.51,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -853,7 +1035,8 @@
      "chuva": 4.5,
      "fma": 8.62,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -861,7 +1044,8 @@
      "chuva": 1.9,
      "fma": 10.18,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -869,7 +1053,8 @@
      "chuva": 6.4,
      "fma": 5.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -877,7 +1062,8 @@
      "chuva": 25.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -885,7 +1071,8 @@
      "chuva": 5.3,
      "fma": 1.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -893,7 +1080,8 @@
      "chuva": 3.8,
      "fma": 2.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -901,7 +1089,8 @@
      "chuva": 10.4,
      "fma": 2.0,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -909,7 +1098,8 @@
      "chuva": 11.5,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -917,7 +1107,8 @@
      "chuva": 3.6,
      "fma": 2.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -925,7 +1116,8 @@
      "chuva": 0.0,
      "fma": 4.31,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -933,7 +1125,8 @@
      "chuva": 2.2,
      "fma": 5.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -941,7 +1134,8 @@
      "chuva": 14.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -949,7 +1143,8 @@
      "chuva": 2.0,
      "fma": 1.47,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -957,7 +1152,8 @@
      "chuva": 2.7,
      "fma": 2.48,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -965,7 +1161,35 @@
      "chuva": 1.2,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 63.0,
+     "chuva": 1.2,
+     "fma": 5.95,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 62.0,
+     "chuva": 7.9,
+     "fma": 3.99,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 85.0,
+     "chuva": 10.3,
+     "fma": 1.98,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -986,7 +1210,8 @@
      "chuva": null,
      "fma": 2.44,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -994,7 +1219,8 @@
      "chuva": 0.0,
      "fma": 5.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -1002,7 +1228,8 @@
      "chuva": 0.0,
      "fma": 7.55,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -1010,7 +1237,8 @@
      "chuva": 0.0,
      "fma": 9.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -1018,7 +1246,8 @@
      "chuva": 2.4,
      "fma": 11.39,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -1026,7 +1255,8 @@
      "chuva": 0.0,
      "fma": 12.93,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -1034,7 +1264,8 @@
      "chuva": 4.0,
      "fma": 10.12,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -1042,7 +1273,8 @@
      "chuva": 3.3,
      "fma": 8.33,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -1050,7 +1282,8 @@
      "chuva": 0.5,
      "fma": 9.8,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -1058,7 +1291,8 @@
      "chuva": 18.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -1066,7 +1300,8 @@
      "chuva": 1.2,
      "fma": 2.04,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -1074,7 +1309,8 @@
      "chuva": 0.0,
      "fma": 4.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -1082,7 +1318,8 @@
      "chuva": 6.6,
      "fma": 3.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -1090,7 +1327,8 @@
      "chuva": 17.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -1098,7 +1336,8 @@
      "chuva": 0.9,
      "fma": 1.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -1106,7 +1345,8 @@
      "chuva": 7.9,
      "fma": 2.41,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -1114,7 +1354,8 @@
      "chuva": 0.2,
      "fma": 4.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -1122,7 +1363,8 @@
      "chuva": 0.0,
      "fma": 6.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -1130,7 +1372,8 @@
      "chuva": 0.8,
      "fma": 8.54,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -1138,7 +1381,8 @@
      "chuva": 21.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -1146,7 +1390,8 @@
      "chuva": 11.3,
      "fma": 1.3,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -1154,7 +1399,8 @@
      "chuva": 8.9,
      "fma": 1.82,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -1162,7 +1408,8 @@
      "chuva": 15.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -1170,7 +1417,8 @@
      "chuva": 12.6,
      "fma": 1.19,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -1178,7 +1426,8 @@
      "chuva": 36.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -1186,7 +1435,8 @@
      "chuva": 7.5,
      "fma": 1.41,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -1194,7 +1444,8 @@
      "chuva": 0.4,
      "fma": 2.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -1202,7 +1453,8 @@
      "chuva": 14.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -1210,7 +1462,8 @@
      "chuva": 10.0,
      "fma": 1.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -1218,7 +1471,8 @@
      "chuva": 3.3,
      "fma": 2.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -1226,7 +1480,8 @@
      "chuva": 0.6,
      "fma": 4.01,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -1234,7 +1489,8 @@
      "chuva": 0.3,
      "fma": 5.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -1242,7 +1498,8 @@
      "chuva": 0.0,
      "fma": 7.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -1250,7 +1507,8 @@
      "chuva": 0.0,
      "fma": 9.47,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -1258,7 +1516,8 @@
      "chuva": 10.8,
      "fma": 3.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -1266,7 +1525,8 @@
      "chuva": 0.8,
      "fma": 5.09,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -1274,7 +1534,8 @@
      "chuva": 18.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -1282,7 +1543,8 @@
      "chuva": 1.8,
      "fma": 1.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -1290,7 +1552,8 @@
      "chuva": 0.3,
      "fma": 3.11,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -1298,7 +1561,8 @@
      "chuva": 0.3,
      "fma": 4.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -1306,7 +1570,8 @@
      "chuva": 0.0,
      "fma": 6.33,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -1314,7 +1579,8 @@
      "chuva": 0.6,
      "fma": 8.08,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -1322,7 +1588,8 @@
      "chuva": 3.0,
      "fma": 7.7,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -1330,7 +1597,8 @@
      "chuva": 2.1,
      "fma": 9.7,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -1338,7 +1606,8 @@
      "chuva": 0.6,
      "fma": 11.11,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -1346,7 +1615,8 @@
      "chuva": 13.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -1354,7 +1624,8 @@
      "chuva": 28.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -1362,7 +1633,8 @@
      "chuva": 4.9,
      "fma": 1.89,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -1370,7 +1642,8 @@
      "chuva": 3.0,
      "fma": 2.73,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -1378,7 +1651,8 @@
      "chuva": 18.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -1386,7 +1660,8 @@
      "chuva": 6.6,
      "fma": 1.11,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -1394,7 +1669,8 @@
      "chuva": 0.6,
      "fma": 2.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -1402,7 +1678,8 @@
      "chuva": 0.0,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -1410,7 +1687,8 @@
      "chuva": 0.3,
      "fma": 6.19,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -1418,7 +1696,8 @@
      "chuva": 6.9,
      "fma": 3.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -1426,7 +1705,8 @@
      "chuva": 1.8,
      "fma": 5.07,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -1434,7 +1714,8 @@
      "chuva": 2.0,
      "fma": 6.52,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -1442,7 +1723,35 @@
      "chuva": 1.7,
      "fma": 8.34,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 75.0,
+     "chuva": 1.3,
+     "fma": 9.67,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 55.0,
+     "chuva": 12.5,
+     "fma": 3.75,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 76.0,
+     "chuva": 12.7,
+     "fma": 2.07,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -1463,7 +1772,8 @@
      "chuva": null,
      "fma": 2.38,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -1471,7 +1781,8 @@
      "chuva": 0.0,
      "fma": 5.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -1479,7 +1790,8 @@
      "chuva": 0.0,
      "fma": 7.45,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -1487,7 +1799,8 @@
      "chuva": 0.0,
      "fma": 9.95,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -1495,7 +1808,8 @@
      "chuva": 5.5,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -1503,7 +1817,8 @@
      "chuva": 0.2,
      "fma": 6.88,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -1511,7 +1826,8 @@
      "chuva": 3.2,
      "fma": 6.05,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -1519,7 +1835,8 @@
      "chuva": 2.8,
      "fma": 5.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -1527,7 +1844,8 @@
      "chuva": 0.5,
      "fma": 6.8,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -1535,7 +1853,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -1543,7 +1862,8 @@
      "chuva": 2.6,
      "fma": 1.64,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -1551,7 +1871,8 @@
      "chuva": 0.0,
      "fma": 4.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -1559,7 +1880,8 @@
      "chuva": 5.1,
      "fma": 3.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -1567,7 +1889,8 @@
      "chuva": 13.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -1575,7 +1898,8 @@
      "chuva": 0.8,
      "fma": 1.45,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -1583,7 +1907,8 @@
      "chuva": 12.5,
      "fma": 1.98,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -1591,7 +1916,8 @@
      "chuva": 0.7,
      "fma": 4.03,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -1599,7 +1925,8 @@
      "chuva": 0.0,
      "fma": 6.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -1607,7 +1934,8 @@
      "chuva": 0.5,
      "fma": 8.03,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -1615,7 +1943,8 @@
      "chuva": 21.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -1623,7 +1952,8 @@
      "chuva": 9.9,
      "fma": 1.16,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -1631,7 +1961,8 @@
      "chuva": 12.6,
      "fma": 1.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -1639,7 +1970,8 @@
      "chuva": 11.3,
      "fma": 1.58,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -1647,7 +1979,8 @@
      "chuva": 7.8,
      "fma": 1.74,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -1655,7 +1988,8 @@
      "chuva": 27.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -1663,7 +1997,8 @@
      "chuva": 2.1,
      "fma": 1.54,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -1671,7 +2006,8 @@
      "chuva": 4.7,
      "fma": 2.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -1679,7 +2015,8 @@
      "chuva": 13.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -1687,7 +2024,8 @@
      "chuva": 11.7,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -1695,7 +2033,8 @@
      "chuva": 4.0,
      "fma": 2.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -1703,7 +2042,8 @@
      "chuva": 2.8,
      "fma": 3.08,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -1711,7 +2051,8 @@
      "chuva": 0.0,
      "fma": 4.53,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -1719,7 +2060,8 @@
      "chuva": 0.1,
      "fma": 6.14,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -1727,7 +2069,8 @@
      "chuva": 0.2,
      "fma": 8.06,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -1735,7 +2078,8 @@
      "chuva": 8.7,
      "fma": 4.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -1743,7 +2087,8 @@
      "chuva": 1.0,
      "fma": 6.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -1751,7 +2096,8 @@
      "chuva": 25.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -1759,7 +2105,8 @@
      "chuva": 6.4,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -1767,7 +2114,8 @@
      "chuva": 0.0,
      "fma": 3.04,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -1775,7 +2123,8 @@
      "chuva": 0.0,
      "fma": 4.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -1783,7 +2132,8 @@
      "chuva": 0.0,
      "fma": 6.18,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -1791,7 +2141,8 @@
      "chuva": 1.6,
      "fma": 7.72,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -1799,7 +2150,8 @@
      "chuva": 3.8,
      "fma": 7.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -1807,7 +2159,8 @@
      "chuva": 1.8,
      "fma": 8.77,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -1815,7 +2168,8 @@
      "chuva": 1.4,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -1823,7 +2177,8 @@
      "chuva": 12.2,
      "fma": 3.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -1831,7 +2186,8 @@
      "chuva": 32.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -1839,7 +2195,8 @@
      "chuva": 5.8,
      "fma": 1.96,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -1847,7 +2204,8 @@
      "chuva": 2.1,
      "fma": 3.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -1855,7 +2213,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -1863,7 +2222,8 @@
      "chuva": 7.3,
      "fma": 1.1,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -1871,7 +2231,8 @@
      "chuva": 2.6,
      "fma": 2.26,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -1879,7 +2240,8 @@
      "chuva": 0.0,
      "fma": 3.96,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -1887,7 +2249,8 @@
      "chuva": 0.6,
      "fma": 5.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -1895,7 +2258,8 @@
      "chuva": 12.0,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -1903,7 +2267,8 @@
      "chuva": 1.5,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -1911,7 +2276,8 @@
      "chuva": 1.6,
      "fma": 5.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -1919,7 +2285,480 @@
      "chuva": 0.8,
      "fma": 7.32,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 72.0,
+     "chuva": 2.0,
+     "fma": 8.71,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 55.0,
+     "chuva": 9.8,
+     "fma": 5.3,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 73.0,
+     "chuva": 20.4,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    }
+   ]
+  },
+  {
+   "codigo_ibge": "3302601",
+   "nome": "Mangaratiba",
+   "latitude": -22.9308,
+   "longitude": -44.0644,
+   "estacao_proxima": {
+    "codigo": "A628",
+    "nome": "Angra Dos Reis",
+    "km": 25
+   },
+   "serie": [
+    {
+     "data": "2026-08-31",
+     "umidade": 85.0,
+     "chuva": null,
+     "fma": 1.18,
+     "classe": "Pequeno",
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-01",
+     "umidade": 86.0,
+     "chuva": 2.2,
+     "fma": 2.34,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-02",
+     "umidade": 58.0,
+     "chuva": 13.3,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-03",
+     "umidade": 53.0,
+     "chuva": 0.9,
+     "fma": 1.89,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-04",
+     "umidade": 52.0,
+     "chuva": 0.0,
+     "fma": 3.81,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-05",
+     "umidade": 83.0,
+     "chuva": 2.4,
+     "fma": 5.01,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-06",
+     "umidade": 92.0,
+     "chuva": 38.8,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-07",
+     "umidade": 78.0,
+     "chuva": 25.5,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-08",
+     "umidade": 78.0,
+     "chuva": 3.6,
+     "fma": 1.28,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-09",
+     "umidade": 85.0,
+     "chuva": 4.2,
+     "fma": 2.07,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-10",
+     "umidade": 91.0,
+     "chuva": 18.9,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-11",
+     "umidade": 88.0,
+     "chuva": 17.3,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-12",
+     "umidade": 79.0,
+     "chuva": 8.4,
+     "fma": 1.27,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-13",
+     "umidade": 94.0,
+     "chuva": 14.2,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-14",
+     "umidade": 92.0,
+     "chuva": 16.2,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-15",
+     "umidade": 79.0,
+     "chuva": 14.2,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-16",
+     "umidade": 71.0,
+     "chuva": 5.7,
+     "fma": 1.41,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-17",
+     "umidade": 70.0,
+     "chuva": 4.7,
+     "fma": 2.41,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-18",
+     "umidade": 75.0,
+     "chuva": 0.5,
+     "fma": 3.75,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-19",
+     "umidade": 72.0,
+     "chuva": 0.0,
+     "fma": 5.14,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-20",
+     "umidade": 68.0,
+     "chuva": 0.0,
+     "fma": 6.61,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-21",
+     "umidade": 47.0,
+     "chuva": 7.8,
+     "fma": 4.77,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-22",
+     "umidade": 88.0,
+     "chuva": 10.0,
+     "fma": 2.09,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-23",
+     "umidade": 92.0,
+     "chuva": 45.9,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-24",
+     "umidade": 81.0,
+     "chuva": 4.5,
+     "fma": 1.23,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-25",
+     "umidade": 77.0,
+     "chuva": 0.5,
+     "fma": 2.53,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-26",
+     "umidade": 73.0,
+     "chuva": 0.0,
+     "fma": 3.9,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-27",
+     "umidade": 84.0,
+     "chuva": 0.1,
+     "fma": 5.09,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-28",
+     "umidade": 79.0,
+     "chuva": 2.7,
+     "fma": 4.83,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-29",
+     "umidade": 74.0,
+     "chuva": 1.7,
+     "fma": 6.18,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-09-30",
+     "umidade": 57.0,
+     "chuva": 2.0,
+     "fma": 7.94,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-01",
+     "umidade": 81.0,
+     "chuva": 1.3,
+     "fma": 9.17,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-02",
+     "umidade": 92.0,
+     "chuva": 20.5,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-03",
+     "umidade": 94.0,
+     "chuva": 35.7,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-04",
+     "umidade": 51.0,
+     "chuva": 1.4,
+     "fma": 1.96,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-05",
+     "umidade": 75.0,
+     "chuva": 2.5,
+     "fma": 2.71,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-06",
+     "umidade": 84.0,
+     "chuva": 9.7,
+     "fma": 2.27,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-07",
+     "umidade": 85.0,
+     "chuva": 5.0,
+     "fma": 2.09,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-08",
+     "umidade": 74.0,
+     "chuva": 0.8,
+     "fma": 3.44,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-09",
+     "umidade": 73.0,
+     "chuva": 0.0,
+     "fma": 4.81,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-10",
+     "umidade": 73.0,
+     "chuva": 0.6,
+     "fma": 6.18,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-11",
+     "umidade": 72.0,
+     "chuva": 1.3,
+     "fma": 7.57,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-12",
+     "umidade": 79.0,
+     "chuva": 3.2,
+     "fma": 6.56,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-13",
+     "umidade": 68.0,
+     "chuva": 1.7,
+     "fma": 8.03,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-14",
+     "umidade": 68.0,
+     "chuva": 0.4,
+     "fma": 9.5,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 69.0,
+     "chuva": 0.7,
+     "fma": 10.95,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 78.0,
+     "chuva": 13.0,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 88.0,
+     "chuva": 16.2,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -1940,7 +2779,8 @@
      "chuva": null,
      "fma": 1.92,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -1948,7 +2788,8 @@
      "chuva": 0.0,
      "fma": 4.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -1956,7 +2797,8 @@
      "chuva": 0.0,
      "fma": 6.74,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -1964,7 +2806,8 @@
      "chuva": 0.0,
      "fma": 8.87,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -1972,7 +2815,8 @@
      "chuva": 1.9,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -1980,7 +2824,8 @@
      "chuva": 0.2,
      "fma": 11.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -1988,7 +2833,8 @@
      "chuva": 1.9,
      "fma": 12.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -1996,7 +2842,8 @@
      "chuva": 1.7,
      "fma": 14.13,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -2004,7 +2851,8 @@
      "chuva": 0.0,
      "fma": 15.58,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -2012,7 +2860,8 @@
      "chuva": 22.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -2020,7 +2869,8 @@
      "chuva": 1.1,
      "fma": 1.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -2028,7 +2878,8 @@
      "chuva": 0.0,
      "fma": 3.61,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -2036,7 +2887,8 @@
      "chuva": 4.2,
      "fma": 3.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -2044,7 +2896,8 @@
      "chuva": 15.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -2052,7 +2905,8 @@
      "chuva": 2.7,
      "fma": 1.61,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -2060,7 +2914,8 @@
      "chuva": 8.1,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -2068,7 +2923,8 @@
      "chuva": 0.0,
      "fma": 4.23,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -2076,7 +2932,8 @@
      "chuva": 0.0,
      "fma": 6.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -2084,7 +2941,8 @@
      "chuva": 2.0,
      "fma": 7.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -2092,7 +2950,8 @@
      "chuva": 22.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -2100,7 +2959,8 @@
      "chuva": 11.2,
      "fma": 1.2,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -2108,7 +2968,8 @@
      "chuva": 4.7,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -2116,7 +2977,8 @@
      "chuva": 3.4,
      "fma": 2.99,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -2124,7 +2986,8 @@
      "chuva": 9.3,
      "fma": 2.33,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -2132,7 +2995,8 @@
      "chuva": 30.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -2140,7 +3004,8 @@
      "chuva": 0.3,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -2148,7 +3013,8 @@
      "chuva": 1.5,
      "fma": 2.68,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -2156,7 +3022,8 @@
      "chuva": 21.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -2164,7 +3031,8 @@
      "chuva": 9.9,
      "fma": 1.23,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -2172,7 +3040,8 @@
      "chuva": 2.3,
      "fma": 2.62,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -2180,7 +3049,8 @@
      "chuva": 2.2,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -2188,7 +3058,8 @@
      "chuva": 1.7,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -2196,7 +3067,8 @@
      "chuva": 0.0,
      "fma": 6.93,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -2204,7 +3076,8 @@
      "chuva": 0.0,
      "fma": 8.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -2212,7 +3085,8 @@
      "chuva": 13.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -2220,7 +3094,8 @@
      "chuva": 1.0,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -2228,7 +3103,8 @@
      "chuva": 20.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -2236,7 +3112,8 @@
      "chuva": 3.1,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -2244,7 +3121,8 @@
      "chuva": 0.0,
      "fma": 2.77,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -2252,7 +3130,8 @@
      "chuva": 0.3,
      "fma": 4.59,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -2260,7 +3139,8 @@
      "chuva": 0.0,
      "fma": 5.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -2268,7 +3148,8 @@
      "chuva": 1.2,
      "fma": 7.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -2276,7 +3157,8 @@
      "chuva": 1.9,
      "fma": 9.51,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -2284,7 +3166,8 @@
      "chuva": 4.5,
      "fma": 8.62,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -2292,7 +3175,8 @@
      "chuva": 1.9,
      "fma": 10.18,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -2300,7 +3184,8 @@
      "chuva": 6.4,
      "fma": 5.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -2308,7 +3193,8 @@
      "chuva": 25.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -2316,7 +3202,8 @@
      "chuva": 5.3,
      "fma": 1.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -2324,7 +3211,8 @@
      "chuva": 3.8,
      "fma": 2.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -2332,7 +3220,8 @@
      "chuva": 10.4,
      "fma": 2.0,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -2340,7 +3229,8 @@
      "chuva": 11.5,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -2348,7 +3238,8 @@
      "chuva": 3.6,
      "fma": 2.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -2356,7 +3247,8 @@
      "chuva": 0.0,
      "fma": 4.31,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -2364,7 +3256,8 @@
      "chuva": 2.2,
      "fma": 5.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -2372,7 +3265,8 @@
      "chuva": 14.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -2380,7 +3274,8 @@
      "chuva": 2.0,
      "fma": 1.47,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -2388,7 +3283,8 @@
      "chuva": 2.7,
      "fma": 2.48,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -2396,7 +3292,8 @@
      "chuva": 1.2,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     }
    ]
   },
@@ -2417,7 +3314,8 @@
      "chuva": null,
      "fma": 2.04,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -2425,7 +3323,8 @@
      "chuva": 0.0,
      "fma": 4.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -2433,7 +3332,8 @@
      "chuva": 0.0,
      "fma": 7.4,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -2441,7 +3341,8 @@
      "chuva": 0.1,
      "fma": 9.62,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -2449,7 +3350,8 @@
      "chuva": 5.6,
      "fma": 5.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -2457,7 +3359,8 @@
      "chuva": 0.6,
      "fma": 6.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -2465,7 +3368,8 @@
      "chuva": 3.2,
      "fma": 5.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -2473,7 +3377,8 @@
      "chuva": 2.8,
      "fma": 5.25,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -2481,7 +3386,8 @@
      "chuva": 0.3,
      "fma": 6.68,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -2489,7 +3395,8 @@
      "chuva": 20.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -2497,7 +3404,8 @@
      "chuva": 5.1,
      "fma": 1.79,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -2505,7 +3413,8 @@
      "chuva": 0.0,
      "fma": 3.75,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -2513,7 +3422,8 @@
      "chuva": 18.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -2521,7 +3431,8 @@
      "chuva": 15.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -2529,7 +3440,8 @@
      "chuva": 2.4,
      "fma": 1.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -2537,7 +3449,8 @@
      "chuva": 12.3,
      "fma": 1.88,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -2545,7 +3458,8 @@
      "chuva": 0.9,
      "fma": 3.61,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -2553,7 +3467,8 @@
      "chuva": 0.0,
      "fma": 5.53,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -2561,7 +3476,8 @@
      "chuva": 3.0,
      "fma": 5.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -2569,7 +3485,8 @@
      "chuva": 24.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -2577,7 +3494,8 @@
      "chuva": 15.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -2585,7 +3503,8 @@
      "chuva": 5.6,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -2593,7 +3512,8 @@
      "chuva": 22.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -2601,7 +3521,8 @@
      "chuva": 8.3,
      "fma": 1.14,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -2609,7 +3530,8 @@
      "chuva": 32.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -2617,7 +3539,8 @@
      "chuva": 0.3,
      "fma": 1.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -2625,7 +3548,8 @@
      "chuva": 3.3,
      "fma": 2.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -2633,7 +3557,8 @@
      "chuva": 22.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -2641,7 +3566,8 @@
      "chuva": 9.8,
      "fma": 1.15,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -2649,7 +3575,8 @@
      "chuva": 3.2,
      "fma": 2.09,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -2657,7 +3584,8 @@
      "chuva": 5.1,
      "fma": 1.97,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -2665,7 +3593,8 @@
      "chuva": 3.9,
      "fma": 2.83,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -2673,7 +3602,8 @@
      "chuva": 0.3,
      "fma": 4.42,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -2681,7 +3611,8 @@
      "chuva": 0.0,
      "fma": 6.08,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -2689,7 +3620,8 @@
      "chuva": 11.1,
      "fma": 2.76,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -2697,7 +3629,8 @@
      "chuva": 2.1,
      "fma": 4.32,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -2705,7 +3638,8 @@
      "chuva": 35.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -2713,7 +3647,8 @@
      "chuva": 4.1,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -2721,7 +3656,8 @@
      "chuva": 0.5,
      "fma": 2.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -2729,7 +3665,8 @@
      "chuva": 0.9,
      "fma": 4.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -2737,7 +3674,8 @@
      "chuva": 0.4,
      "fma": 5.83,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -2745,7 +3683,8 @@
      "chuva": 1.4,
      "fma": 7.5,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -2753,7 +3692,8 @@
      "chuva": 1.3,
      "fma": 9.25,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -2761,7 +3701,8 @@
      "chuva": 10.2,
      "fma": 3.77,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -2769,7 +3710,8 @@
      "chuva": 2.4,
      "fma": 5.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -2777,7 +3719,8 @@
      "chuva": 15.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -2785,7 +3728,8 @@
      "chuva": 25.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -2793,7 +3737,8 @@
      "chuva": 5.2,
      "fma": 1.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -2801,7 +3746,8 @@
      "chuva": 10.1,
      "fma": 1.59,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -2809,7 +3755,8 @@
      "chuva": 21.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -2817,7 +3764,8 @@
      "chuva": 7.4,
      "fma": 1.23,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -2825,7 +3773,8 @@
      "chuva": 3.5,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -2833,7 +3782,8 @@
      "chuva": 0.0,
      "fma": 4.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -2841,7 +3791,8 @@
      "chuva": 1.9,
      "fma": 5.82,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -2849,7 +3800,8 @@
      "chuva": 23.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -2857,7 +3809,8 @@
      "chuva": 3.8,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -2865,7 +3818,8 @@
      "chuva": 3.6,
      "fma": 2.32,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -2873,7 +3827,35 @@
      "chuva": 2.4,
      "fma": 4.1,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 70.0,
+     "chuva": 2.3,
+     "fma": 5.53,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 68.0,
+     "chuva": 5.8,
+     "fma": 3.68,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 91.0,
+     "chuva": 23.1,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -2894,7 +3876,8 @@
      "chuva": null,
      "fma": 2.38,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -2902,7 +3885,8 @@
      "chuva": 0.0,
      "fma": 5.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -2910,7 +3894,8 @@
      "chuva": 0.0,
      "fma": 7.45,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -2918,7 +3903,8 @@
      "chuva": 0.0,
      "fma": 9.95,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -2926,7 +3912,8 @@
      "chuva": 5.5,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -2934,7 +3921,8 @@
      "chuva": 0.2,
      "fma": 6.88,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -2942,7 +3930,8 @@
      "chuva": 3.2,
      "fma": 6.05,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -2950,7 +3939,8 @@
      "chuva": 2.8,
      "fma": 5.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -2958,7 +3948,8 @@
      "chuva": 0.5,
      "fma": 6.8,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -2966,7 +3957,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -2974,7 +3966,8 @@
      "chuva": 2.6,
      "fma": 1.64,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -2982,7 +3975,8 @@
      "chuva": 0.0,
      "fma": 4.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -2990,7 +3984,8 @@
      "chuva": 5.1,
      "fma": 3.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -2998,7 +3993,8 @@
      "chuva": 13.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -3006,7 +4002,8 @@
      "chuva": 0.8,
      "fma": 1.45,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -3014,7 +4011,8 @@
      "chuva": 12.5,
      "fma": 1.98,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -3022,7 +4020,8 @@
      "chuva": 0.7,
      "fma": 4.03,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -3030,7 +4029,8 @@
      "chuva": 0.0,
      "fma": 6.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -3038,7 +4038,8 @@
      "chuva": 0.5,
      "fma": 8.03,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -3046,7 +4047,8 @@
      "chuva": 21.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -3054,7 +4056,8 @@
      "chuva": 9.9,
      "fma": 1.16,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -3062,7 +4065,8 @@
      "chuva": 12.6,
      "fma": 1.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -3070,7 +4074,8 @@
      "chuva": 11.3,
      "fma": 1.58,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -3078,7 +4083,8 @@
      "chuva": 7.8,
      "fma": 1.74,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -3086,7 +4092,8 @@
      "chuva": 27.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -3094,7 +4101,8 @@
      "chuva": 2.1,
      "fma": 1.54,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -3102,7 +4110,8 @@
      "chuva": 4.7,
      "fma": 2.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -3110,7 +4119,8 @@
      "chuva": 13.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -3118,7 +4128,8 @@
      "chuva": 11.7,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -3126,7 +4137,8 @@
      "chuva": 4.0,
      "fma": 2.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -3134,7 +4146,8 @@
      "chuva": 2.8,
      "fma": 3.08,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -3142,7 +4155,8 @@
      "chuva": 0.0,
      "fma": 4.53,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -3150,7 +4164,8 @@
      "chuva": 0.1,
      "fma": 6.14,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -3158,7 +4173,8 @@
      "chuva": 0.2,
      "fma": 8.06,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -3166,7 +4182,8 @@
      "chuva": 8.7,
      "fma": 4.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -3174,7 +4191,8 @@
      "chuva": 1.0,
      "fma": 6.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -3182,7 +4200,8 @@
      "chuva": 25.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -3190,7 +4209,8 @@
      "chuva": 6.4,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -3198,7 +4218,8 @@
      "chuva": 0.0,
      "fma": 3.04,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -3206,7 +4227,8 @@
      "chuva": 0.0,
      "fma": 4.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -3214,7 +4236,8 @@
      "chuva": 0.0,
      "fma": 6.18,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -3222,7 +4245,8 @@
      "chuva": 1.6,
      "fma": 7.72,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -3230,7 +4254,8 @@
      "chuva": 3.8,
      "fma": 7.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -3238,7 +4263,8 @@
      "chuva": 1.8,
      "fma": 8.77,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -3246,7 +4272,8 @@
      "chuva": 1.4,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -3254,7 +4281,8 @@
      "chuva": 12.2,
      "fma": 3.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -3262,7 +4290,8 @@
      "chuva": 32.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -3270,7 +4299,8 @@
      "chuva": 5.8,
      "fma": 1.96,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -3278,7 +4308,8 @@
      "chuva": 2.1,
      "fma": 3.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -3286,7 +4317,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -3294,7 +4326,8 @@
      "chuva": 7.3,
      "fma": 1.1,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -3302,7 +4335,8 @@
      "chuva": 2.6,
      "fma": 2.26,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -3310,7 +4344,8 @@
      "chuva": 0.0,
      "fma": 3.96,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -3318,7 +4353,8 @@
      "chuva": 0.6,
      "fma": 5.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -3326,7 +4362,8 @@
      "chuva": 12.0,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -3334,7 +4371,8 @@
      "chuva": 1.5,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -3342,7 +4380,8 @@
      "chuva": 1.6,
      "fma": 5.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -3350,7 +4389,35 @@
      "chuva": 0.8,
      "fma": 7.32,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 72.0,
+     "chuva": 2.0,
+     "fma": 8.71,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 55.0,
+     "chuva": 9.8,
+     "fma": 5.3,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 73.0,
+     "chuva": 20.4,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -3371,7 +4438,8 @@
      "chuva": null,
      "fma": 1.92,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -3379,7 +4447,8 @@
      "chuva": 0.0,
      "fma": 4.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -3387,7 +4456,8 @@
      "chuva": 0.0,
      "fma": 6.74,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -3395,7 +4465,8 @@
      "chuva": 0.0,
      "fma": 8.87,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -3403,7 +4474,8 @@
      "chuva": 1.9,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -3411,7 +4483,8 @@
      "chuva": 0.2,
      "fma": 11.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -3419,7 +4492,8 @@
      "chuva": 1.9,
      "fma": 12.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -3427,7 +4501,8 @@
      "chuva": 1.7,
      "fma": 14.13,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -3435,7 +4510,8 @@
      "chuva": 0.0,
      "fma": 15.58,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -3443,7 +4519,8 @@
      "chuva": 22.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -3451,7 +4528,8 @@
      "chuva": 1.1,
      "fma": 1.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -3459,7 +4537,8 @@
      "chuva": 0.0,
      "fma": 3.61,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -3467,7 +4546,8 @@
      "chuva": 4.2,
      "fma": 3.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -3475,7 +4555,8 @@
      "chuva": 15.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -3483,7 +4564,8 @@
      "chuva": 2.7,
      "fma": 1.61,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -3491,7 +4573,8 @@
      "chuva": 8.1,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -3499,7 +4582,8 @@
      "chuva": 0.0,
      "fma": 4.23,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -3507,7 +4591,8 @@
      "chuva": 0.0,
      "fma": 6.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -3515,7 +4600,8 @@
      "chuva": 2.0,
      "fma": 7.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -3523,7 +4609,8 @@
      "chuva": 22.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -3531,7 +4618,8 @@
      "chuva": 11.2,
      "fma": 1.2,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -3539,7 +4627,8 @@
      "chuva": 4.7,
      "fma": 2.31,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -3547,7 +4636,8 @@
      "chuva": 3.4,
      "fma": 2.99,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -3555,7 +4645,8 @@
      "chuva": 9.3,
      "fma": 2.33,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -3563,7 +4654,8 @@
      "chuva": 30.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -3571,7 +4663,8 @@
      "chuva": 0.3,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -3579,7 +4672,8 @@
      "chuva": 1.5,
      "fma": 2.68,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -3587,7 +4681,8 @@
      "chuva": 21.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -3595,7 +4690,8 @@
      "chuva": 9.9,
      "fma": 1.23,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -3603,7 +4699,8 @@
      "chuva": 2.3,
      "fma": 2.62,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -3611,7 +4708,8 @@
      "chuva": 2.2,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -3619,7 +4717,8 @@
      "chuva": 1.7,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -3627,7 +4726,8 @@
      "chuva": 0.0,
      "fma": 6.93,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -3635,7 +4735,8 @@
      "chuva": 0.0,
      "fma": 8.75,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -3643,7 +4744,8 @@
      "chuva": 13.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -3651,7 +4753,8 @@
      "chuva": 1.0,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -3659,7 +4762,8 @@
      "chuva": 20.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -3667,7 +4771,8 @@
      "chuva": 3.1,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -3675,7 +4780,8 @@
      "chuva": 0.0,
      "fma": 2.77,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -3683,7 +4789,8 @@
      "chuva": 0.3,
      "fma": 4.59,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -3691,7 +4798,8 @@
      "chuva": 0.0,
      "fma": 5.91,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -3699,7 +4807,8 @@
      "chuva": 1.2,
      "fma": 7.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -3707,7 +4816,8 @@
      "chuva": 1.9,
      "fma": 9.51,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -3715,7 +4825,8 @@
      "chuva": 4.5,
      "fma": 8.62,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -3723,7 +4834,8 @@
      "chuva": 1.9,
      "fma": 10.18,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -3731,7 +4843,8 @@
      "chuva": 6.4,
      "fma": 5.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -3739,7 +4852,8 @@
      "chuva": 25.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -3747,7 +4861,8 @@
      "chuva": 5.3,
      "fma": 1.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -3755,7 +4870,8 @@
      "chuva": 3.8,
      "fma": 2.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -3763,7 +4879,8 @@
      "chuva": 10.4,
      "fma": 2.0,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -3771,7 +4888,8 @@
      "chuva": 11.5,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -3779,7 +4897,8 @@
      "chuva": 3.6,
      "fma": 2.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -3787,7 +4906,8 @@
      "chuva": 0.0,
      "fma": 4.31,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -3795,7 +4915,8 @@
      "chuva": 2.2,
      "fma": 5.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -3803,7 +4924,8 @@
      "chuva": 14.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -3811,7 +4933,8 @@
      "chuva": 2.0,
      "fma": 1.47,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -3819,7 +4942,8 @@
      "chuva": 2.7,
      "fma": 2.48,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -3827,7 +4951,35 @@
      "chuva": 1.2,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 63.0,
+     "chuva": 1.2,
+     "fma": 5.95,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 62.0,
+     "chuva": 7.9,
+     "fma": 3.99,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 85.0,
+     "chuva": 10.3,
+     "fma": 1.98,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -3848,7 +5000,8 @@
      "chuva": null,
      "fma": 1.89,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -3856,7 +5009,8 @@
      "chuva": 0.0,
      "fma": 4.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -3864,7 +5018,8 @@
      "chuva": 0.0,
      "fma": 6.66,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -3872,7 +5027,8 @@
      "chuva": 0.1,
      "fma": 8.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -3880,7 +5036,8 @@
      "chuva": 1.5,
      "fma": 10.15,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -3888,7 +5045,8 @@
      "chuva": 0.8,
      "fma": 11.66,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -3896,7 +5054,8 @@
      "chuva": 2.2,
      "fma": 12.77,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -3904,7 +5063,8 @@
      "chuva": 2.4,
      "fma": 13.94,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -3912,7 +5072,8 @@
      "chuva": 0.8,
      "fma": 15.33,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -3920,7 +5081,8 @@
      "chuva": 16.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -3928,7 +5090,8 @@
      "chuva": 1.1,
      "fma": 1.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -3936,7 +5099,8 @@
      "chuva": 0.0,
      "fma": 3.65,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -3944,7 +5108,8 @@
      "chuva": 1.5,
      "fma": 5.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -3952,7 +5117,8 @@
      "chuva": 20.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -3960,7 +5126,8 @@
      "chuva": 0.2,
      "fma": 1.37,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -3968,7 +5135,8 @@
      "chuva": 8.9,
      "fma": 2.3,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -3976,7 +5144,8 @@
      "chuva": 0.5,
      "fma": 4.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -3984,7 +5153,8 @@
      "chuva": 0.0,
      "fma": 6.19,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -3992,7 +5162,8 @@
      "chuva": 2.2,
      "fma": 7.67,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -4000,7 +5171,8 @@
      "chuva": 15.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -4008,7 +5180,8 @@
      "chuva": 5.6,
      "fma": 1.2,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -4016,7 +5189,8 @@
      "chuva": 10.3,
      "fma": 1.59,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -4024,7 +5198,8 @@
      "chuva": 8.1,
      "fma": 1.87,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -4032,7 +5207,8 @@
      "chuva": 13.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -4040,7 +5216,8 @@
      "chuva": 18.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -4048,7 +5225,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -4056,7 +5234,8 @@
      "chuva": 0.1,
      "fma": 1.22,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -4064,7 +5243,8 @@
      "chuva": 12.3,
      "fma": 1.51,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -4072,7 +5252,8 @@
      "chuva": 11.5,
      "fma": 1.44,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -4080,7 +5261,8 @@
      "chuva": 2.8,
      "fma": 2.48,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -4088,7 +5270,8 @@
      "chuva": 1.5,
      "fma": 3.83,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -4096,7 +5279,8 @@
      "chuva": 1.7,
      "fma": 5.13,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -4104,7 +5288,8 @@
      "chuva": 0.7,
      "fma": 6.67,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -4112,7 +5297,8 @@
      "chuva": 0.0,
      "fma": 8.52,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -4120,7 +5306,8 @@
      "chuva": 16.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -4128,7 +5315,8 @@
      "chuva": 3.6,
      "fma": 1.32,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -4136,7 +5324,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -4144,7 +5333,8 @@
      "chuva": 1.7,
      "fma": 1.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -4152,7 +5342,8 @@
      "chuva": 0.7,
      "fma": 2.69,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -4160,7 +5351,8 @@
      "chuva": 2.2,
      "fma": 4.42,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -4168,7 +5360,8 @@
      "chuva": 0.0,
      "fma": 5.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -4176,7 +5369,8 @@
      "chuva": 0.3,
      "fma": 7.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -4184,7 +5378,8 @@
      "chuva": 1.6,
      "fma": 9.16,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -4192,7 +5387,8 @@
      "chuva": 6.0,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -4200,7 +5396,8 @@
      "chuva": 0.9,
      "fma": 7.21,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -4208,7 +5405,8 @@
      "chuva": 11.2,
      "fma": 2.51,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -4216,7 +5414,8 @@
      "chuva": 22.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -4224,7 +5423,8 @@
      "chuva": 3.8,
      "fma": 1.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -4232,7 +5432,8 @@
      "chuva": 3.3,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -4240,7 +5441,8 @@
      "chuva": 10.9,
      "fma": 1.8,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -4248,7 +5450,8 @@
      "chuva": 8.1,
      "fma": 1.88,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -4256,7 +5459,8 @@
      "chuva": 1.4,
      "fma": 3.5,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -4264,7 +5468,8 @@
      "chuva": 0.0,
      "fma": 5.14,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -4272,7 +5477,8 @@
      "chuva": 1.9,
      "fma": 6.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -4280,7 +5486,8 @@
      "chuva": 14.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -4288,7 +5495,8 @@
      "chuva": 2.2,
      "fma": 1.45,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -4296,7 +5504,8 @@
      "chuva": 5.0,
      "fma": 1.99,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -4304,7 +5513,35 @@
      "chuva": 2.3,
      "fma": 3.95,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 69.0,
+     "chuva": 2.7,
+     "fma": 4.21,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 65.0,
+     "chuva": 14.1,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 89.0,
+     "chuva": 10.0,
+     "fma": 1.12,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -4325,7 +5562,8 @@
      "chuva": null,
      "fma": 2.38,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -4333,7 +5571,8 @@
      "chuva": 0.0,
      "fma": 5.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -4341,7 +5580,8 @@
      "chuva": 0.0,
      "fma": 7.45,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -4349,7 +5589,8 @@
      "chuva": 0.0,
      "fma": 9.95,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -4357,7 +5598,8 @@
      "chuva": 5.5,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -4365,7 +5607,8 @@
      "chuva": 0.2,
      "fma": 6.88,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -4373,7 +5616,8 @@
      "chuva": 3.2,
      "fma": 6.05,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -4381,7 +5625,8 @@
      "chuva": 2.8,
      "fma": 5.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -4389,7 +5634,8 @@
      "chuva": 0.5,
      "fma": 6.8,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -4397,7 +5643,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -4405,7 +5652,8 @@
      "chuva": 2.6,
      "fma": 1.64,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -4413,7 +5661,8 @@
      "chuva": 0.0,
      "fma": 4.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -4421,7 +5670,8 @@
      "chuva": 5.1,
      "fma": 3.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -4429,7 +5679,8 @@
      "chuva": 13.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -4437,7 +5688,8 @@
      "chuva": 0.8,
      "fma": 1.45,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -4445,7 +5697,8 @@
      "chuva": 12.5,
      "fma": 1.98,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -4453,7 +5706,8 @@
      "chuva": 0.7,
      "fma": 4.03,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -4461,7 +5715,8 @@
      "chuva": 0.0,
      "fma": 6.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -4469,7 +5724,8 @@
      "chuva": 0.5,
      "fma": 8.03,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -4477,7 +5733,8 @@
      "chuva": 21.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -4485,7 +5742,8 @@
      "chuva": 9.9,
      "fma": 1.16,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -4493,7 +5751,8 @@
      "chuva": 12.6,
      "fma": 1.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -4501,7 +5760,8 @@
      "chuva": 11.3,
      "fma": 1.58,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -4509,7 +5769,8 @@
      "chuva": 7.8,
      "fma": 1.74,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -4517,7 +5778,8 @@
      "chuva": 27.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -4525,7 +5787,8 @@
      "chuva": 2.1,
      "fma": 1.54,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -4533,7 +5796,8 @@
      "chuva": 4.7,
      "fma": 2.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -4541,7 +5805,8 @@
      "chuva": 13.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -4549,7 +5814,8 @@
      "chuva": 11.7,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -4557,7 +5823,8 @@
      "chuva": 4.0,
      "fma": 2.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -4565,7 +5832,8 @@
      "chuva": 2.8,
      "fma": 3.08,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -4573,7 +5841,8 @@
      "chuva": 0.0,
      "fma": 4.53,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -4581,7 +5850,8 @@
      "chuva": 0.1,
      "fma": 6.14,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -4589,7 +5859,8 @@
      "chuva": 0.2,
      "fma": 8.06,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -4597,7 +5868,8 @@
      "chuva": 8.7,
      "fma": 4.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -4605,7 +5877,8 @@
      "chuva": 1.0,
      "fma": 6.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -4613,7 +5886,8 @@
      "chuva": 25.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -4621,7 +5895,8 @@
      "chuva": 6.4,
      "fma": 1.28,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -4629,7 +5904,8 @@
      "chuva": 0.0,
      "fma": 3.04,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -4637,7 +5913,8 @@
      "chuva": 0.0,
      "fma": 4.73,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -4645,7 +5922,8 @@
      "chuva": 0.0,
      "fma": 6.18,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -4653,7 +5931,8 @@
      "chuva": 1.6,
      "fma": 7.72,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -4661,7 +5940,8 @@
      "chuva": 3.8,
      "fma": 7.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -4669,7 +5949,8 @@
      "chuva": 1.8,
      "fma": 8.77,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -4677,7 +5958,8 @@
      "chuva": 1.4,
      "fma": 10.26,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -4685,7 +5967,8 @@
      "chuva": 12.2,
      "fma": 3.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -4693,7 +5976,8 @@
      "chuva": 32.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -4701,7 +5985,8 @@
      "chuva": 5.8,
      "fma": 1.96,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -4709,7 +5994,8 @@
      "chuva": 2.1,
      "fma": 3.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -4717,7 +6003,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -4725,7 +6012,8 @@
      "chuva": 7.3,
      "fma": 1.1,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -4733,7 +6021,8 @@
      "chuva": 2.6,
      "fma": 2.26,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -4741,7 +6030,8 @@
      "chuva": 0.0,
      "fma": 3.96,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -4749,7 +6039,8 @@
      "chuva": 0.6,
      "fma": 5.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -4757,7 +6048,8 @@
      "chuva": 12.0,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -4765,7 +6057,8 @@
      "chuva": 1.5,
      "fma": 3.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -4773,7 +6066,8 @@
      "chuva": 1.6,
      "fma": 5.36,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -4781,7 +6075,35 @@
      "chuva": 0.8,
      "fma": 7.32,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 72.0,
+     "chuva": 2.0,
+     "fma": 8.71,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 55.0,
+     "chuva": 9.8,
+     "fma": 5.3,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 73.0,
+     "chuva": 20.4,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -4802,7 +6124,8 @@
      "chuva": null,
      "fma": 1.89,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -4810,7 +6133,8 @@
      "chuva": 0.0,
      "fma": 4.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -4818,7 +6142,8 @@
      "chuva": 0.0,
      "fma": 6.66,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -4826,7 +6151,8 @@
      "chuva": 0.1,
      "fma": 8.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -4834,7 +6160,8 @@
      "chuva": 1.5,
      "fma": 10.15,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -4842,7 +6169,8 @@
      "chuva": 0.8,
      "fma": 11.66,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -4850,7 +6178,8 @@
      "chuva": 2.2,
      "fma": 12.77,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -4858,7 +6187,8 @@
      "chuva": 2.4,
      "fma": 13.94,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -4866,7 +6196,8 @@
      "chuva": 0.8,
      "fma": 15.33,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -4874,7 +6205,8 @@
      "chuva": 16.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -4882,7 +6214,8 @@
      "chuva": 1.1,
      "fma": 1.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -4890,7 +6223,8 @@
      "chuva": 0.0,
      "fma": 3.65,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -4898,7 +6232,8 @@
      "chuva": 1.5,
      "fma": 5.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -4906,7 +6241,8 @@
      "chuva": 20.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -4914,7 +6250,8 @@
      "chuva": 0.2,
      "fma": 1.37,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -4922,7 +6259,8 @@
      "chuva": 8.9,
      "fma": 2.3,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -4930,7 +6268,8 @@
      "chuva": 0.5,
      "fma": 4.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -4938,7 +6277,8 @@
      "chuva": 0.0,
      "fma": 6.19,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -4946,7 +6286,8 @@
      "chuva": 2.2,
      "fma": 7.67,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -4954,7 +6295,8 @@
      "chuva": 15.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -4962,7 +6304,8 @@
      "chuva": 5.6,
      "fma": 1.2,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -4970,7 +6313,8 @@
      "chuva": 10.3,
      "fma": 1.59,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -4978,7 +6322,8 @@
      "chuva": 8.1,
      "fma": 1.87,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -4986,7 +6331,8 @@
      "chuva": 13.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -4994,7 +6340,8 @@
      "chuva": 18.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -5002,7 +6349,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -5010,7 +6358,8 @@
      "chuva": 0.1,
      "fma": 1.22,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -5018,7 +6367,8 @@
      "chuva": 12.3,
      "fma": 1.51,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -5026,7 +6376,8 @@
      "chuva": 11.5,
      "fma": 1.44,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -5034,7 +6385,8 @@
      "chuva": 2.8,
      "fma": 2.48,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -5042,7 +6394,8 @@
      "chuva": 1.5,
      "fma": 3.83,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -5050,7 +6403,8 @@
      "chuva": 1.7,
      "fma": 5.13,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -5058,7 +6412,8 @@
      "chuva": 0.7,
      "fma": 6.67,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -5066,7 +6421,8 @@
      "chuva": 0.0,
      "fma": 8.52,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -5074,7 +6430,8 @@
      "chuva": 16.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -5082,7 +6439,8 @@
      "chuva": 3.6,
      "fma": 1.32,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -5090,7 +6448,8 @@
      "chuva": 15.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -5098,7 +6457,8 @@
      "chuva": 1.7,
      "fma": 1.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -5106,7 +6466,8 @@
      "chuva": 0.7,
      "fma": 2.69,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -5114,7 +6475,8 @@
      "chuva": 2.2,
      "fma": 4.42,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -5122,7 +6484,8 @@
      "chuva": 0.0,
      "fma": 5.87,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -5130,7 +6493,8 @@
      "chuva": 0.3,
      "fma": 7.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -5138,7 +6502,8 @@
      "chuva": 1.6,
      "fma": 9.16,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -5146,7 +6511,8 @@
      "chuva": 6.0,
      "fma": 5.39,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -5154,7 +6520,8 @@
      "chuva": 0.9,
      "fma": 7.21,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -5162,7 +6529,8 @@
      "chuva": 11.2,
      "fma": 2.51,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -5170,7 +6538,8 @@
      "chuva": 22.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -5178,7 +6547,8 @@
      "chuva": 3.8,
      "fma": 1.75,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -5186,7 +6556,8 @@
      "chuva": 3.3,
      "fma": 2.53,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -5194,7 +6565,8 @@
      "chuva": 10.9,
      "fma": 1.8,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -5202,7 +6574,8 @@
      "chuva": 8.1,
      "fma": 1.88,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -5210,7 +6583,8 @@
      "chuva": 1.4,
      "fma": 3.5,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -5218,7 +6592,8 @@
      "chuva": 0.0,
      "fma": 5.14,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -5226,7 +6601,8 @@
      "chuva": 1.9,
      "fma": 6.86,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -5234,7 +6610,8 @@
      "chuva": 14.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -5242,7 +6619,8 @@
      "chuva": 2.2,
      "fma": 1.45,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -5250,7 +6628,8 @@
      "chuva": 5.0,
      "fma": 1.99,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -5258,7 +6637,35 @@
      "chuva": 2.3,
      "fma": 3.95,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 69.0,
+     "chuva": 2.7,
+     "fma": 4.21,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 65.0,
+     "chuva": 14.1,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 89.0,
+     "chuva": 10.0,
+     "fma": 1.12,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -5279,7 +6686,8 @@
      "chuva": null,
      "fma": 1.72,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -5287,7 +6695,8 @@
      "chuva": 0.0,
      "fma": 3.68,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -5295,7 +6704,8 @@
      "chuva": 0.0,
      "fma": 4.97,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -5303,7 +6713,8 @@
      "chuva": 0.0,
      "fma": 7.01,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -5311,7 +6722,8 @@
      "chuva": 6.6,
      "fma": 4.42,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -5319,7 +6731,8 @@
      "chuva": 1.2,
      "fma": 5.77,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -5327,7 +6740,8 @@
      "chuva": 4.0,
      "fma": 5.2,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -5335,7 +6749,8 @@
      "chuva": 5.9,
      "fma": 3.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -5343,7 +6758,8 @@
      "chuva": 1.3,
      "fma": 4.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -5351,7 +6767,8 @@
      "chuva": 13.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -5359,7 +6776,8 @@
      "chuva": 0.4,
      "fma": 1.49,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -5367,7 +6785,8 @@
      "chuva": 0.0,
      "fma": 3.82,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -5375,7 +6794,8 @@
      "chuva": 3.3,
      "fma": 3.95,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -5383,7 +6803,8 @@
      "chuva": 23.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -5391,7 +6812,8 @@
      "chuva": 4.6,
      "fma": 1.35,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -5399,7 +6821,8 @@
      "chuva": 11.8,
      "fma": 1.79,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -5407,7 +6830,8 @@
      "chuva": 0.0,
      "fma": 3.57,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -5415,7 +6839,8 @@
      "chuva": 0.0,
      "fma": 5.53,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -5423,7 +6848,8 @@
      "chuva": 1.9,
      "fma": 6.85,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -5431,7 +6857,8 @@
      "chuva": 30.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -5439,7 +6866,8 @@
      "chuva": 10.9,
      "fma": 1.27,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -5447,7 +6875,8 @@
      "chuva": 14.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -5455,7 +6884,8 @@
      "chuva": 3.9,
      "fma": 1.05,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -5463,7 +6893,8 @@
      "chuva": 12.1,
      "fma": 1.26,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -5471,7 +6902,8 @@
      "chuva": 31.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -5479,7 +6911,8 @@
      "chuva": 24.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -5487,7 +6920,8 @@
      "chuva": 5.1,
      "fma": 1.09,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -5495,7 +6929,8 @@
      "chuva": 11.5,
      "fma": 1.55,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -5503,7 +6938,8 @@
      "chuva": 10.3,
      "fma": 1.5,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -5511,7 +6947,8 @@
      "chuva": 4.4,
      "fma": 2.38,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -5519,7 +6956,8 @@
      "chuva": 0.5,
      "fma": 3.81,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -5527,7 +6965,8 @@
      "chuva": 0.4,
      "fma": 5.13,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -5535,7 +6974,8 @@
      "chuva": 0.8,
      "fma": 6.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -5543,7 +6983,8 @@
      "chuva": 0.0,
      "fma": 8.16,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -5551,7 +6992,8 @@
      "chuva": 3.9,
      "fma": 7.3,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -5559,7 +7001,8 @@
      "chuva": 1.2,
      "fma": 8.58,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -5567,7 +7010,8 @@
      "chuva": 46.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -5575,7 +7019,8 @@
      "chuva": 3.3,
      "fma": 1.32,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -5583,7 +7028,8 @@
      "chuva": 0.2,
      "fma": 2.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -5591,7 +7037,8 @@
      "chuva": 0.0,
      "fma": 4.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -5599,7 +7046,8 @@
      "chuva": 0.0,
      "fma": 5.23,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -5607,7 +7055,8 @@
      "chuva": 1.8,
      "fma": 6.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -5615,7 +7064,8 @@
      "chuva": 0.0,
      "fma": 7.8,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -5623,7 +7073,8 @@
      "chuva": 7.5,
      "fma": 4.59,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -5631,7 +7082,8 @@
      "chuva": 0.3,
      "fma": 5.78,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -5639,7 +7091,8 @@
      "chuva": 16.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -5647,7 +7100,8 @@
      "chuva": 31.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -5655,7 +7109,8 @@
      "chuva": 3.5,
      "fma": 1.82,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -5663,7 +7118,8 @@
      "chuva": 0.9,
      "fma": 3.07,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -5671,7 +7127,8 @@
      "chuva": 19.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -5679,7 +7136,8 @@
      "chuva": 10.5,
      "fma": 1.05,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -5687,7 +7145,8 @@
      "chuva": 0.9,
      "fma": 2.33,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -5695,7 +7154,8 @@
      "chuva": 0.0,
      "fma": 3.65,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -5703,7 +7163,8 @@
      "chuva": 0.0,
      "fma": 4.92,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -5711,7 +7172,8 @@
      "chuva": 3.9,
      "fma": 4.6,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -5719,7 +7181,8 @@
      "chuva": 2.6,
      "fma": 4.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -5727,7 +7190,8 @@
      "chuva": 1.3,
      "fma": 5.74,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -5735,7 +7199,8 @@
      "chuva": 0.0,
      "fma": 7.06,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     }
    ]
   },
@@ -5756,7 +7221,8 @@
      "chuva": null,
      "fma": 2.44,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -5764,7 +7230,8 @@
      "chuva": 0.0,
      "fma": 5.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -5772,7 +7239,8 @@
      "chuva": 0.0,
      "fma": 7.55,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -5780,7 +7248,8 @@
      "chuva": 0.0,
      "fma": 9.88,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -5788,7 +7257,8 @@
      "chuva": 2.4,
      "fma": 11.39,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -5796,7 +7266,8 @@
      "chuva": 0.0,
      "fma": 12.93,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -5804,7 +7275,8 @@
      "chuva": 4.0,
      "fma": 10.12,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -5812,7 +7284,8 @@
      "chuva": 3.3,
      "fma": 8.33,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -5820,7 +7293,8 @@
      "chuva": 0.5,
      "fma": 9.8,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -5828,7 +7302,8 @@
      "chuva": 18.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -5836,7 +7311,8 @@
      "chuva": 1.2,
      "fma": 2.04,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -5844,7 +7320,8 @@
      "chuva": 0.0,
      "fma": 4.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -5852,7 +7329,8 @@
      "chuva": 6.6,
      "fma": 3.29,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -5860,7 +7338,8 @@
      "chuva": 17.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -5868,7 +7347,8 @@
      "chuva": 0.9,
      "fma": 1.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -5876,7 +7356,8 @@
      "chuva": 7.9,
      "fma": 2.41,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -5884,7 +7365,8 @@
      "chuva": 0.2,
      "fma": 4.63,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -5892,7 +7374,8 @@
      "chuva": 0.0,
      "fma": 6.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -5900,7 +7383,8 @@
      "chuva": 0.8,
      "fma": 8.54,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -5908,7 +7392,8 @@
      "chuva": 21.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -5916,7 +7401,8 @@
      "chuva": 11.3,
      "fma": 1.3,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -5924,7 +7410,8 @@
      "chuva": 8.9,
      "fma": 1.82,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -5932,7 +7419,8 @@
      "chuva": 15.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -5940,7 +7428,8 @@
      "chuva": 12.6,
      "fma": 1.19,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -5948,7 +7437,8 @@
      "chuva": 36.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -5956,7 +7446,8 @@
      "chuva": 7.5,
      "fma": 1.41,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -5964,7 +7455,8 @@
      "chuva": 0.4,
      "fma": 2.72,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -5972,7 +7464,8 @@
      "chuva": 14.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -5980,7 +7473,8 @@
      "chuva": 10.0,
      "fma": 1.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -5988,7 +7482,8 @@
      "chuva": 3.3,
      "fma": 2.56,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -5996,7 +7491,8 @@
      "chuva": 0.6,
      "fma": 4.01,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -6004,7 +7500,8 @@
      "chuva": 0.3,
      "fma": 5.46,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -6012,7 +7509,8 @@
      "chuva": 0.0,
      "fma": 7.38,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -6020,7 +7518,8 @@
      "chuva": 0.0,
      "fma": 9.47,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -6028,7 +7527,8 @@
      "chuva": 10.8,
      "fma": 3.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -6036,7 +7536,8 @@
      "chuva": 0.8,
      "fma": 5.09,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -6044,7 +7545,8 @@
      "chuva": 18.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -6052,7 +7554,8 @@
      "chuva": 1.8,
      "fma": 1.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -6060,7 +7563,8 @@
      "chuva": 0.3,
      "fma": 3.11,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -6068,7 +7572,8 @@
      "chuva": 0.3,
      "fma": 4.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -6076,7 +7581,8 @@
      "chuva": 0.0,
      "fma": 6.33,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -6084,7 +7590,8 @@
      "chuva": 0.6,
      "fma": 8.08,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -6092,7 +7599,8 @@
      "chuva": 3.0,
      "fma": 7.7,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -6100,7 +7608,8 @@
      "chuva": 2.1,
      "fma": 9.7,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -6108,7 +7617,8 @@
      "chuva": 0.6,
      "fma": 11.11,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -6116,7 +7626,8 @@
      "chuva": 13.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -6124,7 +7635,8 @@
      "chuva": 28.7,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -6132,7 +7644,8 @@
      "chuva": 4.9,
      "fma": 1.89,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -6140,7 +7653,8 @@
      "chuva": 3.0,
      "fma": 2.73,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -6148,7 +7662,8 @@
      "chuva": 18.9,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -6156,7 +7671,8 @@
      "chuva": 6.6,
      "fma": 1.11,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -6164,7 +7680,8 @@
      "chuva": 0.6,
      "fma": 2.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -6172,7 +7689,8 @@
      "chuva": 0.0,
      "fma": 4.37,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -6180,7 +7698,8 @@
      "chuva": 0.3,
      "fma": 6.19,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -6188,7 +7707,8 @@
      "chuva": 6.9,
      "fma": 3.76,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -6196,7 +7716,8 @@
      "chuva": 1.8,
      "fma": 5.07,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -6204,7 +7725,8 @@
      "chuva": 2.0,
      "fma": 6.52,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -6212,7 +7734,35 @@
      "chuva": 1.7,
      "fma": 8.34,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 75.0,
+     "chuva": 1.3,
+     "fma": 9.67,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 55.0,
+     "chuva": 12.5,
+     "fma": 3.75,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 76.0,
+     "chuva": 12.7,
+     "fma": 2.07,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
@@ -6233,7 +7783,8 @@
      "chuva": null,
      "fma": 1.89,
      "classe": "Pequeno",
-     "aviso": "chuva ausente (assumida 0 mm)"
+     "aviso": "chuva ausente (assumida 0 mm)",
+     "previsao": false
     },
     {
      "data": "2026-08-19",
@@ -6241,7 +7792,8 @@
      "chuva": 0.0,
      "fma": 4.16,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-20",
@@ -6249,7 +7801,8 @@
      "chuva": 0.0,
      "fma": 6.49,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-21",
@@ -6257,7 +7810,8 @@
      "chuva": 0.0,
      "fma": 8.99,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-22",
@@ -6265,7 +7819,8 @@
      "chuva": 0.0,
      "fma": 10.68,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-23",
@@ -6273,7 +7828,8 @@
      "chuva": 1.9,
      "fma": 12.13,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-24",
@@ -6281,7 +7837,8 @@
      "chuva": 2.0,
      "fma": 13.48,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-25",
@@ -6289,7 +7846,8 @@
      "chuva": 2.7,
      "fma": 10.74,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-26",
@@ -6297,7 +7855,8 @@
      "chuva": 0.0,
      "fma": 12.46,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-27",
@@ -6305,7 +7864,8 @@
      "chuva": 10.4,
      "fma": 3.58,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-28",
@@ -6313,7 +7873,8 @@
      "chuva": 1.0,
      "fma": 5.3,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-29",
@@ -6321,7 +7882,8 @@
      "chuva": 0.0,
      "fma": 7.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-30",
@@ -6329,7 +7891,8 @@
      "chuva": 3.0,
      "fma": 6.93,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-08-31",
@@ -6337,7 +7900,8 @@
      "chuva": 10.0,
      "fma": 2.9,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-01",
@@ -6345,7 +7909,8 @@
      "chuva": 0.5,
      "fma": 4.72,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-02",
@@ -6353,7 +7918,8 @@
      "chuva": 15.0,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-03",
@@ -6361,7 +7927,8 @@
      "chuva": 0.6,
      "fma": 1.92,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-04",
@@ -6369,7 +7936,8 @@
      "chuva": 0.0,
      "fma": 3.68,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-05",
@@ -6377,7 +7945,8 @@
      "chuva": 1.2,
      "fma": 5.24,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-06",
@@ -6385,7 +7954,8 @@
      "chuva": 13.5,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-07",
@@ -6393,7 +7963,8 @@
      "chuva": 6.6,
      "fma": 1.52,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-08",
@@ -6401,7 +7972,8 @@
      "chuva": 4.0,
      "fma": 2.43,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-09",
@@ -6409,7 +7981,8 @@
      "chuva": 3.8,
      "fma": 3.0,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-10",
@@ -6417,7 +7990,8 @@
      "chuva": 8.1,
      "fma": 2.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-11",
@@ -6425,7 +7999,8 @@
      "chuva": 30.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-12",
@@ -6433,7 +8008,8 @@
      "chuva": 0.0,
      "fma": 1.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-13",
@@ -6441,7 +8017,8 @@
      "chuva": 0.0,
      "fma": 3.12,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-14",
@@ -6449,7 +8026,8 @@
      "chuva": 19.1,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-15",
@@ -6457,7 +8035,8 @@
      "chuva": 14.2,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-16",
@@ -6465,7 +8044,8 @@
      "chuva": 1.2,
      "fma": 1.61,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-17",
@@ -6473,7 +8053,8 @@
      "chuva": 1.6,
      "fma": 3.02,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-18",
@@ -6481,7 +8062,8 @@
      "chuva": 0.6,
      "fma": 4.41,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-19",
@@ -6489,7 +8071,8 @@
      "chuva": 0.2,
      "fma": 5.9,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-20",
@@ -6497,7 +8080,8 @@
      "chuva": 0.0,
      "fma": 7.66,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-21",
@@ -6505,7 +8089,8 @@
      "chuva": 10.2,
      "fma": 2.96,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-22",
@@ -6513,7 +8098,8 @@
      "chuva": 0.6,
      "fma": 4.57,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-23",
@@ -6521,7 +8107,8 @@
      "chuva": 9.6,
      "fma": 3.08,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-24",
@@ -6529,7 +8116,8 @@
      "chuva": 1.2,
      "fma": 4.43,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-25",
@@ -6537,7 +8125,8 @@
      "chuva": 0.4,
      "fma": 5.8,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-26",
@@ -6545,7 +8134,8 @@
      "chuva": 1.7,
      "fma": 7.52,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-27",
@@ -6553,7 +8143,8 @@
      "chuva": 0.0,
      "fma": 9.25,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-28",
@@ -6561,7 +8152,8 @@
      "chuva": 0.6,
      "fma": 10.97,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-29",
@@ -6569,7 +8161,8 @@
      "chuva": 0.6,
      "fma": 12.73,
      "classe": "Alto",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-09-30",
@@ -6577,7 +8170,8 @@
      "chuva": 5.1,
      "fma": 6.82,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-01",
@@ -6585,7 +8179,8 @@
      "chuva": 3.3,
      "fma": 6.26,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-02",
@@ -6593,7 +8188,8 @@
      "chuva": 9.5,
      "fma": 3.62,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-03",
@@ -6601,7 +8197,8 @@
      "chuva": 23.3,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-04",
@@ -6609,7 +8206,8 @@
      "chuva": 3.9,
      "fma": 1.61,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-05",
@@ -6617,7 +8215,8 @@
      "chuva": 19.6,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-06",
@@ -6625,7 +8224,8 @@
      "chuva": 28.8,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-07",
@@ -6633,7 +8233,8 @@
      "chuva": 6.5,
      "fma": 1.39,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-08",
@@ -6641,7 +8242,8 @@
      "chuva": 2.9,
      "fma": 2.67,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-09",
@@ -6649,7 +8251,8 @@
      "chuva": 0.0,
      "fma": 4.42,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-10",
@@ -6657,7 +8260,8 @@
      "chuva": 2.0,
      "fma": 6.15,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-11",
@@ -6665,7 +8269,8 @@
      "chuva": 14.4,
      "fma": 0.0,
      "classe": "Nulo",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-12",
@@ -6673,7 +8278,8 @@
      "chuva": 5.3,
      "fma": 1.64,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-13",
@@ -6681,7 +8287,8 @@
      "chuva": 3.3,
      "fma": 2.58,
      "classe": "Pequeno",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
     },
     {
      "data": "2026-10-14",
@@ -6689,7 +8296,35 @@
      "chuva": 1.7,
      "fma": 4.33,
      "classe": "Médio",
-     "aviso": ""
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 71.0,
+     "chuva": 1.0,
+     "fma": 5.74,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 70.0,
+     "chuva": 13.6,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 75.0,
+     "chuva": 8.7,
+     "fma": 1.33,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
     }
    ]
   }
