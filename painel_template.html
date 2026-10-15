@@ -123,7 +123,7 @@
     <p><b>Classes.</b> Nulo (até 1,0), Pequeno (1,1 a 3,0), Médio (3,1 a 8,0), Alto (8,1 a 20,0) e Muito alto (acima de 20,0).</p>
     <p><b>Dados.</b> Umidade e chuva horárias do modelo de previsão <span id="f-modelo"></span>, consultado no ponto de cálculo de cada município.
     São estimativas de modelo, <b>não medições de estação</b>. A grade do modelo tem cerca de 28 km, então municípios vizinhos podem compartilhar a mesma célula,
-    e em municípios grandes (como o Rio de Janeiro) um único ponto não representa toda a área.</p>
+    e em municípios grandes (como o Rio de Janeiro) um único ponto não representa toda a área. Limites municipais: IBGE, Malha Municipal 2025 (SIRGAS 2000), simplificados para exibição.</p>
     <p><b>Precisão.</b> Em teste com 6 estações do INMET (jan/2025 a out/2026), o modelo acertou a classe exata em cerca de 60% dos dias e dentro de 1 classe em cerca de 92%.
     O ponto mais frágil é a chuva forte localizada: o modelo marcou cerca de 46% das chuvas acima de 12,9 mm (as que zeram o índice) e cerca de metade dos seus avisos de chuva forte não se confirmaram.
     Use o painel como indicação de tendência e de nível de perigo; em decisões operacionais, confirme com a estação ou com a observação local.</p>
@@ -195,8 +195,10 @@ function montarMapa() {
     svg.appendChild(p);
     // rótulo no centro do maior polígono
     const maior = aneis.reduce((a, b) => b[0].length > a[0].length ? b : a)[0];
-    const c = proj(centroide(maior));
-    m._c = c;
+    m._c = proj(centroide(maior));
+  });
+  // rótulos por último, para nenhum município pintar por cima do nome do vizinho
+  MUN.forEach(m => {
     const t = document.createElementNS(NS, "text");
     t.dataset.cod = m.codigo_ibge;
     svg.appendChild(t);
@@ -211,7 +213,7 @@ function centroide(anel) {
   a /= 2; return [cx / (6 * a), cy / (6 * a)];
 }
 // ajustes de posição do rótulo para municípios pequenos ou cercados (em px do mapa)
-const DESLOC = { "3304144": [6, 12], "3302270": [0, -4], "3301801": [8, -12], "3302809": [-12, -6], "3303609": [-4, 8], "3302908": [10, -2] };
+const DESLOC = { "3304144": [4, 16], "3302270": [2, -10], "3301801": [4, -4], "3302809": [-14, -6], "3303609": [-8, 6], "3302908": [6, 0], "3303500": [20, -12], "3302007": [0, 2] };
 function pintarMapa() {
   MUN.forEach(m => {
     const l = linha(m), p = svg.querySelector(`path[data-cod="${m.codigo_ibge}"]`), t = svg.querySelector(`text[data-cod="${m.codigo_ibge}"]`);
