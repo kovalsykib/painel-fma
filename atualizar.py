@@ -111,7 +111,30 @@ def serie_para_painel(res):
     return linhas
 
 
+def gerar_historico_csv(municipios):
+    """Um único CSV com o histórico completo de todos os municípios (docs/historico_fma.csv), para baixar pelo painel.
+    Formato para Excel em português: separador ';', decimal ',' e acentos corretos."""
+    partes = []
+    for m in municipios:
+        arq = DADOS / f"{m['codigo_ibge']}_fma.csv"
+        if not arq.exists():
+            continue
+        d = pd.read_csv(arq)
+        d.insert(0, "municipio", m["nome"])
+        d.insert(0, "codigo_ibge", m["codigo_ibge"])
+        partes.append(d)
+    if not partes:
+        return
+    tudo = pd.concat(partes, ignore_index=True)
+    tudo["fma"] = tudo["fma"].round(2)
+    tudo["chuva"] = tudo["chuva"].round(1)
+    tudo["umidade"] = tudo["umidade"].round(1)
+    tudo = tudo.rename(columns={"umidade": "umidade_13h_pct", "chuva": "chuva_24h_mm", "fma": "fma"})
+    tudo.to_csv(DOCS / "historico_fma.csv", index=False, sep=";", decimal=",", encoding="utf-8-sig")
+
+
 def gerar_painel(municipios, resultados, erros, validacao=None):
+    gerar_historico_csv(municipios)
     agora = datetime.now(FUSO)
     saida = {
         "atualizado": agora.strftime("%d/%m/%Y às %H:%M (Brasília)"),
