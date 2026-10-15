@@ -231,23 +231,36 @@ def main():
     if validacao is None:
         print("Sem validacao_previsao.json: a previsão fica desligada (rode a validação para ligar).")
 
-    resultados, erros = {}, []
-    for m in municipios:
-        cod = m["codigo_ibge"]
-        try:
-            resultados[cod] = atualizar_municipio(m, hoje, com_previsao=validacao is not None)
-            ult = resultados[cod][~resultados[cod]["previsao"]].dropna(subset=["fma"]).tail(1)
-            if not ult.empty:
-                r = ult.iloc[0]
-                print(f"{m['nome']}: FMA {r['fma']:.2f} ({r['classe']}) em {r['data']:%d/%m/%Y}")
-        except Exception as e:
-            print(f"ERRO em {m['nome']}: {e}", file=sys.stderr)
-            erros.append({"codigo": cod, "nome": m["nome"], "erro": str(e)})
-            arq = DADOS / f"{cod}_fma.csv"  # falhou o download: mostra o último resultado guardado
-            if arq.exists():
-                resultados[cod] = pd.read_csv(arq, parse_dates=["data"]).fillna({"aviso": ""})
-                resultados[cod]["previsao"] = False
-        time.sleep(1)   # gentileza com a API gratuita
+    resultados, erros = {}, {}
+    pendentes = list(municipios)
+    for rodada in range(1, 4):   # a API gratuita às vezes demora: quem falhar é tentado de novo, até 3 rodadas
+        falharam = []
+        for m in pendentes:
+            cod = m["codigo_ibge"]
+            try:
+                resultados[cod] = atualizar_municipio(m, hoje, com_previsao=validacao is not None)
+                erros.pop(cod, None)
+                ult = resultados[cod][~resultados[cod]["previsao"]].dropna(subset=["fma"]).tail(1)
+                if not ult.empty:
+                    r = ult.iloc[0]
+                    print(f"{m['nome']}: FMA {r['fma']:.2f} ({r['classe']}) em {r['data']:%d/%m/%Y}")
+            except Exception as e:
+                print(f"ERRO em {m['nome']} (rodada {rodada}): {e}", file=sys.stderr)
+                erros[cod] = {"codigo": cod, "nome": m["nome"], "erro": str(e)}
+                falharam.append(m)
+            time.sleep(1)   # gentileza com a API gratuita
+        pendentes = falharam
+        if not pendentes or rodada == 3:
+            break
+        print(f"{len(pendentes)} município(s) falharam; nova tentativa em 90 s.", file=sys.stderr)
+        time.sleep(90)
+
+    for m in pendentes:   # falhou mesmo assim: mostra o último resultado guardado, se existir
+        arq = DADOS / f"{m['codigo_ibge']}_fma.csv"
+        if arq.exists():
+            resultados[m["codigo_ibge"]] = pd.read_csv(arq, parse_dates=["data"]).fillna({"aviso": ""})
+            resultados[m["codigo_ibge"]]["previsao"] = False
+    erros = list(erros.values())
 
     gerar_painel(municipios, resultados, erros, validacao)
     if erros and not resultados:
