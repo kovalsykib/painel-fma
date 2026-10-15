@@ -1,5 +1,5 @@
 {
- "atualizado": "15/10/2026 às 08:48 (Brasília)",
+ "atualizado": "15/10/2026 às 09:12 (Brasília)",
  "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
  "modelo_id": "ecmwf_ifs025",
  "erros": [
@@ -9,8 +9,8 @@
    "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
   },
   {
-   "codigo": "3304557",
-   "nome": "Rio de Janeiro",
+   "codigo": "3304409",
+   "nome": "Rio Claro",
    "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
   }
  ],
@@ -6639,33 +6639,6 @@
      "classe": "Médio",
      "aviso": "",
      "previsao": false
-    },
-    {
-     "data": "2026-10-15",
-     "umidade": 69.0,
-     "chuva": 2.7,
-     "fma": 4.21,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": true
-    },
-    {
-     "data": "2026-10-16",
-     "umidade": 65.0,
-     "chuva": 14.1,
-     "fma": 0.0,
-     "classe": "Nulo",
-     "aviso": "",
-     "previsao": true
-    },
-    {
-     "data": "2026-10-17",
-     "umidade": 89.0,
-     "chuva": 10.0,
-     "fma": 1.12,
-     "classe": "Pequeno",
-     "aviso": "",
-     "previsao": true
     }
    ]
   },
@@ -7201,6 +7174,33 @@
      "classe": "Médio",
      "aviso": "",
      "previsao": false
+    },
+    {
+     "data": "2026-10-15",
+     "umidade": 85.0,
+     "chuva": 2.4,
+     "fma": 8.23,
+     "classe": "Alto",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-16",
+     "umidade": 76.0,
+     "chuva": 22.7,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-10-17",
+     "umidade": 76.0,
+     "chuva": 20.5,
+     "fma": 0.0,
+     "classe": "Nulo",
+     "aviso": "",
+     "previsao": true
     }
    ]
   },
