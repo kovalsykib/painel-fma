@@ -39,6 +39,44 @@ def classificar(valor):
     return "Muito alto"
 
 
+def passo_fma(acumulado, umidade, chuva):
+    """Um dia da FMA, com a MESMA regra de calcular_fma (usada para encadear a previsão dia a dia).
+    Devolve (novo_acumulado, valor_do_dia); valor = NaN se não há umidade e a chuva não zerou o acumulado."""
+    if pd.isna(chuva):
+        chuva = 0.0
+    if chuva > 12.9:
+        return 0.0, 0.0
+    if chuva >= 10.0:
+        acumulado *= 0.2
+    elif chuva >= 5.0:
+        acumulado *= 0.4
+    elif chuva >= 2.5:
+        acumulado *= 0.7
+    if pd.isna(umidade):
+        return acumulado, float("nan")
+    acumulado += 100.0 / max(umidade, 1.0)
+    return acumulado, acumulado
+
+
+def passo_fma(acumulado, umidade, chuva):
+    """Um passo da FMA (usado pela previsão), com as mesmas regras de calcular_fma. Devolve (novo_acumulado, valor_do_dia).
+    valor_do_dia é NaN quando não há umidade (e o acumulado, já abatido pela chuva, segue)."""
+    if pd.isna(chuva):
+        chuva = 0.0
+    if chuva > 12.9:
+        return 0.0, 0.0
+    if chuva >= 10.0:
+        acumulado *= 0.2
+    elif chuva >= 5.0:
+        acumulado *= 0.4
+    elif chuva >= 2.5:
+        acumulado *= 0.7
+    if pd.isna(umidade):
+        return acumulado, float("nan")
+    acumulado += 100.0 / max(umidade, 1.0)
+    return acumulado, acumulado
+
+
 def calcular_fma(df):
     """df com colunas: data, umidade (% às 13h), chuva (mm em 24h).
     Retorna df com fma, classe e aviso."""
@@ -152,13 +190,9 @@ def diarizar(raw, hora_utc=HORA_UTC_13H_LOCAL):
 MODELO_PADRAO = "ecmwf_ifs025"   # modelo fixo (ECMWF IFS 0,25°), escolhido na comparação com estações INMET (out/2026)
 
 
-def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=4, modelo=MODELO_PADRAO):
-    """Baixa umidade e chuva horárias (modelo/reanálise) do Open-Meteo para um ponto e devolve,
-    por dia: umidade às 13h locais e chuva acumulada das 14h do dia anterior às 13h do dia.
-
-    No Open-Meteo, 'precipitation' de cada hora é a soma da hora anterior, o mesmo critério do INMET;
-    por isso a janela usa os rótulos de 14:00 (dia anterior) até 13:00 (dia do cálculo).
-    Horários futuros são descartados: só entram dias cuja leitura das 13h já passou."""
+def baixar_openmeteo_horario(lat, lon, dias=90, tentativas=4, modelo=MODELO_PADRAO, dias_previsao=0):
+    """Baixa umidade e chuva HORÁRIAS do Open-Meteo para um ponto: os últimos `dias` dias (até 92) e, se pedido,
+    `dias_previsao` dias à frente. Devolve dict no formato 'hourly' (time em horário local)."""
     import requests
 
     url = "https://api.open-meteo.com/v1/forecast"
@@ -167,7 +201,7 @@ def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=4, modelo=M
         "hourly": "relative_humidity_2m,precipitation",
         "timezone": "America/Sao_Paulo",
         "past_days": min(int(dias), 92),
-        "forecast_days": 1,
+        "forecast_days": 1 + int(dias_previsao),
     }
     if modelo:
         params["models"] = modelo
@@ -180,13 +214,22 @@ def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=4, modelo=M
             h = r.json()["hourly"]
             if modelo:   # com modelo fixo as chaves podem vir com o nome do modelo como sufixo
                 h = {k: h.get(k, h.get(f"{k}_{modelo}")) for k in ("time", "relative_humidity_2m", "precipitation")}
-            break
+            return h
         except Exception as e:
             ultimo_erro = e
             time.sleep(5 * (i + 1))
-    else:
-        raise RuntimeError(f"falha ao baixar dados do Open-Meteo: {ultimo_erro}")
+    raise RuntimeError(f"falha ao baixar dados do Open-Meteo: {ultimo_erro}")
 
+
+def baixar_openmeteo(lat, lon, dias=90, agora_local=None, tentativas=4, modelo=MODELO_PADRAO, dias_previsao=0, bruto=False):
+    """Por dia: umidade às 13h locais e chuva acumulada das 14h do dia anterior às 13h do dia (modelo/reanálise).
+
+    No Open-Meteo, 'precipitation' de cada hora é a soma da hora anterior, o mesmo critério do INMET;
+    por isso a janela usa os rótulos de 14:00 (dia anterior) até 13:00 (dia do cálculo).
+    Horários futuros são descartados: só entram dias cuja leitura das 13h já passou."""
+    h = baixar_openmeteo_horario(lat, lon, dias, tentativas, modelo, dias_previsao)
+    if bruto:
+        return h    # série horária completa (inclui horas futuras); quem chama separa observado e previsão
     return diario_de_openmeteo(h, agora_local)
 
 

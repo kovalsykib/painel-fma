@@ -7,6 +7,18 @@ cálculo de cada um dos 15 municípios, calcula a FMA e atualiza um painel web c
 classe exata em 59,5% dos dias; 91,8% dentro de 1 classe; detecta 46% das chuvas > 12,9 mm). Resultados completos em
 `comparacao_modelos/relatorio.md`. Dado de modelo é estimativa, não medição: o painel traz esse aviso.
 
+## Previsão de 1 a 3 dias
+
+A previsão usa o mesmo modelo (ECMWF): a FMA do último dia observado é continuada com a umidade (13h) e a chuva previstas.
+Ela **só aparece no painel depois que a validação rodar** e gravar `validacao_previsao.json` na raiz do repositório:
+
+1. **Actions > Validar previsão da FMA (1 a 3 dias) > Run workflow.** Compara a previsão por antecedência com 6 estações do INMET
+   (Previous Runs API do Open-Meteo) e grava `validacao_previsao.json` e `comparacao_modelos/previsao_relatorio.md`.
+   Se o relatório trouxer a seção "Download incompleto", rode de novo (o que já veio fica guardado).
+2. **Actions > Atualizar FMA > Run workflow.** O painel passa a mostrar os próximos 3 dias (hachurados), com as taxas de acerto por antecedência.
+
+Para desligar a previsão, apague `validacao_previsao.json`.
+
 ## Arquivos
 
 | Arquivo | Para que serve |
@@ -14,6 +26,7 @@ classe exata em 59,5% dos dias; 91,8% dentro de 1 classe; detecta 46% das chuvas
 | `fma.py` | Cálculo da FMA, classes de perigo e download/conversão dos dados do INMET |
 | `atualizar.py` | Rotina diária: baixa, atualiza o histórico, recalcula e gera o painel |
 | `municipios.json` | Os 15 municípios: contorno (IBGE), código IBGE e ponto de cálculo (gerado por `preparar_municipios.py`) |
+| `validar_previsao.py` | Teste que mede o erro da previsão (1 a 3 dias) contra as estações; liga a previsão no painel |
 | `comparar_modelos.py` | Teste que comparou GFS, ICON e ECMWF com as estações do INMET |
 | `painel_template.html` | Modelo do painel (o `atualizar.py` preenche com os dados) |
 | `dados/` | Histórico guardado (`<código IBGE>_diario.csv` = entradas; `<código IBGE>_fma.csv` = resultado) |

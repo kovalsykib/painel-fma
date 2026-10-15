@@ -52,6 +52,13 @@
   .mut { color:var(--mut); }
   .grafico { position:relative; height:280px; margin-top:8px; }
   details summary { cursor:pointer; color:var(--mut); font-size:.9rem; margin-top:12px; }
+  .pill { display:inline-block; font-size:.78rem; font-weight:700; padding:2px 9px; border-radius:999px; border:1px solid var(--warn-line);
+          background:var(--warn-bg); color:var(--warn-txt); margin-left:8px; vertical-align:1px; }
+  #mapa .ov { stroke:none; pointer-events:none; }
+  .tabela-prev td { font-style:italic; }
+  .bolinha.prev { background-image:repeating-linear-gradient(45deg, rgba(0,0,0,.35) 0 2px, transparent 2px 5px); }
+  #aviso-prev { margin:0 0 12px; }
+  .num-val { font-variant-numeric: tabular-nums; }
   #tip { position:fixed; pointer-events:none; background:var(--txt); color:var(--bg); padding:6px 10px; border-radius:6px;
          font-size:.85rem; line-height:1.35; display:none; z-index:5; max-width:240px; }
   footer { color:var(--mut); font-size:.85rem; }
@@ -74,13 +81,14 @@
       <div><label for="dia">Dia:</label> <select id="dia"></select></div>
       <div class="legenda" id="legenda"></div>
     </div>
+    <div class="aviso" id="aviso-prev" hidden></div>
     <div class="grade">
       <div>
-        <h2>Mapa</h2>
+        <h2 id="tit-mapa">Mapa</h2>
         <svg id="mapa" role="group" aria-label="Mapa da FMA por município"></svg>
       </div>
       <div>
-        <h2>Tabela</h2>
+        <h2 id="tit-tabela">Tabela</h2>
         <div class="tabela-wrap">
           <table id="tabela">
             <thead><tr>
@@ -101,6 +109,7 @@
   <section class="card">
     <h2 id="tit-grafico"></h2>
     <div class="sub" id="sub-grafico"></div>
+    <div class="sub" id="leg-prev" hidden>Barras hachuradas = previsão (menos confiável que o dia atual).</div>
     <div class="grafico"><canvas id="grafico" role="img" aria-label="Gráfico da FMA diária do município selecionado"></canvas></div>
     <details>
       <summary>Ver os últimos 14 dias em tabela</summary>
@@ -127,6 +136,15 @@
     <p><b>Precisão.</b> Em teste com 6 estações do INMET (jan/2025 a out/2026), o modelo acertou a classe exata em cerca de 60% dos dias e dentro de 1 classe em cerca de 92%.
     O ponto mais frágil é a chuva forte localizada: o modelo marcou cerca de 46% das chuvas acima de 12,9 mm (as que zeram o índice) e cerca de metade dos seus avisos de chuva forte não se confirmaram.
     Use o painel como indicação de tendência e de nível de perigo; em decisões operacionais, confirme com a estação ou com a observação local.</p>
+    <div id="bloco-prev" hidden>
+      <p><b>Previsão (1 a 3 dias).</b> Usa o mesmo modelo: a FMA de hoje é continuada com a previsão de umidade (às 13h) e de chuva dos próximos dias.
+      A confiabilidade cai com a antecedência e, como a chuva forte localizada é o ponto mais frágil, um dia previsto como "chuva forte" (que zeraria o índice) pode não se confirmar.
+      Teste <span id="prev-periodo"></span>, com <span id="prev-est"></span> estações do INMET:</p>
+      <div class="tabela-wrap"><table id="tab-val">
+        <thead><tr><th>Antecedência</th><th>Classe exata</th><th>Dentro de 1 classe</th><th>Erro médio da FMA</th>
+        <th>Referência ingênua (repetir a FMA de hoje): classe exata</th><th>erro médio</th></tr></thead><tbody></tbody></table></div>
+      <p class="mut" id="prev-nota"></p>
+    </div>
     <p class="mut">Dias sem dado aparecem como "Sem dado". A FMA é acumulativa: no início da série (primeiros dias após a implantação) o valor pode estar subestimado.</p>
   </div>
 </footer>
@@ -149,7 +167,7 @@ const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).
 $("atualizado").textContent = "Atualizado em " + DADOS.atualizado;
 $("f-modelo").textContent = DADOS.modelo;
 $("aviso-modelo").innerHTML = "<b>Estimativa de modelo, não medição.</b> Os valores vêm do modelo " + DADOS.modelo +
-  " e podem diferir da estação meteorológica. Veja a precisão no fim da página.";
+  " e podem diferir da estação meteorológica." + (DADOS.previsao ? " Os dias marcados como previsão são ainda menos confiáveis." : "") + " Veja a precisão no fim da página.";
 if (DADOS.erros && DADOS.erros.length) {
   const a = $("aviso-erros");
   a.hidden = false;
@@ -162,9 +180,14 @@ $("legenda").innerHTML = FAIXAS.map(([n,f]) =>
 const MUN = DADOS.municipios;
 const porDia = {};          // codigo -> {data: linha}
 MUN.forEach(m => { porDia[m.codigo_ibge] = {}; m.serie.forEach(l => porDia[m.codigo_ibge][l.data] = l); });
-const dias = [...new Set(MUN.flatMap(m => m.serie.filter(l => l.fma !== null).map(l => l.data)))].sort().reverse();
-let diaSel = dias[0], munSel = null, ordem = { k:"fma", dir:-1 }, grafico = null;
-$("dia").innerHTML = dias.map(d => `<option value="${d}">${dataBR(d, true)}</option>`).join("");
+const comFma = MUN.flatMap(m => m.serie.filter(l => l.fma !== null));
+const diasPrev = new Set(comFma.filter(l => l.previsao).map(l => l.data));
+const dias = [...new Set(comFma.map(l => l.data))].sort().reverse();
+const hojeObs = [...new Set(comFma.filter(l => !l.previsao).map(l => l.data))].sort().reverse()[0] || dias[0];
+const antecedencia = d => Math.round((new Date(d + "T12:00:00") - new Date(hojeObs + "T12:00:00")) / 86400000);
+const ehPrev = d => diasPrev.has(d) && d > hojeObs;
+let diaSel = hojeObs, munSel = null, ordem = { k:"fma", dir:-1 }, grafico = null;
+$("dia").innerHTML = dias.map(d => `<option value="${d}"${d === hojeObs ? " selected" : ""}>${dataBR(d, true)}${ehPrev(d) ? " - previsão (+" + antecedencia(d) + " d)" : ""}</option>`).join("");
 $("dia").onchange = e => { diaSel = e.target.value; desenhar(); };
 
 const linha = (m, d = diaSel) => porDia[m.codigo_ibge][d] || { data:d, umidade:null, chuva:null, fma:null, classe:"Sem dado", aviso:"" };
@@ -181,6 +204,9 @@ function montarMapa() {
   const W = 520, S = W / ((lon1 - lon0) * k), H = Math.round((lat1 - lat0) * S);
   proj = ([lon, lat]) => [(lon - lon0) * k * S, (lat1 - lat) * S];
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const defs = document.createElementNS(NS, "defs");
+  defs.innerHTML = '<pattern id="hach" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="none"/><line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-opacity=".28" stroke-width="2.2"/></pattern>';
+  svg.appendChild(defs);
   MUN.forEach(m => {
     const aneis = DADOS.contornos[m.codigo_ibge];
     const d = aneis.map(p => p.map(anel => "M" + anel.map(pt => proj(pt).map(v => v.toFixed(1)).join(",")).join("L") + "Z").join("")).join("");
@@ -193,6 +219,10 @@ function montarMapa() {
     p.onmousemove = e => mostrarTip(e, m);
     p.onmouseleave = () => $("tip").style.display = "none";
     svg.appendChild(p);
+    const ov = document.createElementNS(NS, "path");      // hachura por cima, só nos dias de previsão
+    ov.setAttribute("d", d); ov.setAttribute("fill-rule", "evenodd"); ov.setAttribute("fill", "url(#hach)");
+    ov.setAttribute("class", "ov"); ov.dataset.ov = m.codigo_ibge; ov.style.display = "none";
+    svg.appendChild(ov);
     // rótulo no centro do maior polígono
     const maior = aneis.reduce((a, b) => b[0].length > a[0].length ? b : a)[0];
     m._c = proj(centroide(maior));
@@ -218,6 +248,7 @@ function pintarMapa() {
   MUN.forEach(m => {
     const l = linha(m), p = svg.querySelector(`path[data-cod="${m.codigo_ibge}"]`), t = svg.querySelector(`text[data-cod="${m.codigo_ibge}"]`);
     p.setAttribute("fill", CORES[l.classe]);
+    svg.querySelector(`path[data-ov="${m.codigo_ibge}"]`).style.display = ehPrev(diaSel) ? "" : "none";
     p.setAttribute("aria-label", `${m.nome}: FMA ${num(l.fma, 1)}, classe ${l.classe}`);
     p.classList.toggle("sel", m.codigo_ibge === munSel);
     const [dx, dy] = DESLOC[m.codigo_ibge] || [0, 0];
@@ -226,11 +257,11 @@ function pintarMapa() {
   });
   // o rótulo da seleção fica por cima
   const sel = munSel && svg.querySelector(`path[data-cod="${munSel}"]`);
-  if (sel) svg.insertBefore(sel, svg.querySelector("text"));
+  if (sel) svg.insertBefore(sel, svg.querySelector("path.ov"));
 }
 function mostrarTip(e, m) {
   const l = linha(m), t = $("tip");
-  t.innerHTML = `<b>${m.nome}</b><br>FMA ${num(l.fma, 2)} - ${l.classe}<br>UR 13h: ${num(l.umidade, 0)}% | Chuva 24h: ${num(l.chuva, 1)} mm`;
+  t.innerHTML = `<b>${m.nome}</b>${ehPrev(diaSel) ? " (previsão)" : ""}<br>FMA ${num(l.fma, 2)} - ${l.classe}<br>UR 13h: ${num(l.umidade, 0)}% | Chuva 24h: ${num(l.chuva, 1)} mm`;
   t.style.display = "block";
   t.style.left = Math.min(e.clientX + 14, window.innerWidth - 250) + "px";
   t.style.top = (e.clientY + 14) + "px";
@@ -238,6 +269,7 @@ function mostrarTip(e, m) {
 
 // ---------- tabela
 function pintarTabela() {
+  document.getElementById("tabela").classList.toggle("tabela-prev", ehPrev(diaSel));
   const linhas = MUN.map(m => ({ m, l: linha(m) }));
   const v = ({m, l}) => ordem.k === "nome" ? m.nome : ordem.k === "classe" ? ORDEM.indexOf(l.classe) : l[ordem.k];
   linhas.sort((a, b) => {
@@ -249,7 +281,7 @@ function pintarTabela() {
   document.querySelector("#tabela tbody").innerHTML = linhas.map(({m, l}) => `
     <tr data-cod="${m.codigo_ibge}" class="${m.codigo_ibge === munSel ? "sel" : ""}">
       <td>${m.nome}</td><td>${num(l.fma, 2)}</td>
-      <td class="cl"><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td>
+      <td class="cl"><span class="bolinha${ehPrev(diaSel) ? " prev" : ""}" style="background-color:${CORES[l.classe]}"></span>${l.classe}</td>
       <td>${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}</td><td>${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}</td>
     </tr>`).join("");
   document.querySelectorAll("#tabela tbody tr").forEach(tr => tr.onclick = () => selecionar(tr.dataset.cod));
@@ -273,21 +305,29 @@ function pintarGrafico() {
   const est = m.estacao_proxima;
   $("sub-grafico").textContent = "Últimos " + serie.length + " dias." + (est ? ` Estação INMET mais próxima: ${est.nome} (${est.codigo}), a cerca de ${est.km} km.` : "");
   document.querySelector("#tab14 tbody").innerHTML = serie.slice(-14).reverse().map(l => `
-    <tr><td>${dataBR(l.data)}</td><td>${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}</td>
+    <tr><td>${dataBR(l.data)}${l.previsao ? "*" : ""}</td><td>${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}</td>
     <td>${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}</td><td>${num(l.fma, 2)}</td>
-    <td class="cl"><span class="bolinha" style="background:${CORES[l.classe]}"></span>${l.classe}</td></tr>`).join("");
+    <td class="cl"><span class="bolinha${l.previsao ? " prev" : ""}" style="background-color:${CORES[l.classe]}"></span>${l.classe}${l.previsao ? " (previsão)" : ""}</td></tr>`).join("");
   if (!window.Chart) return;
   const grade = css("--line"), tex = css("--mut");
+  const padrao = cor => {            // barra hachurada = previsão
+    const c = document.createElement("canvas"); c.width = c.height = 8;
+    const g = c.getContext("2d"); g.fillStyle = cor; g.fillRect(0, 0, 8, 8);
+    g.strokeStyle = "rgba(0,0,0,.35)"; g.lineWidth = 2;
+    g.beginPath(); g.moveTo(-2, 10); g.lineTo(10, -2); g.moveTo(-2, 2); g.lineTo(2, -2); g.moveTo(6, 10); g.lineTo(10, 6); g.stroke();
+    return g.createPattern(c, "repeat");
+  };
+  $("leg-prev").hidden = !serie.some(l => l.previsao);
   const cfg = {
     type: "bar",
-    data: { labels: serie.map(l => dataBR(l.data)),
-            datasets: [{ label: "FMA", data: serie.map(l => l.fma), backgroundColor: serie.map(l => CORES[l.classe]),
+    data: { labels: serie.map(l => dataBR(l.data) + (l.previsao ? "*" : "")),
+            datasets: [{ label: "FMA", data: serie.map(l => l.fma), backgroundColor: serie.map(l => l.previsao ? padrao(CORES[l.classe]) : CORES[l.classe]),
                          borderRadius: 3, borderSkipped: "bottom", maxBarThickness: 14 }] },
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false },
         tooltip: { callbacks: {
-          title: it => dataBR(serie[it[0].dataIndex].data, true),
+          title: it => dataBR(serie[it[0].dataIndex].data, true) + (serie[it[0].dataIndex].previsao ? " - previsão" : ""),
           label: it => { const l = serie[it.dataIndex];
             return [`FMA ${num(l.fma, 2)} - ${l.classe}`, `UR 13h: ${l.umidade === null ? "-" : num(l.umidade, 0) + "%"}`, `Chuva 24h: ${l.chuva === null ? "-" : num(l.chuva, 1) + " mm"}`]; } } } },
       scales: { y: { beginAtZero: true, title: { display: true, text: "FMA", color: tex }, grid: { color: grade }, ticks: { color: tex } },
@@ -299,9 +339,41 @@ function pintarGrafico() {
 }
 
 function selecionar(cod) { munSel = cod; desenhar(); }
-function desenhar() { pintarMapa(); pintarTabela(); pintarGrafico(); }
+// ---------- previsão: aviso do dia selecionado e quadro de validação
+const VAL = DADOS.previsao && DADOS.previsao.validacao;
+function textoValidacao(k) {
+  const r = VAL && VAL.horizontes && VAL.horizontes[String(k)];
+  if (!r) return "";
+  return ` Em teste com estações do INMET, a previsão com ${k} dia${k > 1 ? "s" : ""} de antecedência acertou a classe exata em ${num(r.classe_exata_pct)}% dos dias e dentro de 1 classe em ${num(r.classe_mais_menos_1_pct)}%.`;
+}
+function pintarPrevisao() {
+  const prev = ehPrev(diaSel), a = $("aviso-prev");
+  a.hidden = !prev;
+  $("tit-mapa").innerHTML = "Mapa" + (prev ? '<span class="pill">PREVISÃO</span>' : "");
+  $("tit-tabela").innerHTML = "Tabela" + (prev ? '<span class="pill">PREVISÃO</span>' : "");
+  if (prev) {
+    const k = antecedencia(diaSel);
+    a.innerHTML = `<b>Previsão para ${dataBR(diaSel, true)} (${k} dia${k > 1 ? "s" : ""} à frente).</b> É uma estimativa do modelo, menos confiável que o dia atual; a chuva forte localizada pode mudar o resultado.` + textoValidacao(k);
+  }
+}
+function montarBlocoPrevisao() {
+  if (!VAL) return;
+  $("bloco-prev").hidden = false;
+  $("prev-periodo").textContent = VAL.periodo_teste ? "(" + VAL.periodo_teste + ")" : "";
+  $("prev-est").textContent = (VAL.estacoes || []).length;
+  const hs = Object.keys(VAL.horizontes || {}).sort();
+  $("tab-val").querySelector("tbody").innerHTML = hs.map(k => { const r = VAL.horizontes[k];
+    return `<tr><td>+${k} dia${k > 1 ? "s" : ""}</td><td>${num(r.classe_exata_pct)}%</td><td>${num(r.classe_mais_menos_1_pct)}%</td><td>${num(r.fma_mae, 1)}</td>` +
+           `<td>${num(r.persistencia_classe_exata_pct)}%</td><td>${num(r.persistencia_fma_mae, 1)}</td></tr>`; }).join("");
+  const piores = hs.filter(k => VAL.horizontes[k].fma_mae >= VAL.horizontes[k].persistencia_fma_mae);
+  $("prev-nota").textContent = piores.length
+    ? "Atenção: para " + piores.map(k => "+" + k + " dia" + (k > 1 ? "s" : "")).join(", ") + " a previsão não errou menos que a referência ingênua (repetir a FMA de hoje); use com cautela."
+    : "A previsão errou menos que a referência ingênua em todas as antecedências testadas, mas o erro cresce com os dias.";
+}
+function desenhar() { pintarMapa(); pintarTabela(); pintarGrafico(); pintarPrevisao(); }
 
 montarMapa();
+montarBlocoPrevisao();
 munSel = (MUN.find(m => m.nome === "Seropédica") || MUN[0]).codigo_ibge;
 desenhar();
 if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (grafico) { grafico.destroy(); grafico = null; } pintarGrafico(); });

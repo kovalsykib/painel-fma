@@ -17,7 +17,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from fma import MODELO_PADRAO, baixar_openmeteo, calcular_fma
+from fma import MODELO_PADRAO, baixar_openmeteo_horario, calcular_fma, diario_de_openmeteo
 
 RAIZ = Path(__file__).parent
 DADOS = RAIZ / "dados"
@@ -25,6 +25,7 @@ DOCS = RAIZ / "docs"
 DIAS_INICIAL = 90        # primeira execução: baixa 90 dias para aquecer o acumulado
 DIAS_ATUALIZACAO = 10    # execuções seguintes: reprocessa os últimos 10 dias (corrige dados atrasados)
 DIAS_NO_PAINEL = 60
+DIAS_PREVISAO = 3        # a previsão só aparece se validacao_previsao.json existir (ver validar_previsao.py)
 FUSO = timezone(timedelta(hours=-3))  # Brasília
 
 
@@ -44,7 +45,7 @@ def estacao_mais_proxima(lat, lon):
     return {"codigo": cod, "nome": meta[cod]["nome"], "km": round(dist_km(lat, lon, meta[cod]["latitude"], meta[cod]["longitude"]))}
 
 
-def atualizar_municipio(m, hoje):
+def atualizar_municipio(m, hoje, com_previsao=False):
     cod = m["codigo_ibge"]
     arq = DADOS / f"{cod}_diario.csv"
 
@@ -56,7 +57,9 @@ def atualizar_municipio(m, hoje):
         hist.index.name = "data"
         dias = DIAS_INICIAL
 
-    novo = baixar_openmeteo(m["latitude"], m["longitude"], dias + 1, agora_local=datetime.now(FUSO))
+    h = baixar_openmeteo_horario(m["latitude"], m["longitude"], dias + 1,
+                                 dias_previsao=DIAS_PREVISAO if com_previsao else 0)
+    novo = diario_de_openmeteo(h, datetime.now(FUSO))
     if not novo.empty:
         novo["data"] = pd.to_datetime(novo["data"])
         novo = novo[novo["data"].dt.date <= hoje].set_index("data")
@@ -73,13 +76,29 @@ def atualizar_municipio(m, hoje):
     hist[["umidade", "chuva"]].to_csv(arq, date_format="%Y-%m-%d")
 
     res = calcular_fma(hist.reset_index())
-    res.to_csv(DADOS / f"{cod}_fma.csv", index=False, date_format="%Y-%m-%d")
+    res.to_csv(DADOS / f"{cod}_fma.csv", index=False, date_format="%Y-%m-%d")   # histórico: só o que já aconteceu
+    res["previsao"] = False
+
+    if com_previsao:
+        # dias à frente do último dia observado (até DIAS_PREVISAO); a FMA continua do acumulado desse último dia
+        fut = diario_de_openmeteo(h)
+        fut["data"] = pd.to_datetime(fut["data"])
+        fut = fut.set_index("data")
+        ultimo = hist.index.max()
+        fut = fut[(fut.index > ultimo) & (fut.index <= ultimo + timedelta(days=DIAS_PREVISAO))]   # no máximo 3 dias além do último dia observado
+        if not fut.empty:
+            tudo = pd.concat([hist[["umidade", "chuva"]], fut[["umidade", "chuva"]]])
+            tudo = tudo.reindex(pd.date_range(tudo.index.min(), tudo.index.max(), name="data"))
+            r2 = calcular_fma(tudo.reset_index())
+            r2["previsao"] = r2["data"] > ultimo
+            res = r2
     return res
 
 
 def serie_para_painel(res):
     linhas = []
-    for _, r in res.tail(DIAS_NO_PAINEL).iterrows():
+    n_prev = int(res["previsao"].sum()) if "previsao" in res else 0
+    for _, r in res.tail(DIAS_NO_PAINEL + n_prev).iterrows():
         linhas.append({
             "data": r["data"].strftime("%Y-%m-%d"),
             "umidade": None if pd.isna(r["umidade"]) else round(float(r["umidade"]), 1),
@@ -87,17 +106,19 @@ def serie_para_painel(res):
             "fma": None if pd.isna(r["fma"]) else round(float(r["fma"]), 2),
             "classe": r["classe"],
             "aviso": r["aviso"],
+            "previsao": bool(r.get("previsao", False)),
         })
     return linhas
 
 
-def gerar_painel(municipios, resultados, erros):
+def gerar_painel(municipios, resultados, erros, validacao=None):
     agora = datetime.now(FUSO)
     saida = {
         "atualizado": agora.strftime("%d/%m/%Y às %H:%M (Brasília)"),
         "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
         "modelo_id": MODELO_PADRAO,
         "erros": erros,
+        "previsao": {"dias": DIAS_PREVISAO, "validacao": validacao} if validacao else None,
         "municipios": [
             {"codigo_ibge": m["codigo_ibge"], "nome": m["nome"], "latitude": m["latitude"], "longitude": m["longitude"],
              "estacao_proxima": estacao_mais_proxima(m["latitude"], m["longitude"]),
@@ -119,13 +140,17 @@ def main():
     DOCS.mkdir(exist_ok=True)
     municipios = json.loads((RAIZ / "municipios.json").read_text(encoding="utf-8"))
     hoje = datetime.now(FUSO).date()
+    arq_val = RAIZ / "validacao_previsao.json"
+    validacao = json.loads(arq_val.read_text(encoding="utf-8")) if arq_val.exists() else None
+    if validacao is None:
+        print("Sem validacao_previsao.json: a previsão fica desligada (rode a validação para ligar).")
 
     resultados, erros = {}, []
     for m in municipios:
         cod = m["codigo_ibge"]
         try:
-            resultados[cod] = atualizar_municipio(m, hoje)
-            ult = resultados[cod].dropna(subset=["fma"]).tail(1)
+            resultados[cod] = atualizar_municipio(m, hoje, com_previsao=validacao is not None)
+            ult = resultados[cod][~resultados[cod]["previsao"]].dropna(subset=["fma"]).tail(1)
             if not ult.empty:
                 r = ult.iloc[0]
                 print(f"{m['nome']}: FMA {r['fma']:.2f} ({r['classe']}) em {r['data']:%d/%m/%Y}")
@@ -135,9 +160,10 @@ def main():
             arq = DADOS / f"{cod}_fma.csv"  # falhou o download: mostra o último resultado guardado
             if arq.exists():
                 resultados[cod] = pd.read_csv(arq, parse_dates=["data"]).fillna({"aviso": ""})
+                resultados[cod]["previsao"] = False
         time.sleep(1)   # gentileza com a API gratuita
 
-    gerar_painel(municipios, resultados, erros)
+    gerar_painel(municipios, resultados, erros, validacao)
     if erros and not resultados:
         sys.exit(1)
 
