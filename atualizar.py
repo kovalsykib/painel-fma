@@ -133,8 +133,70 @@ def gerar_historico_csv(municipios):
     tudo.to_csv(DOCS / "historico_fma.csv", index=False, sep=";", decimal=",", encoding="utf-8-sig")
 
 
+def gerar_historico_xlsx(municipios):
+    """Excel com uma aba por município (docs/historico_fma.xlsx) e uma aba "Leia-me" com as regras e as fontes."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment, Font, PatternFill
+    from openpyxl.utils import get_column_letter
+
+    cores = {"Nulo": "DCE9F5", "Pequeno": "D5EBDC", "Médio": "FBF0B3", "Alto": "FBD9B8", "Muito alto": "F3C0C0", "Sem dado": "E5E7E9"}
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Leia-me"
+    linhas = [
+        ("Histórico da FMA (Fórmula de Monte Alegre) - municípios do PMIF", True),
+        (f"Gerado em {datetime.now(FUSO).strftime('%d/%m/%Y às %H:%M')} (Brasília). Uma aba por município.", False),
+        ("", False),
+        ("Dados: umidade relativa às 13h e chuva (das 14h do dia anterior às 13h do dia) do modelo ECMWF IFS 0,25° via Open-Meteo, no ponto de cálculo de cada município.", False),
+        ("São estimativas de modelo, não medições de estação.", False),
+        ("Chuva até 2,4 mm: sem efeito; 2,5 a 4,9: acumulado x 0,7; 5,0 a 9,9: x 0,4; 10,0 a 12,9: x 0,2; acima de 12,9: zera.", False),
+        ("Classes: Nulo (até 1,0), Pequeno (1,1 a 3,0), Médio (3,1 a 8,0), Alto (8,1 a 20,0), Muito alto (acima de 20,0).", False),
+        ("Dias sem umidade às 13h aparecem como Sem dado. A coluna aviso indica chuva ausente (assumida 0 mm).", False),
+        ("A FMA é acumulativa: no início da série o valor pode estar subestimado.", False),
+    ]
+    for i, (t, neg) in enumerate(linhas, 1):
+        ws.cell(row=i, column=1, value=t).font = Font(bold=neg, size=13 if neg else 11)
+    ws.column_dimensions["A"].width = 120
+
+    cab = ["Data", "Umidade 13h (%)", "Chuva 24h (mm)", "FMA", "Classe", "Aviso"]
+    larg = [12, 17, 16, 10, 13, 34]
+    for m in municipios:
+        arq = DADOS / f"{m['codigo_ibge']}_fma.csv"
+        if not arq.exists():
+            continue
+        d = pd.read_csv(arq, parse_dates=["data"]).fillna({"aviso": ""})
+        aba = wb.create_sheet(m["nome"][:31])
+        aba.append(cab)
+        for c in range(1, len(cab) + 1):
+            cel = aba.cell(row=1, column=c)
+            cel.font = Font(bold=True, color="FFFFFF")
+            cel.fill = PatternFill("solid", fgColor="2F5D50")
+            cel.alignment = Alignment(horizontal="center")
+            aba.column_dimensions[get_column_letter(c)].width = larg[c - 1]
+        for _, r in d.iterrows():
+            aba.append([r["data"].to_pydatetime(),
+                        None if pd.isna(r["umidade"]) else round(float(r["umidade"]), 1),
+                        None if pd.isna(r["chuva"]) else round(float(r["chuva"]), 1),
+                        None if pd.isna(r["fma"]) else round(float(r["fma"]), 2),
+                        r["classe"], r["aviso"]])
+            n = aba.max_row
+            aba.cell(row=n, column=1).number_format = "dd/mm/yyyy"
+            aba.cell(row=n, column=2).number_format = "0.0"
+            aba.cell(row=n, column=3).number_format = "0.0"
+            aba.cell(row=n, column=4).number_format = "0.00"
+            cor = cores.get(r["classe"])
+            if cor:
+                aba.cell(row=n, column=5).fill = PatternFill("solid", fgColor=cor)
+        aba.freeze_panes = "A2"
+    wb.save(DOCS / "historico_fma.xlsx")
+
+
 def gerar_painel(municipios, resultados, erros, validacao=None):
     gerar_historico_csv(municipios)
+    try:
+        gerar_historico_xlsx(municipios)
+    except Exception as e:   # o Excel é um extra: se falhar, o painel segue
+        print(f"Aviso: não foi possível gerar o Excel: {e}", file=sys.stderr)
     agora = datetime.now(FUSO)
     saida = {
         "atualizado": agora.strftime("%d/%m/%Y às %H:%M (Brasília)"),
