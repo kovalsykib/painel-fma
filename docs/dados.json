@@ -1,5 +1,5 @@
 {
- "atualizado": "15/10/2026 às 02:48 (Brasília)",
+ "atualizado": "15/10/2026 às 03:06 (Brasília)",
  "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
  "modelo_id": "ecmwf_ifs025",
  "erros": [
@@ -7,14 +7,19 @@
    "codigo": "3302601",
    "nome": "Mangaratiba",
    "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
+  },
+  {
+   "codigo": "3304003",
+   "nome": "Piraí",
+   "erro": "falha ao baixar dados do Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=20)"
   }
  ],
  "municipios": [
   {
    "codigo_ibge": "3300308",
    "nome": "Barra do Piraí",
-   "latitude": -22.4265,
-   "longitude": -43.9135,
+   "latitude": -22.4257,
+   "longitude": -43.913,
    "estacao_proxima": {
     "codigo": "A611",
     "nome": "Valenca",
@@ -490,8 +495,8 @@
   {
    "codigo_ibge": "3301801",
    "nome": "Engenheiro Paulo de Frontin",
-   "latitude": -22.5128,
-   "longitude": -43.6378,
+   "latitude": -22.5083,
+   "longitude": -43.6361,
    "estacao_proxima": {
     "codigo": "A611",
     "nome": "Valenca",
@@ -967,12 +972,12 @@
   {
    "codigo_ibge": "3302007",
    "nome": "Itaguaí",
-   "latitude": -22.8307,
-   "longitude": -43.8174,
+   "latitude": -22.8301,
+   "longitude": -43.8133,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
-    "km": 16
+    "km": 15
    },
    "serie": [
     {
@@ -1444,8 +1449,8 @@
   {
    "codigo_ibge": "3302270",
    "nome": "Japeri",
-   "latitude": -22.6616,
-   "longitude": -43.6054,
+   "latitude": -22.6619,
+   "longitude": -43.6058,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
@@ -1921,8 +1926,8 @@
   {
    "codigo_ibge": "3302809",
    "nome": "Mendes",
-   "latitude": -22.5211,
-   "longitude": -43.7394,
+   "latitude": -22.5215,
+   "longitude": -43.7398,
    "estacao_proxima": {
     "codigo": "A611",
     "nome": "Valenca",
@@ -2398,12 +2403,12 @@
   {
    "codigo_ibge": "3302908",
    "nome": "Miguel Pereira",
-   "latitude": -22.5071,
-   "longitude": -43.47,
+   "latitude": -22.5065,
+   "longitude": -43.4692,
    "estacao_proxima": {
     "codigo": "A637",
     "nome": "Paty Do Alferes - Avelar",
-    "km": 19
+    "km": 18
    },
    "serie": [
     {
@@ -2875,8 +2880,8 @@
   {
    "codigo_ibge": "3303500",
    "nome": "Nova Iguaçu",
-   "latitude": -22.6877,
-   "longitude": -43.5019,
+   "latitude": -22.6868,
+   "longitude": -43.5018,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
@@ -3352,8 +3357,8 @@
   {
    "codigo_ibge": "3303609",
    "nome": "Paracambi",
-   "latitude": -22.622,
-   "longitude": -43.726,
+   "latitude": -22.6179,
+   "longitude": -43.7215,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
@@ -3829,8 +3834,8 @@
   {
    "codigo_ibge": "3304003",
    "nome": "Piraí",
-   "latitude": -22.6337,
-   "longitude": -43.9037,
+   "latitude": -22.6336,
+   "longitude": -43.9017,
    "estacao_proxima": {
     "codigo": "A626",
     "nome": "Rio Claro",
@@ -4307,7 +4312,7 @@
    "codigo_ibge": "3304144",
    "nome": "Queimados",
    "latitude": -22.7254,
-   "longitude": -43.5854,
+   "longitude": -43.5849,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
@@ -4783,8 +4788,8 @@
   {
    "codigo_ibge": "3304409",
    "nome": "Rio Claro",
-   "latitude": -22.782,
-   "longitude": -44.0788,
+   "latitude": -22.7805,
+   "longitude": -44.0784,
    "estacao_proxima": {
     "codigo": "A626",
     "nome": "Rio Claro",
@@ -5260,7 +5265,7 @@
   {
    "codigo_ibge": "3304557",
    "nome": "Rio de Janeiro",
-   "latitude": -22.9257,
+   "latitude": -22.9255,
    "longitude": -43.458,
    "estacao_proxima": {
     "codigo": "A636",
@@ -5737,12 +5742,12 @@
   {
    "codigo_ibge": "3305554",
    "nome": "Seropédica",
-   "latitude": -22.7596,
-   "longitude": -43.7027,
+   "latitude": -22.7555,
+   "longitude": -43.6986,
    "estacao_proxima": {
     "codigo": "A601",
     "nome": "Seropedica-Ecologia Agricola",
-    "km": 2
+    "km": 1
    },
    "serie": [
     {
@@ -6214,12 +6219,12 @@
   {
    "codigo_ibge": "3306206",
    "nome": "Vassouras",
-   "latitude": -22.3606,
-   "longitude": -43.5752,
+   "latitude": -22.3586,
+   "longitude": -43.5697,
    "estacao_proxima": {
     "codigo": "A611",
     "nome": "Valenca",
-    "km": 12
+    "km": 13
    },
    "serie": [
     {
