@@ -1,0 +1,51 @@
+{
+ "gerado_em": "15/10/2026",
+ "modelo": "ecmwf_ifs025",
+ "periodo_teste": "2025-01-01 em diante",
+ "estacoes": [
+  "A601",
+  "A602",
+  "A609",
+  "A621",
+  "A626",
+  "A636"
+ ],
+ "horizontes": {
+  "1": {
+   "dias": 3607,
+   "classe_exata_pct": 59.3,
+   "classe_mais_menos_1_pct": 90.2,
+   "fma_mae": 10.92,
+   "persistencia_classe_exata_pct": 52.4,
+   "persistencia_classe_mais_menos_1_pct": 88.9,
+   "persistencia_fma_mae": 11.33,
+   "eventos_12_9mm": 299,
+   "pod_12_9mm_pct": 42.8,
+   "alarmes_falsos_12_9mm_pct": 54.3
+  },
+  "2": {
+   "dias": 3635,
+   "classe_exata_pct": 57.0,
+   "classe_mais_menos_1_pct": 88.9,
+   "fma_mae": 11.08,
+   "persistencia_classe_exata_pct": 46.3,
+   "persistencia_classe_mais_menos_1_pct": 85.8,
+   "persistencia_fma_mae": 12.1,
+   "eventos_12_9mm": 299,
+   "pod_12_9mm_pct": 39.5,
+   "alarmes_falsos_12_9mm_pct": 58.5
+  },
+  "3": {
+   "dias": 3627,
+   "classe_exata_pct": 55.4,
+   "classe_mais_menos_1_pct": 89.5,
+   "fma_mae": 11.31,
+   "persistencia_classe_exata_pct": 41.6,
+   "persistencia_classe_mais_menos_1_pct": 82.1,
+   "persistencia_fma_mae": 13.0,
+   "eventos_12_9mm": 299,
+   "pod_12_9mm_pct": 34.8,
+   "alarmes_falsos_12_9mm_pct": 62.9
+  }
+ }
+}
