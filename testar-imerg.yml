@@ -1,0 +1,32 @@
+name: Testar IMERG (NASA)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install earthaccess xarray h5netcdf h5py
+      - name: Testar acesso ao IMERG
+        env:
+          EARTHDATA_USERNAME: ${{ secrets.EARTHDATA_USERNAME }}
+          EARTHDATA_PASSWORD: ${{ secrets.EARTHDATA_PASSWORD }}
+        run: python testar_imerg.py
+      - name: Salvar relatório
+        if: always()
+        run: |
+          git config user.name "painel-fma"
+          git config user.email "painel-fma@users.noreply.github.com"
+          git add -A imerg
+          git commit -m "Teste de acesso ao IMERG" || echo "nada a salvar"
+          git pull --rebase || true
+          git push
