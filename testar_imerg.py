@@ -25,18 +25,33 @@ def log(txt=""):
     linhas.append(txt + "\n")
 
 
-def fim_granulo(g):
-    try:
-        return datetime.fromisoformat(g["umm"]["TemporalExtent"]["RangeDateTime"]["EndingDateTime"].replace("Z", "+00:00"))
-    except Exception:
-        return None
+def listar_cmr(short, ini, fim, n=50, tentativas=4):
+    """Lista arquivos direto na API do CMR (sem login). Devolve lista de dicts {url, fim}. Tenta de novo se o CMR falhar."""
+    import requests
+    params = {"short_name": short, "version": "07", "temporal[]": f"{ini:%Y-%m-%dT%H:%M:%SZ},{fim:%Y-%m-%dT%H:%M:%SZ}",
+              "page_size": n, "sort_key": "-start_date"}
+    ultimo = ""
+    for i in range(tentativas):
+        r = requests.get("https://cmr.earthdata.nasa.gov/search/granules.json", params=params, timeout=60)
+        if r.status_code == 200:
+            saida = []
+            for e in r.json()["feed"]["entry"]:
+                url = next((l["href"] for l in e.get("links", []) if l.get("rel", "").endswith("/data#") and l["href"].startswith("https")), None)
+                fim_e = datetime.fromisoformat(e["time_end"].replace("Z", "+00:00")) if e.get("time_end") else None
+                saida.append({"url": url, "fim": fim_e})
+            return saida
+        ultimo = f"HTTP {r.status_code}: {r.text[:300]}"
+        time.sleep(20 * (i + 1))
+    # diagnóstico: a mesma consulta sem o filtro de versão, para saber se o problema é a versão
+    r = requests.get("https://cmr.earthdata.nasa.gov/search/granules.json", params={k: v for k, v in params.items() if k != "version"}, timeout=60)
+    raise RuntimeError(f"CMR recusou {tentativas} vezes. Último erro: {ultimo}. Sem filtro de versão: HTTP {r.status_code} {r.text[:200]}")
 
 
 def main():
     import earthaccess
 
     agora = datetime.now(timezone.utc)
-    log("## 1. Listagem dos arquivos (CMR, sem login)\n")
+    log("## 1. Listagem dos arquivos (CMR da NASA, sem login)\n")
     achados = {}
     for nome, short in PRODUTOS.items():
         try:
@@ -44,16 +59,16 @@ def main():
                 ini, fim = agora - timedelta(days=200), agora - timedelta(days=198)
             else:
                 ini, fim = agora - timedelta(days=3), agora
-            gs = earthaccess.search_data(short_name=short, version="07", temporal=(ini.strftime("%Y-%m-%dT%H:%M:%S"), fim.strftime("%Y-%m-%dT%H:%M:%S")), count=400)
+            gs = listar_cmr(short, ini, fim)
             achados[nome] = gs
-            fins = [f for f in (fim_granulo(g) for g in gs) if f]
-            msg = f"- **{nome}** ({short}): {len(gs)} arquivos encontrados"
+            fins = [g["fim"] for g in gs if g["fim"]]
+            msg = f"- **{nome}** ({short}): {len(gs)} arquivos listados (máx. 50 por consulta)"
             if fins and "Final" not in nome:
                 ult = max(fins)
                 msg += f"; o mais novo termina em {ult:%Y-%m-%d %H:%M} UTC, **{(agora - ult).total_seconds() / 3600:.1f} h antes de agora**"
             log(msg)
-            if gs:
-                log(f"  - exemplo: `{gs[0].data_links()[0].split('/')[-1]}`")
+            if gs and gs[0]["url"]:
+                log(f"  - exemplo: `{gs[0]['url'].split('/')[-1]}`")
         except Exception:
             log(f"- **{nome}**: FALHOU\n```\n{traceback.format_exc()[-900:]}\n```")
 
@@ -75,11 +90,11 @@ def main():
         if not gs:
             continue
         try:
-            amostra = gs[:5]
+            amostra = [g["url"] for g in gs[:5] if g["url"]]
             t0 = time.time()
             arquivos = earthaccess.open(amostra)
             tempos, valores = [], []
-            for g, f in zip(amostra, arquivos):
+            for f in arquivos:
                 t1 = time.time()
                 with xr.open_dataset(f, group="Grid", engine="h5netcdf") as ds:
                     if "precipitation" not in ds:
