@@ -1,5 +1,5 @@
 {
- "atualizado": "28/10/2026 às 15:14 (Brasília)",
+ "atualizado": "28/10/2026 às 17:37 (Brasília)",
  "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
  "modelo_id": "ecmwf_ifs025",
  "erros": [],
@@ -7562,17 +7562,17 @@
     },
     {
      "data": "2026-10-29",
-     "umidade": 81.0,
-     "chuva": 2.6,
-     "fma": 3.41,
+     "umidade": 90.0,
+     "chuva": 1.6,
+     "fma": 4.22,
      "classe": "Médio",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-10-30",
-     "umidade": 79.0,
-     "chuva": 15.7,
+     "umidade": 82.0,
+     "chuva": 21.0,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
@@ -7580,9 +7580,9 @@
     },
     {
      "data": "2026-10-31",
-     "umidade": 81.0,
-     "chuva": 2.1,
-     "fma": 1.23,
+     "umidade": 80.0,
+     "chuva": 5.7,
+     "fma": 1.25,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
@@ -8133,25 +8133,25 @@
     },
     {
      "data": "2026-10-28",
-     "umidade": 53.0,
+     "umidade": 55.0,
      "chuva": 0.4,
-     "fma": 4.2,
+     "fma": 4.13,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-10-29",
-     "umidade": 80.0,
+     "umidade": 71.0,
      "chuva": 6.9,
-     "fma": 2.93,
-     "classe": "Pequeno",
+     "fma": 3.06,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-10-30",
-     "umidade": 61.0,
+     "umidade": 68.0,
      "chuva": 17.3,
      "fma": 0.0,
      "classe": "Nulo",
