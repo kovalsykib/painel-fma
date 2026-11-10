@@ -82,7 +82,8 @@
 3300308;Barra do Piraí;2026-11-06;74,0;8,8;2,96;Pequeno;
 3300308;Barra do Piraí;2026-11-07;62,0;1,4;4,57;Médio;
 3300308;Barra do Piraí;2026-11-08;75,0;11,1;2,25;Pequeno;
-3300308;Barra do Piraí;2026-11-09;80,0;5,8;2,15;Pequeno;
+3300308;Barra do Piraí;2026-11-09;82,0;5,8;2,12;Pequeno;
+3300308;Barra do Piraí;2026-11-10;69,0;0,6;3,57;Médio;
 3301801;Engenheiro Paulo de Frontin;2026-08-18;52,0;;1,92;Pequeno;chuva ausente (assumida 0 mm)
 3301801;Engenheiro Paulo de Frontin;2026-08-19;41,0;0,0;4,36;Médio;
 3301801;Engenheiro Paulo de Frontin;2026-08-20;42,0;0,0;6,74;Médio;
@@ -166,7 +167,8 @@
 3301801;Engenheiro Paulo de Frontin;2026-11-06;76,0;8,0;2,67;Pequeno;
 3301801;Engenheiro Paulo de Frontin;2026-11-07;67,0;3,3;3,36;Médio;
 3301801;Engenheiro Paulo de Frontin;2026-11-08;92,0;24,3;0,0;Nulo;
-3301801;Engenheiro Paulo de Frontin;2026-11-09;86,0;7,3;1,16;Pequeno;
+3301801;Engenheiro Paulo de Frontin;2026-11-09;89,0;7,3;1,12;Pequeno;
+3301801;Engenheiro Paulo de Frontin;2026-11-10;67,0;1,1;2,62;Pequeno;
 3302007;Itaguaí;2026-08-18;41,0;;2,44;Pequeno;chuva ausente (assumida 0 mm)
 3302007;Itaguaí;2026-08-19;34,0;0,0;5,38;Médio;
 3302007;Itaguaí;2026-08-20;46,0;0,0;7,55;Médio;
@@ -250,7 +252,8 @@
 3302007;Itaguaí;2026-11-06;72,0;1,9;6,02;Médio;
 3302007;Itaguaí;2026-11-07;67,0;8,7;3,9;Médio;
 3302007;Itaguaí;2026-11-08;86,0;24,4;0,0;Nulo;
-3302007;Itaguaí;2026-11-09;73,0;12,6;1,37;Pequeno;
+3302007;Itaguaí;2026-11-09;74,0;12,6;1,35;Pequeno;
+3302007;Itaguaí;2026-11-10;65,0;0,5;2,89;Pequeno;
 3302270;Japeri;2026-08-18;42,0;;2,38;Pequeno;chuva ausente (assumida 0 mm)
 3302270;Japeri;2026-08-19;33,0;0,0;5,41;Médio;
 3302270;Japeri;2026-08-20;49,0;0,0;7,45;Médio;
@@ -334,7 +337,8 @@
 3302270;Japeri;2026-11-06;72,0;1,9;9,46;Alto;
 3302270;Japeri;2026-11-07;68,0;11,3;3,36;Médio;
 3302270;Japeri;2026-11-08;87,0;38,6;0,0;Nulo;
-3302270;Japeri;2026-11-09;78,0;9,9;1,28;Pequeno;
+3302270;Japeri;2026-11-09;79,0;9,9;1,27;Pequeno;
+3302270;Japeri;2026-11-10;68,0;1,8;2,74;Pequeno;
 3302601;Mangaratiba;2026-08-31;85,0;;1,18;Pequeno;chuva ausente (assumida 0 mm)
 3302601;Mangaratiba;2026-09-01;86,0;2,2;2,34;Pequeno;
 3302601;Mangaratiba;2026-09-02;58,0;13,3;0,0;Nulo;
@@ -405,7 +409,8 @@
 3302601;Mangaratiba;2026-11-06;83,0;3,2;5,47;Médio;
 3302601;Mangaratiba;2026-11-07;82,0;2,4;6,69;Médio;
 3302601;Mangaratiba;2026-11-08;92,0;26,8;0,0;Nulo;
-3302601;Mangaratiba;2026-11-09;78,0;30,2;0,0;Nulo;
+3302601;Mangaratiba;2026-11-09;79,0;30,2;0,0;Nulo;
+3302601;Mangaratiba;2026-11-10;62,0;2,8;1,61;Pequeno;
 3302809;Mendes;2026-08-18;52,0;;1,92;Pequeno;chuva ausente (assumida 0 mm)
 3302809;Mendes;2026-08-19;41,0;0,0;4,36;Médio;
 3302809;Mendes;2026-08-20;42,0;0,0;6,74;Médio;
@@ -489,7 +494,8 @@
 3302809;Mendes;2026-11-06;76,0;8,0;2,67;Pequeno;
 3302809;Mendes;2026-11-07;67,0;3,3;3,36;Médio;
 3302809;Mendes;2026-11-08;92,0;24,3;0,0;Nulo;
-3302809;Mendes;2026-11-09;86,0;7,3;1,16;Pequeno;
+3302809;Mendes;2026-11-09;89,0;7,3;1,12;Pequeno;
+3302809;Mendes;2026-11-10;67,0;1,1;2,62;Pequeno;
 3302908;Miguel Pereira;2026-08-18;49,0;;2,04;Pequeno;chuva ausente (assumida 0 mm)
 3302908;Miguel Pereira;2026-08-19;35,0;0,0;4,9;Médio;
 3302908;Miguel Pereira;2026-08-20;40,0;0,0;7,4;Médio;
@@ -573,7 +579,8 @@
 3302908;Miguel Pereira;2026-11-06;83,0;9,0;2,83;Pequeno;
 3302908;Miguel Pereira;2026-11-07;70,0;10,2;1,99;Pequeno;
 3302908;Miguel Pereira;2026-11-08;94,0;38,0;0,0;Nulo;
-3302908;Miguel Pereira;2026-11-09;82,0;9,7;1,22;Pequeno;
+3302908;Miguel Pereira;2026-11-09;84,0;9,7;1,19;Pequeno;
+3302908;Miguel Pereira;2026-11-10;74,0;1,7;2,54;Pequeno;
 3303500;Nova Iguaçu;2026-08-18;42,0;;2,38;Pequeno;chuva ausente (assumida 0 mm)
 3303500;Nova Iguaçu;2026-08-19;33,0;0,0;5,41;Médio;
 3303500;Nova Iguaçu;2026-08-20;49,0;0,0;7,45;Médio;
@@ -657,7 +664,8 @@
 3303500;Nova Iguaçu;2026-11-06;72,0;1,9;9,46;Alto;
 3303500;Nova Iguaçu;2026-11-07;68,0;11,3;3,36;Médio;
 3303500;Nova Iguaçu;2026-11-08;87,0;38,6;0,0;Nulo;
-3303500;Nova Iguaçu;2026-11-09;78,0;9,9;1,28;Pequeno;
+3303500;Nova Iguaçu;2026-11-09;79,0;9,9;1,27;Pequeno;
+3303500;Nova Iguaçu;2026-11-10;68,0;1,8;2,74;Pequeno;
 3303609;Paracambi;2026-08-18;52,0;;1,92;Pequeno;chuva ausente (assumida 0 mm)
 3303609;Paracambi;2026-08-19;41,0;0,0;4,36;Médio;
 3303609;Paracambi;2026-08-20;42,0;0,0;6,74;Médio;
@@ -741,7 +749,8 @@
 3303609;Paracambi;2026-11-06;76,0;8,0;2,67;Pequeno;
 3303609;Paracambi;2026-11-07;67,0;3,3;3,36;Médio;
 3303609;Paracambi;2026-11-08;92,0;24,3;0,0;Nulo;
-3303609;Paracambi;2026-11-09;86,0;7,3;1,16;Pequeno;
+3303609;Paracambi;2026-11-09;89,0;7,3;1,12;Pequeno;
+3303609;Paracambi;2026-11-10;67,0;1,1;2,62;Pequeno;
 3304003;Piraí;2026-08-18;53,0;;1,89;Pequeno;chuva ausente (assumida 0 mm)
 3304003;Piraí;2026-08-19;40,0;0,0;4,39;Médio;
 3304003;Piraí;2026-08-20;44,0;0,0;6,66;Médio;
@@ -825,7 +834,8 @@
 3304003;Piraí;2026-11-06;84,0;4,3;3,03;Médio;
 3304003;Piraí;2026-11-07;70,0;3,5;3,55;Médio;
 3304003;Piraí;2026-11-08;89,0;20,0;0,0;Nulo;
-3304003;Piraí;2026-11-09;90,0;15,3;0,0;Nulo;
+3304003;Piraí;2026-11-09;92,0;15,3;0,0;Nulo;
+3304003;Piraí;2026-11-10;72,0;1,7;1,39;Pequeno;
 3304144;Queimados;2026-08-18;42,0;;2,38;Pequeno;chuva ausente (assumida 0 mm)
 3304144;Queimados;2026-08-19;33,0;0,0;5,41;Médio;
 3304144;Queimados;2026-08-20;49,0;0,0;7,45;Médio;
@@ -909,7 +919,8 @@
 3304144;Queimados;2026-11-06;72,0;1,9;9,46;Alto;
 3304144;Queimados;2026-11-07;68,0;11,3;3,36;Médio;
 3304144;Queimados;2026-11-08;87,0;38,6;0,0;Nulo;
-3304144;Queimados;2026-11-09;78,0;9,9;1,28;Pequeno;
+3304144;Queimados;2026-11-09;79,0;9,9;1,27;Pequeno;
+3304144;Queimados;2026-11-10;68,0;1,8;2,74;Pequeno;
 3304409;Rio Claro;2026-08-18;53,0;;1,89;Pequeno;chuva ausente (assumida 0 mm)
 3304409;Rio Claro;2026-08-19;40,0;0,0;4,39;Médio;
 3304409;Rio Claro;2026-08-20;44,0;0,0;6,66;Médio;
@@ -993,7 +1004,8 @@
 3304409;Rio Claro;2026-11-06;84,0;4,3;3,03;Médio;
 3304409;Rio Claro;2026-11-07;70,0;3,5;3,55;Médio;
 3304409;Rio Claro;2026-11-08;89,0;20,0;0,0;Nulo;
-3304409;Rio Claro;2026-11-09;90,0;15,3;0,0;Nulo;
+3304409;Rio Claro;2026-11-09;92,0;15,3;0,0;Nulo;
+3304409;Rio Claro;2026-11-10;72,0;1,7;1,39;Pequeno;
 3304557;Rio de Janeiro;2026-08-18;58,0;;1,72;Pequeno;chuva ausente (assumida 0 mm)
 3304557;Rio de Janeiro;2026-08-19;51,0;0,0;3,68;Médio;
 3304557;Rio de Janeiro;2026-08-20;78,0;0,0;4,97;Médio;
@@ -1077,7 +1089,8 @@
 3304557;Rio de Janeiro;2026-11-06;85,0;1,2;9,56;Alto;
 3304557;Rio de Janeiro;2026-11-07;79,0;3,4;7,96;Médio;
 3304557;Rio de Janeiro;2026-11-08;86,0;26,3;0,0;Nulo;
-3304557;Rio de Janeiro;2026-11-09;63,0;9,6;1,59;Pequeno;
+3304557;Rio de Janeiro;2026-11-09;65,0;9,6;1,54;Pequeno;
+3304557;Rio de Janeiro;2026-11-10;64,0;0,6;3,1;Médio;
 3305554;Seropédica;2026-08-18;41,0;;2,44;Pequeno;chuva ausente (assumida 0 mm)
 3305554;Seropédica;2026-08-19;34,0;0,0;5,38;Médio;
 3305554;Seropédica;2026-08-20;46,0;0,0;7,55;Médio;
@@ -1161,7 +1174,8 @@
 3305554;Seropédica;2026-11-06;72,0;1,9;6,02;Médio;
 3305554;Seropédica;2026-11-07;67,0;8,7;3,9;Médio;
 3305554;Seropédica;2026-11-08;86,0;24,4;0,0;Nulo;
-3305554;Seropédica;2026-11-09;73,0;12,6;1,37;Pequeno;
+3305554;Seropédica;2026-11-09;74,0;12,6;1,35;Pequeno;
+3305554;Seropédica;2026-11-10;65,0;0,5;2,89;Pequeno;
 3306206;Vassouras;2026-08-18;53,0;;1,89;Pequeno;chuva ausente (assumida 0 mm)
 3306206;Vassouras;2026-08-19;44,0;0,0;4,16;Médio;
 3306206;Vassouras;2026-08-20;43,0;0,0;6,49;Médio;
@@ -1245,4 +1259,5 @@
 3306206;Vassouras;2026-11-06;62,0;2,7;7,52;Médio;
 3306206;Vassouras;2026-11-07;66,0;2,5;6,78;Médio;
 3306206;Vassouras;2026-11-08;78,0;18,7;0,0;Nulo;
-3306206;Vassouras;2026-11-09;70,0;1,1;1,43;Pequeno;
+3306206;Vassouras;2026-11-09;71,0;1,1;1,41;Pequeno;
+3306206;Vassouras;2026-11-10;69,0;0,3;2,86;Pequeno;
