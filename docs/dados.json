@@ -1,5 +1,5 @@
 {
- "atualizado": "15/11/2026 às 20:44 (Brasília)",
+ "atualizado": "16/11/2026 às 22:03 (Brasília)",
  "modelo": "ECMWF IFS 0,25° (via Open-Meteo)",
  "modelo_id": "ecmwf_ifs025",
  "erros": [],
@@ -69,15 +69,6 @@
     "km": 24
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 80.0,
-     "chuva": 2.9,
-     "fma": 3.0,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 67.0,
@@ -611,28 +602,37 @@
     },
     {
      "data": "2026-11-16",
-     "umidade": 77.0,
-     "chuva": 15.5,
+     "umidade": 68.0,
+     "chuva": 23.3,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 72.0,
-     "chuva": 17.9,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 68.0,
+     "chuva": 11.8,
+     "fma": 1.47,
+     "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 63.0,
-     "chuva": 1.4,
-     "fma": 1.59,
-     "classe": "Pequeno",
+     "umidade": 60.0,
+     "chuva": 0.6,
+     "fma": 3.14,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.5,
+     "fma": 4.78,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -649,15 +649,6 @@
     "km": 18
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 80.0,
-     "chuva": 2.2,
-     "fma": 3.87,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 66.0,
@@ -1182,37 +1173,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 65.0,
+     "umidade": 63.0,
      "chuva": 0.8,
-     "fma": 5.13,
+     "fma": 5.18,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 93.0,
-     "chuva": 20.8,
+     "umidade": 69.0,
+     "chuva": 23.8,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 76.0,
-     "chuva": 15.6,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 68.0,
+     "chuva": 8.6,
+     "fma": 1.47,
+     "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 64.0,
-     "chuva": 3.1,
-     "fma": 1.56,
-     "classe": "Pequeno",
+     "umidade": 57.0,
+     "chuva": 0.4,
+     "fma": 3.22,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 66.0,
+     "chuva": 0.9,
+     "fma": 4.74,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -1229,15 +1229,6 @@
     "km": 15
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 69.0,
-     "chuva": 0.6,
-     "fma": 4.01,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -1762,37 +1753,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 64.0,
+     "umidade": 63.0,
      "chuva": 0.3,
-     "fma": 8.88,
+     "fma": 8.9,
      "classe": "Alto",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 96.0,
-     "chuva": 20.5,
+     "umidade": 77.0,
+     "chuva": 15.5,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 74.0,
-     "chuva": 8.1,
-     "fma": 1.35,
+     "umidade": 67.0,
+     "chuva": 9.3,
+     "fma": 1.49,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 69.0,
-     "chuva": 0.9,
-     "fma": 2.8,
-     "classe": "Pequeno",
+     "umidade": 66.0,
+     "chuva": 0.3,
+     "fma": 3.01,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 58.0,
+     "chuva": 0.5,
+     "fma": 4.73,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -1809,15 +1809,6 @@
     "km": 13
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 70.0,
-     "chuva": 2.8,
-     "fma": 3.08,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -2351,17 +2342,17 @@
     },
     {
      "data": "2026-11-16",
-     "umidade": 94.0,
-     "chuva": 29.3,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 73.0,
+     "chuva": 12.7,
+     "fma": 3.19,
+     "classe": "Médio",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 72.0,
-     "chuva": 13.5,
+     "umidade": 61.0,
+     "chuva": 15.1,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
@@ -2369,10 +2360,19 @@
     },
     {
      "data": "2026-11-18",
-     "umidade": 66.0,
-     "chuva": 0.8,
-     "fma": 1.52,
+     "umidade": 60.0,
+     "chuva": 1.0,
+     "fma": 1.67,
      "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.5,
+     "fma": 3.31,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -2389,15 +2389,6 @@
     "km": 25
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 70.0,
-     "chuva": 4.7,
-     "fma": 2.41,
-     "classe": "Pequeno",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 75.0,
@@ -2922,36 +2913,45 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 76.0,
+     "umidade": 75.0,
      "chuva": 1.3,
-     "fma": 8.63,
+     "fma": 8.65,
      "classe": "Alto",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 93.0,
-     "chuva": 20.3,
+     "umidade": 82.0,
+     "chuva": 11.3,
+     "fma": 2.95,
+     "classe": "Pequeno",
+     "aviso": "",
+     "previsao": false
+    },
+    {
+     "data": "2026-11-17",
+     "umidade": 77.0,
+     "chuva": 13.9,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
      "previsao": true
     },
     {
-     "data": "2026-11-17",
-     "umidade": 76.0,
-     "chuva": 10.8,
-     "fma": 1.32,
+     "data": "2026-11-18",
+     "umidade": 70.0,
+     "chuva": 1.5,
+     "fma": 1.43,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
-     "data": "2026-11-18",
-     "umidade": 74.0,
-     "chuva": 1.6,
-     "fma": 2.67,
+     "data": "2026-11-19",
+     "umidade": 70.0,
+     "chuva": 0.0,
+     "fma": 2.86,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
@@ -2969,15 +2969,6 @@
     "km": 19
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 80.0,
-     "chuva": 2.2,
-     "fma": 3.87,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 66.0,
@@ -3502,37 +3493,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 65.0,
+     "umidade": 63.0,
      "chuva": 0.8,
-     "fma": 5.13,
+     "fma": 5.18,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 93.0,
-     "chuva": 20.8,
+     "umidade": 69.0,
+     "chuva": 23.8,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 76.0,
-     "chuva": 15.6,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 68.0,
+     "chuva": 8.6,
+     "fma": 1.47,
+     "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 64.0,
-     "chuva": 3.1,
-     "fma": 1.56,
-     "classe": "Pequeno",
+     "umidade": 57.0,
+     "chuva": 0.4,
+     "fma": 3.22,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 66.0,
+     "chuva": 0.9,
+     "fma": 4.74,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -3549,15 +3549,6 @@
     "km": 18
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 88.0,
-     "chuva": 5.1,
-     "fma": 1.97,
-     "classe": "Pequeno",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -4082,26 +4073,26 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 61.0,
+     "umidade": 62.0,
      "chuva": 1.9,
-     "fma": 7.52,
+     "fma": 7.49,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 87.0,
-     "chuva": 20.1,
+     "umidade": 74.0,
+     "chuva": 21.2,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 73.0,
-     "chuva": 15.9,
+     "umidade": 72.0,
+     "chuva": 21.5,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
@@ -4109,10 +4100,19 @@
     },
     {
      "data": "2026-11-18",
-     "umidade": 63.0,
-     "chuva": 2.6,
-     "fma": 1.59,
+     "umidade": 57.0,
+     "chuva": 1.4,
+     "fma": 1.75,
      "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 68.0,
+     "chuva": 1.6,
+     "fma": 3.22,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -4129,15 +4129,6 @@
     "km": 20
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 70.0,
-     "chuva": 2.8,
-     "fma": 3.08,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -4671,17 +4662,17 @@
     },
     {
      "data": "2026-11-16",
-     "umidade": 94.0,
-     "chuva": 29.3,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 73.0,
+     "chuva": 12.7,
+     "fma": 3.19,
+     "classe": "Médio",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 72.0,
-     "chuva": 13.5,
+     "umidade": 61.0,
+     "chuva": 15.1,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
@@ -4689,10 +4680,19 @@
     },
     {
      "data": "2026-11-18",
-     "umidade": 66.0,
-     "chuva": 0.8,
-     "fma": 1.52,
+     "umidade": 60.0,
+     "chuva": 1.0,
+     "fma": 1.67,
      "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.5,
+     "fma": 3.31,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -4709,15 +4709,6 @@
     "km": 16
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 80.0,
-     "chuva": 2.2,
-     "fma": 3.87,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 66.0,
@@ -5242,37 +5233,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 65.0,
+     "umidade": 63.0,
      "chuva": 0.8,
-     "fma": 5.13,
+     "fma": 5.18,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 93.0,
-     "chuva": 20.8,
+     "umidade": 69.0,
+     "chuva": 23.8,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 76.0,
-     "chuva": 15.6,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 68.0,
+     "chuva": 8.6,
+     "fma": 1.47,
+     "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 64.0,
-     "chuva": 3.1,
-     "fma": 1.56,
-     "classe": "Pequeno",
+     "umidade": 57.0,
+     "chuva": 0.4,
+     "fma": 3.22,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 66.0,
+     "chuva": 0.9,
+     "fma": 4.74,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -5289,15 +5289,6 @@
     "km": 14
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 74.0,
-     "chuva": 1.5,
-     "fma": 3.83,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 77.0,
@@ -5822,37 +5813,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 69.0,
+     "umidade": 66.0,
      "chuva": 1.2,
-     "fma": 6.0,
+     "fma": 6.06,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 92.0,
-     "chuva": 18.4,
+     "umidade": 89.0,
+     "chuva": 25.3,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 77.0,
-     "chuva": 8.4,
-     "fma": 1.3,
+     "umidade": 71.0,
+     "chuva": 9.1,
+     "fma": 1.41,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 64.0,
-     "chuva": 1.6,
-     "fma": 2.86,
-     "classe": "Pequeno",
+     "umidade": 60.0,
+     "chuva": 0.9,
+     "fma": 3.08,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.9,
+     "fma": 4.71,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -5869,15 +5869,6 @@
     "km": 11
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 70.0,
-     "chuva": 2.8,
-     "fma": 3.08,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -6411,17 +6402,17 @@
     },
     {
      "data": "2026-11-16",
-     "umidade": 94.0,
-     "chuva": 29.3,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 73.0,
+     "chuva": 12.7,
+     "fma": 3.19,
+     "classe": "Médio",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 72.0,
-     "chuva": 13.5,
+     "umidade": 61.0,
+     "chuva": 15.1,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
@@ -6429,10 +6420,19 @@
     },
     {
      "data": "2026-11-18",
-     "umidade": 66.0,
-     "chuva": 0.8,
-     "fma": 1.52,
+     "umidade": 60.0,
+     "chuva": 1.0,
+     "fma": 1.67,
      "classe": "Pequeno",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.5,
+     "fma": 3.31,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -6449,15 +6449,6 @@
     "km": 15
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 74.0,
-     "chuva": 1.5,
-     "fma": 3.83,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 77.0,
@@ -6982,37 +6973,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 69.0,
+     "umidade": 66.0,
      "chuva": 1.2,
-     "fma": 6.0,
+     "fma": 6.06,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 92.0,
-     "chuva": 18.4,
+     "umidade": 89.0,
+     "chuva": 25.3,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 77.0,
-     "chuva": 8.4,
-     "fma": 1.3,
+     "umidade": 71.0,
+     "chuva": 9.1,
+     "fma": 1.41,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 64.0,
-     "chuva": 1.6,
-     "fma": 2.86,
-     "classe": "Pequeno",
+     "umidade": 60.0,
+     "chuva": 0.9,
+     "fma": 3.08,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 61.0,
+     "chuva": 0.9,
+     "fma": 4.71,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -7029,15 +7029,6 @@
     "km": 6
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 70.0,
-     "chuva": 0.5,
-     "fma": 3.81,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 76.0,
@@ -7562,37 +7553,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 71.0,
+     "umidade": 70.0,
      "chuva": 0.0,
-     "fma": 5.68,
+     "fma": 5.7,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 96.0,
-     "chuva": 14.5,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "umidade": 75.0,
+     "chuva": 3.8,
+     "fma": 5.33,
+     "classe": "Médio",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 78.0,
-     "chuva": 6.0,
-     "fma": 1.28,
-     "classe": "Pequeno",
+     "umidade": 75.0,
+     "chuva": 7.9,
+     "fma": 3.46,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 78.0,
-     "chuva": 0.9,
-     "fma": 2.56,
-     "classe": "Pequeno",
+     "umidade": 79.0,
+     "chuva": 0.6,
+     "fma": 4.73,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 79.0,
+     "chuva": -0.1,
+     "fma": 6.0,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -7609,15 +7609,6 @@
     "km": 1
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 69.0,
-     "chuva": 0.6,
-     "fma": 4.01,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 69.0,
@@ -8142,37 +8133,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 64.0,
+     "umidade": 63.0,
      "chuva": 0.3,
-     "fma": 8.88,
+     "fma": 8.9,
      "classe": "Alto",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 96.0,
-     "chuva": 20.5,
+     "umidade": 77.0,
+     "chuva": 15.5,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
-     "umidade": 74.0,
-     "chuva": 8.1,
-     "fma": 1.35,
+     "umidade": 67.0,
+     "chuva": 9.3,
+     "fma": 1.49,
      "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 69.0,
-     "chuva": 0.9,
-     "fma": 2.8,
-     "classe": "Pequeno",
+     "umidade": 66.0,
+     "chuva": 0.3,
+     "fma": 3.01,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 58.0,
+     "chuva": 0.5,
+     "fma": 4.73,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
@@ -8189,15 +8189,6 @@
     "km": 13
    },
    "serie": [
-    {
-     "data": "2026-09-17",
-     "umidade": 71.0,
-     "chuva": 1.6,
-     "fma": 3.02,
-     "classe": "Médio",
-     "aviso": "",
-     "previsao": false
-    },
     {
      "data": "2026-09-18",
      "umidade": 72.0,
@@ -8722,37 +8713,46 @@
     },
     {
      "data": "2026-11-15",
-     "umidade": 61.0,
+     "umidade": 62.0,
      "chuva": 1.0,
-     "fma": 7.35,
+     "fma": 7.32,
      "classe": "Médio",
      "aviso": "",
      "previsao": false
     },
     {
      "data": "2026-11-16",
-     "umidade": 85.0,
-     "chuva": 20.4,
+     "umidade": 75.0,
+     "chuva": 27.7,
      "fma": 0.0,
      "classe": "Nulo",
      "aviso": "",
-     "previsao": true
+     "previsao": false
     },
     {
      "data": "2026-11-17",
      "umidade": 62.0,
-     "chuva": 21.2,
-     "fma": 0.0,
-     "classe": "Nulo",
+     "chuva": 8.4,
+     "fma": 1.61,
+     "classe": "Pequeno",
      "aviso": "",
      "previsao": true
     },
     {
      "data": "2026-11-18",
-     "umidade": 66.0,
-     "chuva": 1.6,
-     "fma": 1.52,
-     "classe": "Pequeno",
+     "umidade": 62.0,
+     "chuva": 0.3,
+     "fma": 3.23,
+     "classe": "Médio",
+     "aviso": "",
+     "previsao": true
+    },
+    {
+     "data": "2026-11-19",
+     "umidade": 72.0,
+     "chuva": 1.9,
+     "fma": 4.61,
+     "classe": "Médio",
      "aviso": "",
      "previsao": true
     }
